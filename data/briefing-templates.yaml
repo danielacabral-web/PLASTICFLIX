@@ -1,0 +1,145 @@
+# Estrutura de briefing por tipo de entrega do Plasticflix Prime.
+#
+# Serve para que toda peca nasca com os mesmos campos preenchidos e seja
+# medida pelo mesmo criterio de aceite. As restricoes citadas em cada tipo sao
+# as regras de src/rules - o briefing avisa antes, o motor veta depois.
+#
+# Fonte: kickoff 2026-09-22 e as frentes de data/frentes.yaml.
+
+fonte: kickoff 2026-09-22
+
+campos_comuns:
+  # Obrigatorios em TODO tipo de entrega.
+  - campo: frente
+    descricao: F1 a F5, conforme data/frentes.yaml
+  - campo: eixo
+    descricao: rinoplastia, face ou ambos
+  - campo: produto_ref
+    descricao: id de data/produtos.yaml (P-001 a P-006), quando a peca fala de produto
+  - campo: fase
+    descricao: id de data/calendario.yaml (FASE-1 a FASE-7)
+  - campo: praca
+    descricao: brasil, mexico, argentina, chile, venezuela ou internacional
+  - campo: idioma
+    descricao: en para peca publica; pt-BR so em interno e WhatsApp
+  - campo: prova
+    descricao: id de data/comunicacao.yaml, provas (PR-001 a PR-003)
+  - campo: dono
+    descricao: quem escreve e quem aprova
+
+templates:
+  - tipo: landing_page
+    objetivo: >
+      Converter em checkout (teoricas) ou em conversa de WhatsApp (lab e
+      cirurgia ao vivo), com publico separado por eixo.
+    campos_obrigatorios:
+      - eixo (uma LP por eixo, nunca as duas juntas)
+      - promessa afirmativa derivada do eixo
+      - as tres provas, com a proporcao de supervisao em destaque
+      - grade dia a dia do eixo
+      - corpo docente com foto e nome
+      - tabela de preco por lote, igual a de data/produtos.yaml
+      - destino do CTA (checkout na teorica, WhatsApp no lab)
+      - numero de WhatsApp proprio do eixo
+      - rodape com a oferta de -10% do combo Rino + Face
+      - gate de elegibilidade visivel (RQE ou residencia)
+    criterio_de_aceite: >
+      Esboco estrutural e link enviados a Fran e aprovados ANTES de publicar.
+      Preco identico ao YAML. Nenhuma data com ano enquanto evento.ano for null.
+    restricoes: [R-001, R-002, R-004, R-005, R-006, R-007, R-009]
+
+  - tipo: carrossel
+    objetivo: >
+      Derrubar objecao e apresentar o corpo docente. Instagram e etapa
+      intermediaria do funil, nao vitrine.
+    campos_obrigatorios:
+      - linha editorial (palestrantes, diferencial cientifico, supervisao individual, encadeamento)
+      - prova usada (PR-001 a PR-003)
+      - numero de cards
+      - texto de cada card em ingles
+      - legenda em ingles
+      - CTA e para onde leva
+    criterio_de_aceite: >
+      Em ingles. Uma prova por peca, com lastro no YAML. Se usar foto de
+      professor, a foto precisa estar no Drive (L-005) - sem isso, nao produzir.
+    restricoes: [R-001, R-002, R-004, R-006, R-007]
+
+  - tipo: reels
+    objetivo: Alcance e apresentacao do formato da semana encadeada.
+    campos_obrigatorios:
+      - gancho (primeiros 3 segundos)
+      - roteiro cena a cena
+      - legenda em ingles
+      - trilha ou audio
+      - CTA
+      - origem do material (quem grava, onde)
+    criterio_de_aceite: >
+      Em ingles, com legenda embutida. Nenhuma imagem que sugira transmissao de
+      cirurgia. Nenhuma imagem de peca anatomica que nao tenha autorizacao.
+    restricoes: [R-001, R-002, R-004, R-006, R-007]
+
+  - tipo: anuncio
+    objetivo: >
+      Captacao paga em Mexico e Argentina. Brasil fora nesta fase.
+    campos_obrigatorios:
+      - praca (mexico ou argentina)
+      - publico e exclusoes (ex-alunos e compradores)
+      - produto_ref
+      - destino (etapa intermediaria antes da LP em produto de alto valor)
+      - criativo e copy em ingles
+      - orcamento diario
+    criterio_de_aceite: >
+      Praca fora do Brasil. Exclusao de ex-alunos aplicada. Anuncio de lab nao
+      aponta direto para LP - passa por etapa intermediaria. Expectativa de
+      resultado registrada por escrito antes de ligar.
+    restricoes: [R-001, R-002, R-003, R-004, R-005, R-006, R-007, R-008]
+
+  - tipo: email
+    objetivo: Mala direta sobre mailing de sociedade e base de ex-alunos.
+    campos_obrigatorios:
+      - base_ref (id de data/bases.yaml)
+      - segmento (sociedade, ex-aluno, lead quente)
+      - assunto
+      - corpo
+      - CTA unico
+      - identificacao de quem assina
+    criterio_de_aceite: >
+      Base identificada e autorizada. Se for para membro de sociedade parceira,
+      o -10% aparece como beneficio de convenio, nunca como promocao. Nenhum
+      envio sem mailing efetivamente recebido (L-006).
+    restricoes: [R-001, R-002, R-005, R-006, R-007, R-009]
+
+  - tipo: whatsapp
+    objetivo: >
+      Atendimento humanizado dos produtos de alto valor (lab e cirurgia ao vivo)
+      e negociacao dos leads quentes.
+    campos_obrigatorios:
+      - momento do fluxo (primeiro contato, qualificacao, proposta, cobranca)
+      - produto_ref
+      - pergunta de qualificacao de RQE ou residencia
+      - argumento de preco pela regra de lote
+      - proximo passo explicito
+    criterio_de_aceite: >
+      A qualificacao de RQE ou residencia aparece ANTES da proposta. O preco dito
+      e o de data/produtos.yaml. Piso negociado nunca e oferecido de saida -
+      resistencia de preco vira proposta do lead a diretoria.
+    restricoes: [R-001, R-002, R-005, R-006, R-007]
+    nota_de_idioma: >
+      WhatsApp fala o idioma do lead. A regra R-004 rebaixa o idioma a alerta
+      neste canal, nao a bloqueio.
+
+  - tipo: mala_direta
+    objetivo: >
+      Alcance no Brasil, onde nao ha trafego pago nesta fase, via sociedades e
+      base propria.
+    campos_obrigatorios:
+      - base_ref (id de data/bases.yaml)
+      - praca
+      - peca anexa (PDF, imagem ou link)
+      - CTA e canal de resposta
+      - volume de disparo
+    criterio_de_aceite: >
+      Volume compativel com o canal. Disparo em massa por WhatsApp nao e o plano
+      A - bane por volta de 30 mensagens. Base recebida e registrada em
+      data/bases.yaml antes do disparo.
+    restricoes: [R-001, R-002, R-005, R-006, R-007, R-009]

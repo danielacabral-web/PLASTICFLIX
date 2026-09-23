@@ -1,0 +1,192 @@
+# Registro formal dos bloqueios do Plasticflix Prime.
+#
+# Mesmo formato do lacunas.yaml da AExPI: cada lacuna diz o que bloqueia E o que
+# segue mesmo assim. Isso e deliberado - a lista existe para destravar trabalho,
+# nao para justificar parada.
+#
+# "situacao: pendente_interno" e acao da Stark, nao do cliente.
+#
+# Levantado em 2026-09-22 a partir do kickoff.
+levantamento: 2026-09-22
+fonte: kickoff 2026-09-22
+
+lacunas:
+  - id: L-001
+    titulo: Confirmacao do ano do evento
+    situacao: pendente_cliente
+    bloqueante: true
+    evidencia: >
+      O kickoff fala em "primeira semana de marco" e detalha a grade de 03/03 a
+      07/03, mas nunca diz o ano. Pela linha do tempo das fases (teste de
+      trafego em out-nov, lotes em dez-fev) o evento cai no marco seguinte, mas
+      isso e inferencia, nao declaracao do cliente. O campo evento.ano em
+      data/perfil-plasticflix.yaml esta null por isso.
+    bloqueia:
+      - Toda peca, LP e anuncio que traga data
+      - Prazo declarado de 1o e 2o lote
+      - Contagem regressiva em qualquer canal
+    segue_mesmo_assim: >
+      Peca de posicionamento, apresentacao de corpo docente e diferencial de
+      supervisao (1 aluno por peca na Rino, 2 na Face) nao dependem do ano e
+      podem ser escritas hoje. A regra R-007 bloqueia automaticamente qualquer
+      peca que afirme o ano enquanto o campo estiver null - e para de bloquear
+      sozinha quando o dado for preenchido.
+    pedido_ao_cliente: >
+      Confirmacao do ano do evento com o Dr. Mattioli, por escrito no grupo.
+
+  - id: L-002
+    titulo: Hospital da cirurgia ao vivo (07/03)
+    situacao: pendente_cliente
+    bloqueante: true
+    evidencia: >
+      A grade do kickoff traz "cirurgia ao vivo, hospital em Sao Paulo, a
+      definir". Nenhum nome foi dado. O campo evento.grade[].local do dia 07/03
+      esta null.
+    bloqueia:
+      - Peca e secao de LP da cirurgia ao vivo
+      - Logistica de deslocamento dos 4 observadores por cirurgiao
+    segue_mesmo_assim: >
+      A cirurgia ao vivo pode ser comunicada como parte do encadeamento da
+      semana (teoria -> anatomia -> cirurgia) sem nomear o hospital. O produto
+      P-005 existe e pode ser vendido pelo WhatsApp.
+    pedido_ao_cliente: >
+      Definicao e confirmacao do hospital, com endereco, para travar logistica e
+      peca.
+
+  - id: L-003
+    titulo: Link e gateway de pagamento por produto
+    situacao: pendente_cliente
+    bloqueante: true
+    evidencia: >
+      O fluxo declarado e: a Fran pede, a Mara gera o link (30% de entrada + ate
+      6x no cartao). Nao existe ainda link por produto, nem gateway configurado
+      para checkout direto das teoricas.
+    bloqueia:
+      - Checkout direto nas duas LPs (entrega central da F1)
+      - Fechamento online das teoricas, que e o canal declarado desse produto
+    segue_mesmo_assim: >
+      Os labs e a cirurgia ao vivo ja vao por WhatsApp humanizado por desenho,
+      entao a venda de alto valor nao trava. A LP pode subir com fluxo de
+      WhatsApp em todos os produtos e ganhar checkout depois.
+    pedido_ao_cliente: >
+      Link de pagamento por produto gerado pela Mara, ou acesso ao gateway para
+      a Stark configurar o checkout das teoricas.
+
+  - id: L-004
+    titulo: Datas de corte do 1o e do 2o lote
+    situacao: decisao_pendente
+    bloqueante: true
+    evidencia: >
+      A regra comercial e clara: dois lotes por prazo, com data de virada
+      declarada, e a justificativa de preco ao lead e sempre a regra de lote.
+      Mas nenhuma data foi definida - depende da confirmacao do ano (L-001) e da
+      diretoria. Os campos lotes.virada_lote_1 e virada_lote_2 em
+      data/produtos.yaml estao null.
+    bloqueia:
+      - Argumento comercial de escassez por prazo em LP, WhatsApp e mala direta
+      - Peca de virada de lote
+    segue_mesmo_assim: >
+      A escassez por VAGA e real e ja pode ser usada: 5 vagas no lab de Rino, 10
+      no de Face, 4 observadores por cirurgiao. Isso nao depende de data
+      nenhuma.
+    pedido_ao_cliente: >
+      Decisao da diretoria sobre as duas datas de corte, para que LP, WhatsApp e
+      comercial digam a mesma coisa.
+
+  - id: L-005
+    titulo: Fotos atualizadas de autores e professores
+    situacao: pendente_cliente
+    bloqueante: true
+    evidencia: >
+      Demanda D-07 do kickoff: o grupo sobe as fotos no Drive compartilhado.
+      Ainda nao subiram. Os carrosseis de corpo docente sao uma das linhas de
+      conteudo explicitamente pedidas, e a prova numero 2 do eixo (corpo docente
+      internacional) depende de rosto.
+    bloqueia:
+      - Carrosseis de apresentacao dos palestrantes
+      - Pecas que usam o corpo docente internacional como prova
+    segue_mesmo_assim: >
+      As outras duas provas - proporcao de supervisao e semana encadeada - nao
+      dependem de foto e sustentam a cadencia de 3 posts por semana enquanto
+      isso.
+    pedido_ao_cliente: >
+      Fotos em alta de cada socio e de cada convidado internacional, no Drive
+      compartilhado. Junto, os nomes dos tres convidados americanos da Face, que
+      tambem nao foram ditos.
+
+  - id: L-006
+    titulo: Mailings das sociedades (BR, AR, VE)
+    situacao: pendente_cliente
+    bloqueante: true
+    evidencia: >
+      Demandas D-01 e D-02. O mailing da Sociedade Brasileira de
+      Otorrinolaringologia vem via Renato; os das sociedades da Argentina e
+      Venezuela estao a cobrar pela Clinica Mattioli. Nenhum chegou. Ver
+      data/bases.yaml B-003 e B-004.
+    bloqueia:
+      - Mala direta, que e o canal que substitui o trafego pago no Brasil
+      - Acordos de -10% com contrapartida de divulgacao
+    segue_mesmo_assim: >
+      Mexico e Argentina seguem pelo trafego pago com os R$ 10 mil aprovados. O
+      Brasil ainda tem os 22 leads e a base de ex-alunos como canal.
+    pedido_ao_cliente: >
+      Entrega dos tres mailings a Gislaine, e confirmacao de quais sociedades
+      aceitaram o acordo de -10%.
+
+  - id: L-007
+    titulo: Planilha dos 22 leads e base de ex-alunos
+    situacao: pendente_cliente
+    bloqueante: true
+    evidencia: >
+      Demandas D-14 e D-15, ambas com a Mara. A planilha dos 22 leads traz os
+      valores ja oferecidos - e o que resolve o preco oscilante relatado pela
+      Fran (R$ 20 mil x R$ 25 mil). A base de ex-alunos tem dois usos: exclusao
+      em campanha e recompra.
+    bloqueia:
+      - Exclusao de publico nas campanhas de captacao (F2)
+      - Venda ativa sobre base quente, que e a alavanca de curto prazo da Face
+      - Oferta de recompra
+    segue_mesmo_assim: >
+      As campanhas podem subir sem a lista de exclusao, com desperdicio conhecido
+      de verba sobre quem ja comprou. Vale registrar isso como custo da espera,
+      nao deixar a frente parada.
+    pedido_ao_cliente: >
+      Os dois arquivos da Mara para a Fran e para a Stark. Dado pessoal:
+      combinar canal de envio e nao versionar no repositorio.
+
+  - id: L-008
+    titulo: Piso real de negociacao da Face
+    situacao: decisao_pendente
+    bloqueante: true
+    evidencia: >
+      O lab de Face tem R$ 60 mil de tabela. No kickoff discutiu-se piso de
+      R$ 50 mil e citou-se R$ 40 mil. Nenhum dos dois foi decidido pela
+      diretoria. Ver data/produtos.yaml, P-004.piso_negociado.
+    bloqueia:
+      - Argumentacao comercial no WhatsApp sobre o produto que mede o sucesso do projeto
+    segue_mesmo_assim: >
+      A regra ja existe e vale enquanto isso: nunca baixar preco no site;
+      resistencia de preco vira proposta do lead a diretoria, que aprecia. A
+      ancora de R$ 60 mil fica de pe.
+    pedido_ao_cliente: >
+      Decisao da diretoria sobre o piso, e o combinado de que esse piso nunca
+      aparece em peca publica - so em negociacao individual.
+
+  - id: L-009
+    titulo: Acesso ao site atual, gerido pelo "John"
+    situacao: pendente_cliente
+    bloqueante: true
+    evidencia: >
+      O site atual esta desatualizado e e gerido por um ex-profissional
+      referido no kickoff como "John". Sem acesso nao ha como reestruturar as
+      LPs nem adicionar o telefone da Rino com redirecionamento separado
+      (demandas D-05 e D-10).
+    bloqueia:
+      - Reestruturacao das duas LPs
+      - WhatsApp proprio por eixo
+    segue_mesmo_assim: >
+      A estrutura e a copy das duas LPs podem ser escritas e aprovadas pela Fran
+      antes do acesso existir. O que trava e a publicacao, nao o trabalho.
+    pedido_ao_cliente: >
+      Credenciais de administracao do site e do dominio, ou o contato direto do
+      "John" para a transferencia.

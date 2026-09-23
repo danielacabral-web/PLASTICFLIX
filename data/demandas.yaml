@@ -1,0 +1,191 @@
+# As 17 proximas etapas saidas do kickoff.
+#
+# Cada linha e uma subtask candidata no ClickUp, pendurada na frente
+# correspondente. A ordem e a do kickoff (§7 do plano), preservada de proposito:
+# e assim que o cliente vai reconhecer a lista.
+#
+# "bloqueante: true" significa que outra demanda ou frente para se esta nao sair.
+#
+# Fonte: kickoff 2026-09-22.
+
+fonte: kickoff 2026-09-22
+total: 17
+
+demandas:
+  - id: D-01
+    titulo: Obter mailing da sociedade de otorrino e enviar a Gislaine
+    descricao: >
+      Acionar o Renato para obter o cadastro/mailing da Sociedade Brasileira de
+      Otorrinolaringologia e entregar o arquivo a Gislaine, que centraliza a
+      organizacao. Sem esse mailing o Brasil fica sem canal de alcance, ja que
+      nao ha trafego pago aqui nesta fase.
+    dono: Cliente
+    frente: F5
+    dependencia: null
+    bloqueante: true
+
+  - id: D-02
+    titulo: Cobrar mailings das sociedades de otorrino e plastica da Argentina e Venezuela
+    descricao: >
+      A Clinica Mattioli cobra o envio das bases das sociedades argentinas e
+      venezuelanas. Entrega esperada: arquivos de contato para mala direta.
+    dono: Clinica Mattioli
+    frente: F5
+    dependencia: null
+    bloqueante: false
+
+  - id: D-03
+    titulo: Repassar a Fran a lista de contatados e valores ja oferecidos
+    descricao: >
+      A Mara envia a Fran a relacao de quem ja foi contatado e qual valor foi
+      oferecido a cada um. Isso e o que evita que a mesma pessoa receba dois
+      precos diferentes - o problema que a propria Fran relatou (R$ 20 mil x
+      R$ 25 mil).
+    dono: Mara Lima
+    frente: F4
+    dependencia: null
+    bloqueante: true
+
+  - id: D-04
+    titulo: Negociar com os leads da lista para fechamento
+    descricao: >
+      O comercial trabalha lead a lead da lista repassada, com proposta
+      individual, antes de qualquer alteracao publica de valor no site.
+    dono: Comercial
+    frente: F4
+    dependencia: D-03
+    bloqueante: false
+
+  - id: D-05
+    titulo: Criar nova estrutura das LPs de Rino e Face com direcionamentos e links de venda
+    descricao: >
+      Duas LPs separadas. Cada uma com seu direcionamento de WhatsApp, checkout
+      direto nas teoricas, fluxo para WhatsApp no lab e rodape com a oferta de
+      -10% do combo Rino + Face.
+    dono: Gustavo Ferro
+    frente: F1
+    dependencia: L-009
+    bloqueante: true
+
+  - id: D-06
+    titulo: Enviar os links das LPs para analise da Fran
+    descricao: >
+      Esboco estrutural e link enviados a Fran ANTES de publicar. A LP nao sobe
+      sem essa revisao.
+    dono: Gustavo Ferro
+    frente: F1
+    dependencia: D-05
+    bloqueante: true
+
+  - id: D-07
+    titulo: Subir fotos atualizadas de autores e professores no Drive
+    descricao: >
+      O grupo sobe as fotos atualizadas no Drive compartilhado. Sem elas nao ha
+      carrossel de corpo docente, que e uma das linhas de conteudo ja pedidas.
+    dono: Grupo
+    frente: F3
+    dependencia: null
+    bloqueante: true
+
+  - id: D-08
+    titulo: Solicitar link de pagamento a Mara e cobrar apos recebimento
+    descricao: >
+      A Fran pede o link de pagamento a Mara e acompanha ate receber, para
+      seguir com a cobranca do lead.
+    dono: Francieli Terres Andrade (Fran)
+    frente: F4
+    dependencia: null
+    bloqueante: false
+
+  - id: D-09
+    titulo: Gerar link de pagamento e encaminhar a Fran
+    descricao: >
+      A Mara gera o link (30% de entrada + ate 6x no cartao) e devolve a Fran.
+      O controle financeiro e centralizado nela de proposito.
+    dono: Mara Lima
+    frente: F4
+    dependencia: D-08
+    bloqueante: true
+
+  - id: D-10
+    titulo: Adicionar telefone da Rino ao site e configurar redirecionamento de WhatsApp separado
+    descricao: >
+      Numero proprio para a Rinoplastia, com redirecionamento separado, para que
+      o atendimento de Rino nao se misture com o de Face.
+    dono: Gustavo Ferro
+    frente: F1
+    dependencia: L-009
+    bloqueante: false
+
+  - id: D-11
+    titulo: Destinar R$ 5 mil Mexico + R$ 5 mil Argentina
+    descricao: >
+      Divisao do orcamento de trafego aprovado pelo Mattioli. Brasil fica fora.
+    dono: Gustavo Ferro
+    frente: F2
+    dependencia: null
+    bloqueante: false
+
+  - id: D-12
+    titulo: Configurar estrutura de trafego inicial (R$ 10 mil / 2 meses, Mexico + Argentina)
+    descricao: >
+      Montar campanhas, publicos e exclusoes. Registrar por escrito a
+      expectativa de resultado antes de ligar - senao o teste vira discussao de
+      percepcao no fim dos 2 meses.
+    dono: Gustavo Ferro
+    frente: F2
+    dependencia: D-11
+    bloqueante: false
+
+  - id: D-13
+    titulo: Traduzir e ajustar postagens do Instagram para ingles, com legendas
+    descricao: >
+      Perfil e legendas passam ao ingles, por decisao do Mattioli. Cadencia
+      minima de 3 posts por semana.
+    dono: Gustavo Ferro e Iris Goncalves
+    frente: F3
+    dependencia: null
+    bloqueante: false
+
+  - id: D-14
+    titulo: Compartilhar listas de contatos e e-mails de alunos das ultimas edicoes
+    descricao: >
+      Base de ex-alunos para dois usos: exclusao nas campanhas de captacao e
+      oferta de recompra.
+    dono: Mara Lima
+    frente: F4
+    dependencia: null
+    bloqueante: true
+
+  - id: D-15
+    titulo: Enviar a planilha dos 22 leads que receberam link e nao fecharam
+    descricao: >
+      Planilha nominal dos 22 leads, com o valor que cada um recebeu. E a base
+      quente de maior potencial de curto prazo para a Face.
+    dono: Mara Lima
+    frente: F4
+    dependencia: null
+    bloqueante: true
+
+  - id: D-16
+    titulo: Contatar os 22 leads e negociar antes de alterar valores no site
+    descricao: >
+      A Fran negocia individualmente. Regra: nada de mexer no valor publico do
+      site antes dessa rodada - a ancora de preco precisa ser preservada.
+    dono: Francieli Terres Andrade (Fran)
+    frente: F4
+    dependencia: D-15
+    bloqueante: false
+
+  - id: D-17
+    titulo: Agendar reuniao tecnica de trafego e conteudo apos os resultados iniciais
+    descricao: >
+      Reuniao para ler o dado dos primeiros ciclos de trafego e conteudo. E onde
+      a conversa dos R$ 15 a 20 mil/mes volta, com numero na mao, e onde se
+      decide se o Instagram fica no percurso.
+    dono: Gustavo Ferro
+    frente: null
+    frente_nota: >
+      O kickoff nao atribuiu esta etapa a nenhuma frente. E transversal a F2 e F3.
+    dependencia: D-12
+    bloqueante: false

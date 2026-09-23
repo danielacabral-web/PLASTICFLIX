@@ -1,0 +1,132 @@
+# Regua de comunicacao do Plasticflix Prime.
+#
+# O que esta aqui saiu do kickoff. Mote, manifesto e regua de tom NAO sairam -
+# o kickoff nao tocou nesse ponto - e por isso aparecem como null.
+#
+# Fonte: kickoff 2026-09-22.
+
+fonte: kickoff 2026-09-22
+
+idioma:
+  publico: en
+  decidido_por: Dr. Fernando Mattioli
+  contra_proposta: espanhol (sugestao inicial, recusada)
+  justificativa_do_cliente: >
+    Os convidados sao americanos e turcos, e o publico latino-americano de alto
+    padrao consome conteudo internacional.
+  aplica_a: [instagram, anuncio, landing_page]
+  excecoes:
+    - canal: whatsapp
+      idioma: idioma do lead
+      nota: atendimento direto fala a lingua de quem esta do outro lado
+    - canal: interno
+      idioma: pt-BR
+      nota: material de time e de cliente nao e peca publica
+  contra_hipotese:
+    status: aberta
+    descricao: >
+      Ingles para publico latino e decisao do cliente, mas e hipotese nao
+      testada. Medir desempenho POR PRACA (Mexico e Argentina separados) e
+      reabrir a conversa com dado se uma delas performar mal. Nao reabrir por
+      argumento.
+
+eixo:
+  big_idea: >
+    O Prime coloca o cirurgiao operando ao lado de quem ele so ve em congresso -
+    instrutor individual por peca anatomica, aula teorica com os mesmos nomes e
+    cirurgia ao vivo na mesma semana.
+  forma: afirmativa
+  nota: >
+    Afirmativa, nao interrogativa e nao comparativa. O eixo declara o que o
+    evento E, nao o que os outros nao sao.
+
+provas:
+  - id: PR-001
+    nome: Proporcao de supervisao
+    afirmacao: 1 aluno por peca na Rinoplastia, 2 alunos por peca na Face
+    forca: mais forte e mais facil de defender
+    origem: >
+      Ponto levantado pela Gislaine e reivindicado pelo Mattioli como metodo.
+    lastro: data/perfil-plasticflix.yaml, evento.grade
+  - id: PR-002
+    nome: Corpo docente internacional
+    afirmacao: >
+      Dr. Cercan (Turquia) na Rinoplastia e tres convidados americanos na Face,
+      lado a lado com os socios.
+    lastro: data/perfil-plasticflix.yaml, estrutura_societaria.eixos
+    pendencia: >
+      Os nomes dos tres americanos nao foram ditos. Nao nomear ninguem que nao
+      esteja no perfil. Ver lacunas.yaml L-005.
+  - id: PR-003
+    nome: Semana completa e encadeada
+    afirmacao: >
+      Teoria -> anatomia -> cirurgia ao vivo, no mesmo lugar, com a mesma turma.
+    lastro: data/perfil-plasticflix.yaml, evento.grade
+
+cadencia:
+  posts_por_semana_minimo: 3
+  canal: instagram
+  idioma: en
+  linhas_ja_pedidas:
+    - Carrosseis de apresentacao dos palestrantes
+    - Diferenciais cientificos
+    - Instrutor individual por aluno
+    - Encadeamento teoria -> lab -> cirurgia
+
+funil:
+  instagram:
+    papel: etapa intermediaria
+    nao_e: vitrine
+    funcao: >
+      E onde a objecao cai e o corpo docente e apresentado. Posicao defendida
+      pelo Gustavo. O cliente queria mandar o anuncio direto para a LP.
+    acordo: manter o Instagram no percurso e provar com dado no primeiro ciclo
+    risco: >
+      Anuncio direto para LP num produto de R$ 20 a 60 mil tende a nao
+      converter. Ver regra R-008 (alerta, sem veto).
+  percurso_declarado:
+    - anuncio ou conteudo
+    - instagram
+    - landing page
+    - whatsapp
+    - qualificacao (RQE ou residencia)
+    - proposta
+    - link de pagamento
+
+termos_proibidos:
+  - termo: transmissao ao vivo da cirurgia
+    motivo: decisao fechada de nao transmitir; ver regra R-002
+  - termo: live surgery streaming
+    motivo: mesma decisao, em ingles
+  - termo: assista de onde estiver
+    motivo: sugere transmissao remota da cirurgia
+  - termo: aberto a todos os medicos
+    motivo: viola o gate de elegibilidade; ver regra R-001
+  - termo: promocao
+    motivo: preco so muda por lote, nunca por promocao; ver regra R-005
+  - termo: desconto relampago
+    motivo: idem
+  - termo: resultado garantido
+    motivo: promessa de resultado ao medico-aluno; ver regra R-006
+  - termo: dominio da tecnica
+    motivo: promete formacao completa em uma semana; ver regra R-006
+  - termo: o melhor curso do mundo
+    motivo: superlativo sem lastro; ver regra R-006
+
+anti_padroes:
+  - Corte publico de valor. O preco muda por lote, e a justificativa ao lead e sempre a regra de lote.
+  - Preco diferente em LP, WhatsApp e comercial. Foi o que gerou o R$ 20 mil x R$ 25 mil relatado pela Fran.
+  - Nomear hospital, ano ou data de virada de lote antes de o dado existir nos YAMLs.
+  - Anuncio de lab apontando direto para LP, sem etapa intermediaria.
+  - Peca publica em portugues enquanto a decisao de idioma for ingles.
+  - Prometer vaga ou inscricao antes da conferencia de RQE ou residencia.
+  - Citar o piso negociado da Face (R$ 50 mil ou R$ 40 mil) em qualquer peca publica.
+
+mote: null
+manifesto: null
+regua_de_tom: null
+pendencia_de_marca: >
+  Mote/assinatura de campanha, manifesto e regua de tom NAO foram discutidos no
+  kickoff. Proposta registrada: derivar do eixo acima e levar ao Mattioli junto
+  com as duas LPs. Ate la, nenhuma peca deve usar assinatura de campanha - nao
+  existe uma aprovada.

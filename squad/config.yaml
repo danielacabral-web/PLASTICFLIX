@@ -1,0 +1,86 @@
+# Configuracao do squad Plasticflix.
+# O manifesto completo (tiers, pipeline, politicas, qualidade) esta em squad.yaml.
+
+squad:
+  slug: plasticflix
+  name: plasticflix
+  version: 0.1.0        # deve bater com package.json; gate: scripts/validate-version-sync.js
+  display_name: "Plasticflix Prime"
+  created_at: "2026-09-23"
+  status: in_development
+
+metadata:
+  source_mind: metodologia Stark, adaptada para lancamento de evento medico B2B
+  target_domain: lancamento_de_evento_medico_b2b
+  description: >
+    Squad do projeto Plasticflix Prime — congresso de rinoplastia e face no
+    Instituto Quirontec, Sao Paulo. Cinco frentes: landing pages, trafego,
+    conteudo, comercial e parcerias. O comprador e medico especialista, e o
+    projeto tem data final: a contagem regressiva organiza tudo.
+  fonte_do_dominio: >
+    Kickoff de 22/09/2026, gravacao e transcricao integral. Fonte unica — nao ha
+    historico de campanha nem DNA validado do cliente.
+
+workspace_integration:
+  level: read_write
+  rationale: >
+    O squad le os dados do projeto no proprio repositorio (data/) e consome o
+    MCP plasticflix-mcp. A escrita e necessaria porque demandas, calendario e
+    lacunas mudam a cada rodada com o cliente.
+  read_paths:
+    - workspace/data/
+    - workspace/src/rules/
+    - workspace/mcp.json
+  write_paths:
+    - workspace/data/demandas.yaml
+    - workspace/data/calendario.yaml
+    - workspace/data/lacunas.yaml
+    - workspace/outputs/
+  template_namespace: plasticflix
+
+agents:
+  - { id: plasticflix-chief, tier: 0, papel: orquestrador }
+  - { id: plasticflix-demandas, tier: 1, papel: backlog e estrutura de ClickUp }
+  - { id: plasticflix-calendario, tier: 1, papel: datas e contagem regressiva }
+  - { id: plasticflix-briefing, tier: 1, papel: briefing por entrega }
+  - { id: plasticflix-comercial, tier: 1, papel: oferta, preco e base }
+  - { id: plasticflix-copy, tier: 1, papel: escrita em ingles }
+  - { id: plasticflix-verificador, tier: 2, papel: gate de qualidade }
+  - { id: plasticflix-trafego, tier: 2, papel: midia paga, sem tool propria }
+
+tasks:
+  - { id: perfil, tool: perfil_plasticflix, agente: plasticflix-chief }
+  - { id: pendencias, tool: status_lacunas, agente: plasticflix-chief }
+  - { id: documentacao, tool: documentacao, agente: plasticflix-chief }
+  - { id: demandas, tool: planejar_demandas, agente: plasticflix-demandas }
+  - { id: calendario, tool: calendario_projeto, agente: plasticflix-calendario }
+  - { id: briefing, tool: briefing_entrega, agente: plasticflix-briefing }
+  - { id: oferta, tool: oferta_precos, agente: plasticflix-comercial }
+  - { id: publico, tool: base_publico, agente: plasticflix-comercial }
+  - { id: escrita, tool: escrever_copy, agente: plasticflix-copy }
+  - { id: verificacao, tool: verificar_conteudo, agente: plasticflix-verificador }
+
+quality:
+  checkpoint_required: true
+  checkpoint_phase: verificacao
+  natureza: >
+    O checkpoint nao e revisao por agente: e src/rules/, nove regras em
+    JavaScript. Mesmo texto, mesmo veredito.
+
+pipeline:
+  workflow: create-squad
+  current_phase: integration
+
+divergencias:
+  - padrao: templates/agent-tmpl.md exige min_lines 800 por agente
+    situacao: os oito agentes tem entre 80 e 160 linhas
+    razao: >
+      As regras de dominio vivem em codigo testado (src/rules/) e em dados
+      versionados (data/*.yaml), consultados por tool. Duplica-las em prosa
+      criaria duas fontes de verdade — o padrao exato que produziu as sete tools
+      fantasma do stark-agenda.
+  - padrao: todo agente do squad tem ao menos uma tool
+    situacao: plasticflix-trafego nao tem
+    razao: >
+      A operacao de midia acontece no conector Meta Ads e a verba e decisao do
+      cliente. Uma tool aqui simularia uma decisao que o servidor nao toma.

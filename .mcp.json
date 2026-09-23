@@ -1,0 +1,11 @@
+{
+  "$comment": "Registro project-scoped: quem abrir este repositorio ganha o servidor sem configurar nada. env fica vazio de proposito: o servidor nao carrega credencial nenhuma - as tools devolvem instrucao, quem faz I/O e o agente com os conectores ja autenticados.",
+  "mcpServers": {
+    "plasticflix": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["C:\Users\danie\PLASTICFLIX\src\server.js"],
+      "env": {}
+    }
+  }
+}

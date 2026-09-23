@@ -1,0 +1,181 @@
+# Perfil do projeto Plasticflix Prime.
+#
+# Fonte unica: kickoff de 22/09/2026 (gravacao + transcricao integral) e o plano
+# de projeto derivado dele. Nada aqui foi estimado: o que o kickoff nao
+# estabeleceu esta como null, com nota dizendo o que falta confirmar.
+#
+# O cliente e o Plasticflix (5o episodio). A organizacao executiva e da Cenacon.
+
+slug: plasticflix
+nome_projeto: Plasticflix Prime
+edicao: 5o episodio
+fonte: kickoff 2026-09-22
+levantamento: 2026-09-22
+
+estrutura_societaria:
+  cnpj: unico
+  observacao: >
+    Os socios operam sob CNPJ unico. O comando e dividido didaticamente por
+    eixo (rinoplastia e face), nao por pessoa juridica.
+  eixos:
+    - eixo: rinoplastia
+      socios: [Dr. Frederico Ken, Dr. Sergio Furtado, Dr. Manuel Pereira]
+      convidado_internacional:
+        - nome: Dr. Cercan
+          pais: Turquia
+    - eixo: face
+      socios: [Dr. Fernando Mattioli, Dr. Valdemar Pena]
+      convidado_internacional:
+        - nome: null
+          pais: EUA
+          quantidade: 3
+          nota: >
+            O kickoff diz apenas "tres convidados americanos" na face. Nomes nao
+            foram ditos. Confirmar com o cliente antes de qualquer peca de corpo
+            docente.
+
+organizacao:
+  empresa: Cenacon
+  responsavel: Gislaine
+  papel: dona e coordenadora da organizacao executiva
+
+ativos_existentes:
+  plataforma_online:
+    descricao: >
+      Plataforma de aulas online semanais, as tercas, dividida entre
+      rinoplastia e face. Serve de aquecimento e engajamento para o presencial.
+    periodicidade: semanal_tercas
+    mantida_por: Neo ID
+  site_atual:
+    situacao: desatualizado
+    gerido_por: ex-profissional "John"
+    nota: >
+      O acesso ao site atual e um bloqueio (ver lacunas.yaml L-009). A
+      reestruturacao das LPs depende dele.
+
+evento:
+  nome: Prime
+  local: Instituto Quirontec
+  cidade: Sao Paulo
+  mes: marco
+  ano: null
+  ano_nota: >
+    O kickoff diz "primeira semana de marco" SEM dizer o ano. Nao chutar. Trava
+    data em toda peca, LP e prazo de lote. Ver lacunas.yaml L-001 e a regra
+    R-007, que bloqueia peca que afirme o ano enquanto este campo for null.
+  semana: primeira semana de marco
+  anfiteatro_capacidade_dia: 70
+  grade:
+    - data: 03/03
+      atividade: Aulas teoricas - Rinoplastia
+      eixo: rinoplastia
+      formato: teorica
+      capacidade: 70
+      local: anfiteatro
+    - data: 04/03
+      atividade: Aulas teoricas - Face
+      eixo: face
+      formato: teorica
+      capacidade: 70
+      local: anfiteatro
+    - data: 05/03
+      atividade: Cadaver lab - Rinoplastia
+      eixo: rinoplastia
+      formato: lab
+      capacidade: 5
+      proporcao: 1 aluno por peca
+    - data: 06/03
+      atividade: Cadaver lab - Face
+      eixo: face
+      formato: lab
+      capacidade: 10
+      proporcao: 2 alunos por peca
+    - data: 07/03
+      atividade: Cirurgia ao vivo
+      eixo: ambos
+      formato: cirurgia_ao_vivo
+      capacidade: 4 observadores por cirurgiao operante
+      local: null
+      local_nota: >
+        Hospital em Sao Paulo a definir. Ver lacunas.yaml L-002. Nenhuma peca
+        pode nomear o hospital enquanto este campo for null.
+  transmissao_de_cirurgia:
+    permitida: false
+    motivo: >
+      Decisao fechada no kickoff. Custo aproximado de R$ 100 mil, risco de
+      superlotacao do anfiteatro com nao pagantes e problema de organizacao.
+      Nenhuma peca pode prometer assistir a cirurgia fora das 4 vagas
+      presenciais por cirurgiao. Ver regra R-002.
+
+objetivos:
+  declarado_pelo_cliente: >
+    Posicionamento cientifico dos socios - coloca-los no mesmo patamar de
+    autoridade dos convidados internacionais. Lucro imediato nao e a meta
+    declarada.
+  real_do_projeto: >
+    Preencher as vagas de Face. As vendas de Face estao zeradas e o risco
+    declarado e de R$ 700 a 800 mil de prejuizo no congresso, cerca de
+    R$ 150 mil por socio. Este e o numero que a operacao precisa mover.
+  risco_financeiro_brl: [700000, 800000]
+  risco_por_socio_brl: 150000
+  ocupacao_total_a_preencher:
+    teoricas: 140
+    lab_rino: 5
+    lab_face: 10
+    observadores_cirurgia: null
+  meta_comercial_minima: null
+  meta_comercial_nota: >
+    Quantas vagas cobrem o custo nao foi dito no kickoff. Confirmar com o
+    cliente antes de declarar meta de viabilidade em qualquer documento.
+
+historico:
+  - fato: O evento saiu do Rosewood para o Instituto Quirontec
+    motivo: cortar custo
+  - fato: A Stark ja vendeu o Plasticflix Prime no ano anterior
+    nota: >
+      Ha conta de anuncios e historico de campanhas anteriores da Stark em
+      analise (ver frentes.yaml, F2).
+  - fato: Site atual desatualizado, gerido pelo ex-profissional "John"
+
+time_stark:
+  membros:
+    - nome: Gustavo Ferro
+      papel: estrategista
+      frente: F1
+    - nome: Mateus Borgo
+      papel: gestor de trafego
+      frente: F2
+    - nome: Iris Goncalves
+      papel: copy
+      frente: F3
+    - nome: Marielly Oliveira
+      papel: customer success
+      frente: F4
+  dona_do_projeto_no_clickup: null
+  dona_do_projeto_nota: >
+    Nao definida no kickoff. Na OpenMind era o Silvanio como coordenador.
+    Confirmar com a Daniela.
+
+interlocutores_cliente:
+  # Todos do lado do cliente. O Mattioli decide; os demais operam.
+  - nome: Dr. Fernando Mattioli
+    papel: decisor
+    dominio: [preco, idioma, orcamento de trafego, escopo]
+  - nome: Gislaine
+    papel: organizacao
+    empresa: Cenacon
+  - nome: Francieli Terres Andrade
+    apelido: Fran
+    papel: comercial
+  - nome: Mara Lima
+    papel: financeiro e base de leads
+    dominio: [link de pagamento, planilha dos 22 leads, base de ex-alunos]
+
+clickup:
+  space_ou_folder: null
+  space_ou_folder_nota: >
+    Nao decidido. Pendente da Daniela: se a task-mae entra num Space/Folder
+    existente de eventos ou nasce nova.
+  estrutura_sugerida: >
+    task-mae Plasticflix Prime -> 5 tasks de frente (F1-F5) -> subtasks por
+    entrega (1 peca = 1 subtask, como na OpenMind).

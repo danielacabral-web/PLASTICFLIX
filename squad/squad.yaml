@@ -1,0 +1,259 @@
+# Squad AIOX plasticflix.
+#
+# Modelado no squad aexpi, que e o mais maduro do acervo da Stark: cada fase do
+# pipeline tem uma tool do MCP correspondente, e o gate de qualidade e codigo
+# deterministico (src/rules/), nao conselho de agente.
+#
+# Diferenca de natureza em relacao ao aexpi: la o produto e conteudo
+# institucional continuo; aqui e um PROJETO com data final. Por isso o pipeline
+# entra por demandas e calendario, e nao por agenda editorial — o que organiza
+# o trabalho e a contagem regressiva ate o evento, nao o mes corrente.
+
+squad:
+  id: plasticflix
+  name: Plasticflix Prime
+  version: 0.1.0
+  description: >
+    Squad do projeto Plasticflix Prime — congresso presencial de rinoplastia e
+    face no Instituto Quirontec (Sao Paulo), com dois eixos sob CNPJ unico e
+    organizacao executiva da Cenacon. Cobre cinco frentes: landing pages,
+    trafego, conteudo, comercial e parcerias.
+  domain: lancamento_de_evento_medico_b2b
+  methodology: Stark, adaptada — o comprador e medico especialista, nao paciente
+  status: in_development
+  type: hybrid
+  cliente: projeto_unico_com_data_final
+
+# O que distingue este cliente dos demais da carteira Stark, e que o chief
+# precisa impedir que seja esquecido:
+#
+#   1. Nao ha paciente em lugar nenhum. O publico e cirurgiao plastico,
+#      otorrino e residente. Todo reflexo de captacao de paciente esta errado.
+#   2. A comunicacao publica e em INGLES, por decisao do cliente.
+#   3. O Brasil nao recebe trafego pago nesta fase.
+#   4. Existe um gate de elegibilidade (RQE) ANTES da inscricao, e ele e
+#      juridico, nao comercial.
+
+tiers:
+  tier_0_orchestrator:
+    - plasticflix-chief
+  tier_1_masters:
+    - plasticflix-demandas
+    - plasticflix-calendario
+    - plasticflix-briefing
+    - plasticflix-comercial
+    - plasticflix-copy
+  tier_2_specialists:
+    - plasticflix-verificador
+    - plasticflix-trafego
+
+# Um passo do pipeline, um agente, uma tool. O invariante garantido em codigo e
+# N:1: toda tool do manifest aponta para um agente existente (src/registry.js),
+# e um agente pode ter mais de uma tool.
+pipeline:
+  entry: plasticflix-chief
+  phases:
+    - id: 0
+      name: Perfil e pendencias
+      agent: plasticflix-chief
+      tool: perfil_plasticflix, status_lacunas
+      gate: false
+      nota: >
+        Sempre primeiro. Evita os dois erros mais provaveis neste cliente:
+        escrever para paciente e afirmar dado que o kickoff nao estabeleceu
+        (o ano do evento, entre outros).
+    - id: 1
+      name: Demandas
+      agent: plasticflix-demandas
+      tool: planejar_demandas
+      gate: false
+      nota: >
+        As 17 proximas etapas do kickoff distribuidas nas cinco frentes, com
+        dono e dependencia. E daqui que sai a estrutura do ClickUp.
+    - id: 2
+      name: Datas
+      agent: plasticflix-calendario
+      tool: calendario_projeto
+      gate: false
+      nota: >
+        Contagem regressiva a partir do evento. A tool nao inventa "hoje" — quem
+        chama informa a data de referencia ou recebe o calendario sem contagem.
+    - id: 3
+      name: Briefing
+      agent: plasticflix-briefing
+      tool: briefing_entrega
+      gate: false
+      paralelizable: true
+    - id: 4
+      name: Escrita
+      agent: plasticflix-copy
+      tool: escrever_copy
+      gate: false
+      paralelizable: true
+    - id: 5
+      name: Verificacao
+      agent: plasticflix-verificador
+      tool: verificar_conteudo
+      gate: true
+      critical: true
+      nota: >
+        Gate bloqueante e deterministico: nove regras em JS, mesmo veredito para
+        o mesmo texto. Nao e opiniao de agente.
+    - id: 6
+      name: Lancamento no ClickUp
+      agent: plasticflix-chief
+      tool: null
+      gate: false
+      status: BLOQUEADA
+      bloqueio: L-010 — container do projeto no ClickUp ainda nao existe
+      nota: >
+        Declarada bloqueada em vez de omitida. Enquanto a Daniela nao definir o
+        Space/Folder, planejar_demandas entrega o payload pronto e ninguem o
+        executa. E acao interna da Stark, nao pendencia do cliente.
+
+  frentes_paralelas:
+    - id: comercial
+      agent: plasticflix-comercial
+      tool: oferta_precos, base_publico
+    - id: trafego
+      agent: plasticflix-trafego
+      tool: null
+      nota: >
+        Unico agente do squad sem tool propria, e de proposito. A operacao de
+        midia acontece no conector Meta Ads ja autenticado, e a decisao de verba
+        e do cliente (R$ 10 mil por dois meses, Mexico e Argentina). Dar uma
+        tool a ele seria fingir que o servidor decide o que ele nao decide.
+
+# Politicas inviolaveis. Espelham R-001 a R-009 de src/rules/; `veto: true`
+# corresponde ao nivel BLOQUEIO la.
+global_policies:
+  - id: GP-001
+    regra: >
+      Publico restrito a cirurgiao plastico, otorrinolaringologista e residente
+      formal. RQE ou comprovacao de residencia conferidos ANTES de efetivar
+      qualquer inscricao. Nenhuma peca convida publico mais amplo.
+    veto: true
+    excecoes: nenhuma
+    implementacao: src/rules/elegibilidade.js
+    razao: >
+      Nao e criterio comercial. Abrir a medico nao especialista expoe o evento a
+      represalia de sociedade medica — foi o ponto mais enfatico do cliente no
+      kickoff.
+  - id: GP-002
+    regra: >
+      Nao ha transmissao das cirurgias. O acesso e presencial, quatro
+      observadores por cirurgiao operante.
+    veto: true
+    implementacao: src/rules/transmissao.js
+    razao: Decisao fechada — custaria cerca de R$ 100 mil e superlotaria com nao pagantes.
+  - id: GP-003
+    regra: Nesta fase o Brasil nao recebe trafego pago. Vai por WhatsApp, mala direta e sociedades.
+    veto: true
+    implementacao: src/rules/trafego-brasil.js
+  - id: GP-004
+    regra: Comunicacao publica em ingles.
+    veto: true
+    nota: >
+      Decisao do Dr. Mattioli, contra a sugestao de espanhol. E hipotese nao
+      testada: se Mexico e Argentina performarem mal, reabrir com dado.
+    implementacao: src/rules/idioma.js
+  - id: GP-005
+    regra: >
+      Preco muda por lote, nunca por promocao. Os unicos descontos previstos sao
+      o combo de -10% e o de sociedade parceira de -10%. Resistencia de preco
+      vira proposta do lead a diretoria, nunca corte publico no site.
+    veto: true
+    implementacao: src/rules/preco.js
+  - id: GP-006
+    regra: >
+      Nenhuma promessa de resultado, de retorno financeiro ou de dominio de
+      tecnica ao medico-aluno. Sem superlativo sem lastro.
+    veto: true
+    implementacao: src/rules/promessa.js
+  - id: GP-007
+    regra: >
+      Dado que o kickoff nao estabeleceu nao e afirmado. Ano do evento, hospital
+      da cirurgia ao vivo e datas de virada de lote estao em aberto.
+    veto: true
+    implementacao: src/rules/dado-nao-confirmado.js
+    nota: >
+      A regra LE os dados. Quando o campo for preenchido, ela para de bloquear
+      sozinha. Isso corrige de proposito um defeito conhecido do repo aexpi, em
+      que o veto de sigilo ficou hardcoded e seguiu reprovando copy correta
+      depois que o fato mudou no mundo.
+  - id: GP-008
+    regra: >
+      Anuncio de produto de alto valor nao aponta direto para landing page sem
+      etapa intermediaria de quebra de objecao.
+    veto: false
+    nota: >
+      Alerta, nunca veto — e posicao da Stark, nao regra do cliente. O cliente
+      quer mandar direto; o acordo foi medir. Um veto aqui seria a agencia
+      passando por cima de uma decisao que nao e dela.
+    implementacao: src/rules/funil.js
+  - id: GP-009
+    regra: Lacuna bloqueante nomeada devolve BLOQUEADO, nunca estimativa.
+    veto: true
+    implementacao: src/rules/lacuna.js
+
+integrations:
+  - nome: clickup
+    required: false
+    usado_por: [plasticflix-chief, plasticflix-demandas]
+    para: lancar a task-mae, as cinco frentes e as subtasks
+    bloqueio: container do projeto ainda nao definido — lacuna L-010
+  - nome: meta-ads
+    required: true
+    usado_por: [plasticflix-trafego]
+    para: operar as campanhas de Mexico e Argentina e ler o historico da conta
+  - nome: google-drive
+    required: false
+    usado_por: [plasticflix-briefing, plasticflix-copy]
+    para: fotos de autores e professores, material do evento
+    bloqueio: fotos ainda nao subidas — lacuna
+  - nome: reportei
+    required: false
+    usado_por: []
+    para: nao ha projeto de relatorio contratado para este cliente
+
+modes:
+  kickoff: Do zero — perfil, demandas, calendario e estrutura de ClickUp.
+  entrega_unica: Uma peca, do briefing a verificacao.
+  onda: Um lote de pecas de uma fase do calendario.
+  comercial: Argumento de preco e leitura de base, sem producao de peca.
+
+quality:
+  dimensoes:
+    cobertura_do_dominio: 7.5
+    determinismo_das_regras: 9.0
+    rastreabilidade_dos_dados: 8.5
+    cobertura_de_testes: 0.0
+    documentacao: 7.5
+    maturidade_operacional: 2.0
+  final_ponderado: 6.0
+  nota_de_maturidade: >
+    Nota baixa e honesta: o squad nasceu do kickoff de 22/09/2026 e nunca rodou.
+    A fonte unica do dominio e a transcricao de uma reuniao — nao ha historico de
+    campanha, nao ha DNA validado do cliente e nao ha peca aprovada. Reavaliar
+    depois da primeira onda entregue.
+
+data:
+  perfil: data/perfil-plasticflix.yaml
+  produtos: data/produtos.yaml
+  publico: data/publico.yaml
+  bases: data/bases.yaml
+  frentes: data/frentes.yaml
+  demandas: data/demandas.yaml
+  calendario: data/calendario.yaml
+  lacunas: data/lacunas.yaml
+  comunicacao: data/comunicacao.yaml
+  briefings: data/briefing-templates.yaml
+  regras: src/rules/
+
+dependencies:
+  external: [claude-code, mcp-clickup, mcp-meta-ads]
+  internal: [plasticflix-mcp]
+
+maintainers:
+  - Daniela Cabral (estrategia e copy)
+  - Gustavo Ferro (estrategia de trafego)

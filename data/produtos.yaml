@@ -1,0 +1,160 @@
+# Tabela de produtos e regras comerciais do Plasticflix Prime.
+#
+# Esta e a fonte que a regra R-005 (preco e lote) le. Nenhum valor esta
+# hardcoded em regra: se a diretoria mudar preco, muda aqui e a regra acompanha.
+#
+# Fonte: kickoff 2026-09-22, secao de produto e oferta.
+
+fonte: kickoff 2026-09-22
+moeda: BRL
+
+lotes:
+  quantidade: 2
+  regra: >
+    Dois lotes por prazo, com data de virada declarada. A justificativa de preco
+    ao lead e SEMPRE a regra de lote ("1o lote ate dia X") - nunca corte publico
+    de valor, nunca "promocao".
+  virada_lote_1: null
+  virada_lote_2: null
+  virada_nota: >
+    As datas de corte do 1o e do 2o lote nao existem ainda: dependem da
+    confirmacao do ano do evento e do prazo que a diretoria quer declarar. Ver
+    lacunas.yaml L-004. A regra R-007 bloqueia peca que afirme data de virada
+    enquanto estes campos forem null.
+
+produtos:
+  - id: P-001
+    nome: Aulas teoricas - Rinoplastia
+    eixo: rinoplastia
+    formato: teorica
+    vagas: 70
+    lote_1:
+      preco: 5000
+      condicao: 30 primeiros inscritos
+    lote_2:
+      preco: 7000
+      condicao: apos o 1o lote
+    canal_de_venda: online
+    canal_nota: venda pode ser 100% online, com checkout direto na LP
+
+  - id: P-002
+    nome: Aulas teoricas - Face
+    eixo: face
+    formato: teorica
+    vagas: 70
+    lote_1:
+      preco: 5000
+      condicao: 30 primeiros inscritos
+    lote_2:
+      preco: 7000
+      condicao: apos o 1o lote
+    canal_de_venda: online
+    canal_nota: venda pode ser 100% online, com checkout direto na LP
+
+  - id: P-003
+    nome: Cadaver lab - Rinoplastia
+    eixo: rinoplastia
+    formato: lab
+    vagas: 5
+    proporcao: 1 aluno por peca
+    lote_1:
+      preco: 20000
+      condicao: 1o lote
+    lote_2:
+      preco: 25000
+      condicao: 2o lote
+    canal_de_venda: whatsapp
+    canal_nota: >
+      Produto de alto valor e alta complexidade. Exige atendimento humanizado
+      no WhatsApp - nao fecha sozinho no checkout.
+
+  - id: P-004
+    nome: Cadaver lab - Face
+    eixo: face
+    formato: lab
+    vagas: 10
+    proporcao: 2 alunos por peca
+    lote_1:
+      preco: 60000
+      condicao: valor de tabela
+    lote_2:
+      preco: null
+      condicao: null
+      nota: >
+        O kickoff nao declarou 2o lote para a Face. Nao inventar preco de
+        segundo lote deste produto.
+    piso_negociado:
+      tabela: 60000
+      piso_discutido: 50000
+      piso_citado: 40000
+      nota: >
+        O piso real de negociacao da Face e bloqueio de diretoria (ver
+        lacunas.yaml L-008). 50 mil foi o piso discutido e 40 mil foi citado em
+        conversa - nenhum dos dois pode aparecer em peca publica. Resistencia de
+        preco vira PROPOSTA do lead a diretoria, que aprecia. Preserva a ancora.
+    canal_de_venda: whatsapp
+    canal_nota: >
+      Produto de alto valor e alta complexidade. Exige atendimento humanizado
+      no WhatsApp. E o produto que mede o sucesso do projeto: vendas zeradas.
+
+  - id: P-005
+    nome: Cirurgia ao vivo - observacao
+    eixo: ambos
+    formato: cirurgia_ao_vivo
+    vagas: 4 observadores por cirurgiao operante
+    lote_1:
+      preco: 10000
+      condicao: valor aproximado citado no kickoff
+      aproximado: true
+    lote_2:
+      preco: null
+      condicao: null
+      nota: O kickoff nao declarou 2o lote para a cirurgia ao vivo.
+    canal_de_venda: whatsapp
+    restricao: >
+      Presencial, sem transmissao. Nenhuma peca pode oferecer assistir a
+      distancia. Ver regra R-002.
+
+  - id: P-006
+    nome: Pacote combinado Rino + Face
+    eixo: ambos
+    formato: combo
+    vagas: null
+    vagas_nota: O kickoff nao declarou limite de vagas do combo.
+    desconto_percentual: 10
+    base_de_calculo: null
+    base_nota: >
+      Nao foi dito se os 10% incidem sobre teorica, lab ou ambos. Confirmar
+      antes de publicar o rodape das LPs.
+    canal_de_venda: rodape das duas LPs
+
+descontos_permitidos:
+  # Estas sao as UNICAS duas excecoes de desconto previstas. Qualquer outro
+  # desconto publico e veto (regra R-005).
+  - id: D-001
+    nome: Pacote combinado Rino + Face
+    percentual: 10
+    publico: true
+    contrapartida: compra dos dois eixos
+  - id: D-002
+    nome: Sociedades parceiras
+    percentual: 10
+    publico: true
+    contrapartida: divulgacao do evento no site oficial da sociedade
+    paises: [Argentina, Chile, Venezuela, Mexico]
+
+pagamento:
+  entrada_percentual: 30
+  parcelas_cartao_max: 6
+  link_gerado_por: Mara Lima
+  solicitado_por: Francieli Terres Andrade (Fran)
+  nota: >
+    Controle financeiro centralizado: a Fran pede, a Mara gera o link. Gateway
+    de pagamento por produto ainda e bloqueio (ver lacunas.yaml L-003).
+
+regras_comerciais:
+  - Nunca baixar preco no site. Resistencia de preco vira proposta do lead a diretoria.
+  - Preco so muda por lote, nunca por promocao.
+  - A regra de lote precisa estar escrita e IGUAL em LP, WhatsApp e comercial.
+  - Teoricas fecham online; cadaver lab exige WhatsApp humanizado.
+  - Nao existe lista negra de leads. Desqualificado (nao medico) e descartado no atendimento.

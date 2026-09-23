@@ -1,0 +1,182 @@
+{
+  "name": "plasticflix-mcp",
+  "descricao": "Manifest unico das tools do servidor. Cada entrada precisa de um handler homonimo em src/tools/<name>.js e de um agente em squad/agents/<agente>.md. O registry valida os dois lados e derruba o boot se divergirem.",
+  "tools": [
+    {
+      "name": "perfil_plasticflix",
+      "agente": "plasticflix-chief",
+      "description": "Perfil do projeto Plasticflix Prime: socios, eixos (rinoplastia e face), evento, objetivo declarado x objetivo real, time da Stark, interlocutores do cliente e governanca. CHAME PRIMEIRO, antes de qualquer outra tool — as demais assumem este contexto.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "secao": {
+            "type": "string",
+            "enum": ["tudo", "socios", "evento", "objetivo", "time", "governanca", "historico"],
+            "description": "Recorte do perfil. Padrao 'tudo'."
+          }
+        }
+      },
+      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+    },
+    {
+      "name": "planejar_demandas",
+      "agente": "plasticflix-demandas",
+      "description": "Devolve o backlog do projeto organizado nas 5 frentes (F1 landing pages, F2 trafego, F3 conteudo, F4 comercial, F5 parcerias), com dono, dependencia e a estrutura de task-mae/frente/subtask pronta para lancar no ClickUp.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "frente": {
+            "type": "string",
+            "enum": ["todas", "F1", "F2", "F3", "F4", "F5"],
+            "description": "Filtra por frente. Padrao 'todas'."
+          },
+          "dono": { "type": "string", "description": "Filtra por responsavel (ex.: 'Gustavo', 'Iris', 'Mara', 'Fran')." },
+          "formato": {
+            "type": "string",
+            "enum": ["resumo", "clickup"],
+            "description": "'resumo' lista as demandas; 'clickup' devolve o payload de criacao com hierarquia, nomes e descricoes. Padrao 'resumo'."
+          }
+        }
+      },
+      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+    },
+    {
+      "name": "calendario_projeto",
+      "agente": "plasticflix-calendario",
+      "description": "Cronograma do projeto contado para tras a partir do evento: fases, marcos, janelas de lote, prazos por frente e o que precisa estar pronto em cada janela. Calcula os dias restantes a partir de uma data de referencia.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "hoje": { "type": "string", "description": "Data de referencia AAAA-MM-DD. Sem ela, a tool nao inventa 'hoje' — devolve o calendario sem contagem regressiva." },
+          "fase": {
+            "type": "string",
+            "enum": ["todas", "destrave", "teste_trafego", "decisao", "lote_1", "lote_2", "reta_final", "evento"],
+            "description": "Filtra por fase. Padrao 'todas'."
+          }
+        }
+      },
+      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+    },
+    {
+      "name": "briefing_entrega",
+      "agente": "plasticflix-briefing",
+      "description": "Monta o briefing estruturado de uma entrega (landing page, carrossel, reels, anuncio, e-mail, WhatsApp, mala direta para sociedade), ja com eixo, prova, publico, idioma, CTA, restricoes aplicaveis e criterio de aceite.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tipo": {
+            "type": "string",
+            "enum": ["landing_page", "carrossel", "reels", "anuncio", "email", "whatsapp", "mala_direta"],
+            "description": "Tipo da entrega."
+          },
+          "eixo": { "type": "string", "enum": ["rinoplastia", "face", "combo"], "description": "Eixo do produto." },
+          "fase": {
+            "type": "string",
+            "enum": ["destrave", "teste_trafego", "lote_1", "lote_2", "reta_final"],
+            "description": "Fase do calendario em que a peca entra."
+          },
+          "tema": { "type": "string", "description": "Assunto especifico, se ja houver." }
+        },
+        "required": ["tipo", "eixo"]
+      },
+      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+    },
+    {
+      "name": "oferta_precos",
+      "agente": "plasticflix-comercial",
+      "description": "Tabela de produtos, lotes, descontos e as regras de negociacao do projeto — incluindo o piso da Face, o fluxo de proposta a diretoria e o argumento de lote que a equipe comercial usa quando o lead questiona a variacao de preco.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "produto": {
+            "type": "string",
+            "enum": ["todos", "teorica_rino", "teorica_face", "lab_rino", "lab_face", "cirurgia_ao_vivo", "combo"],
+            "description": "Filtra por produto. Padrao 'todos'."
+          },
+          "objecao": { "type": "string", "description": "Objecao relatada pelo lead, para a tool devolver o argumento correspondente." }
+        }
+      },
+      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+    },
+    {
+      "name": "base_publico",
+      "agente": "plasticflix-comercial",
+      "description": "Publico elegivel e o gate de RQE/residencia, mercados priorizados (Mexico, Argentina, Chile), bases disponiveis (22 leads, ex-alunos, sociedades parceiras) e o que fazer com cada uma — captacao, exclusao de campanha ou recompra.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "recorte": {
+            "type": "string",
+            "enum": ["tudo", "elegibilidade", "mercados", "bases", "sociedades"],
+            "description": "Recorte do levantamento. Padrao 'tudo'."
+          }
+        }
+      },
+      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+    },
+    {
+      "name": "escrever_copy",
+      "agente": "plasticflix-copy",
+      "description": "Instrucoes de escrita para uma peca do projeto: idioma, eixo, provas disponiveis, vocabulario, anti-padroes e estrutura esperada. Nao escreve pelo agente — entrega a regua com a qual ele escreve e pela qual sera verificado.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tipo": {
+            "type": "string",
+            "enum": ["landing_page", "carrossel", "reels", "anuncio", "email", "whatsapp", "mala_direta"],
+            "description": "Tipo da peca."
+          },
+          "eixo": { "type": "string", "enum": ["rinoplastia", "face", "combo"], "description": "Eixo do produto." },
+          "idioma": { "type": "string", "enum": ["en", "pt"], "description": "Padrao 'en' — decisao do cliente. 'pt' so para peca interna ou canal direto no Brasil." }
+        },
+        "required": ["tipo", "eixo"]
+      },
+      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+    },
+    {
+      "name": "verificar_conteudo",
+      "agente": "plasticflix-verificador",
+      "description": "Roda as regras do projeto sobre um texto e devolve APROVADO, AJUSTAR ou BLOQUEADO, com o id da regra, a evidencia e a acao. Veto em elegibilidade, transmissao de cirurgia, preco, promessa de resultado e dado nao confirmado.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "texto": { "type": "string", "description": "Texto da peca a verificar." },
+          "canal": {
+            "type": "string",
+            "enum": ["instagram", "stories", "landing_page", "anuncio", "email", "whatsapp", "interno"],
+            "description": "Canal de publicacao."
+          },
+          "eixo": { "type": "string", "enum": ["rinoplastia", "face", "combo"], "description": "Eixo do produto." },
+          "idioma": { "type": "string", "enum": ["en", "pt"], "description": "Idioma em que a peca foi escrita." },
+          "praca": { "type": "string", "enum": ["brasil", "mexico", "argentina", "chile", "internacional"], "description": "Praca de veiculacao — usada pela regra de trafego." }
+        },
+        "required": ["texto"]
+      },
+      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+    },
+    {
+      "name": "status_lacunas",
+      "agente": "plasticflix-chief",
+      "description": "Pendencias que travam o projeto — o que depende do cliente, o que e acao interna da Stark, o que segue mesmo assim — e o rascunho do pedido agrupado numa unica mensagem. Padrao devolve so as bloqueantes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "completo": { "type": "boolean", "description": "true traz todas as lacunas, nao so as bloqueantes. Custa mais contexto." }
+        }
+      },
+      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+    },
+    {
+      "name": "documentacao",
+      "agente": "plasticflix-chief",
+      "description": "Serve a documentacao do projeto pelo protocolo: indice das secoes, onde vive cada coisa (ClickUp, Drive, repo) e o texto da secao pedida. O servidor nao implementa resources, entao arquivo do repo so e alcancavel por aqui.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "secao": { "type": "string", "description": "Id da secao. Sem argumento, devolve o indice — que e o modo barato." }
+        }
+      },
+      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+    }
+  ]
+}

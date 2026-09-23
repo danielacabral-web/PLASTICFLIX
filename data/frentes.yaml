@@ -1,0 +1,134 @@
+# As cinco frentes de trabalho do Plasticflix Prime.
+#
+# Cada frente tem objetivo, entregas e criterio de pronto. O criterio de pronto
+# existe para que "frente em andamento" signifique a mesma coisa para todo mundo.
+#
+# Fonte: kickoff 2026-09-22, secao de frentes da Stark.
+
+fonte: kickoff 2026-09-22
+
+frentes:
+  - id: F1
+    nome: Landing pages
+    dono: Gustavo Ferro
+    papel_do_dono: estrategista
+    objetivo: >
+      Duas LPs separadas, uma de Rinoplastia e uma de Face, para evitar confusao
+      de publico e otimizar a segmentacao dos anuncios.
+    entregas:
+      - Nova estrutura da LP de Rinoplastia, com direcionamentos e links de venda
+      - Nova estrutura da LP de Face, com direcionamentos e links de venda
+      - WhatsApp proprio por LP (numero da Rino a adicionar, com redirecionamento separado)
+      - Rodape das duas LPs com a oferta de -10% no combo Rino + Face
+      - Checkout direto para as teoricas; fluxo para WhatsApp no lab
+      - Esboco estrutural e link de analise enviados a Fran antes de publicar
+    criterio_de_pronto: >
+      As duas LPs no ar, cada uma com WhatsApp proprio funcionando, checkout de
+      teorica ativo, rodape de combo publicado e o link revisado pela Fran ANTES
+      da publicacao. Sem o esboco aprovado pela Fran, a LP nao sobe.
+    depende_de: [L-003, L-004, L-009]
+
+  - id: F2
+    nome: Trafego pago
+    dono: Mateus Borgo
+    papel_do_dono: gestor de trafego
+    objetivo: >
+      Testar aquisicao paga em Mexico e Argentina com orcamento travado, e
+      voltar com dado para a discussao de orcamento.
+    orcamento:
+      total_brl: 10000
+      periodo_meses: 2
+      distribuicao:
+        - praca: Mexico
+          brl: 5000
+        - praca: Argentina
+          brl: 5000
+      brasil: excluido
+      brasil_nota: >
+        Sem trafego pago no Brasil nesta fase. Brasil vai por WhatsApp, mala
+        direta e sociedades. Ver regra R-003.
+      proposta_em_aberto:
+        valor_mensal_brl: [15000, 20000]
+        proposto_por: Gustavo Ferro
+        status: travado pelo Mattioli em R$ 10 mil como teste
+        objecao: >
+          A Gislaine questiona o retorno de trafego em evento grande. A unica
+          forma de destravar a discussao e reabrir ao fim dos 2 meses com dado.
+    entregas:
+      - Estrutura de trafego inicial configurada (R$ 10 mil / 2 meses, Mexico + Argentina)
+      - Destinacao de R$ 5 mil Mexico + R$ 5 mil Argentina
+      - Listas de ex-alunos e compradores carregadas como exclusao nas campanhas de captacao
+      - Analise da conta de anuncios e do historico de campanhas anteriores da Stark
+    criterio_de_pronto: >
+      Campanhas rodando nas duas pracas com exclusao de ex-alunos aplicada, e
+      expectativa de resultado calibrada POR ESCRITO antes do inicio - senao o
+      teste e lido como fracasso do canal.
+    depende_de: [L-007]
+
+  - id: F3
+    nome: Conteudo e Instagram
+    dono: Iris Goncalves
+    papel_do_dono: copy
+    objetivo: >
+      Sustentar o Instagram como etapa intermediaria do funil - onde a objecao
+      cai e o corpo docente e apresentado - e provar essa posicao com dado no
+      primeiro ciclo.
+    cadencia_minima:
+      posts_por_semana: 3
+    idioma: en
+    entregas:
+      - Perfil e legendas traduzidos e ajustados para o ingles
+      - Carrosseis de apresentacao dos palestrantes
+      - Pecas de diferenciais cientificos
+      - Peca do instrutor individual por aluno (1 por peca na Rino, 2 na Face)
+      - Peca do encadeamento teoria -> lab -> cirurgia
+      - Fotos atualizadas de autores e professores subidas ao Drive compartilhado
+    criterio_de_pronto: >
+      3 posts por semana publicados em ingles, com o corpo docente apresentado e
+      a leitura de dado do primeiro ciclo pronta para sustentar (ou derrubar) a
+      permanencia do Instagram no percurso.
+    depende_de: [L-005]
+    tensao_declarada: >
+      O cliente queria mandar o anuncio direto para a LP. Gustavo defende manter
+      o Instagram no percurso. Num produto de R$ 20 a 60 mil, anuncio direto para
+      LP tende a nao converter. Acordo explicito + leitura conjunta do dado. Ver
+      regra R-008, que alerta (sem vetar) quando isso aparece.
+
+  - id: F4
+    nome: Comercial e base
+    dono: Marielly Oliveira
+    papel_do_dono: customer success (interface com Fran e Mara)
+    objetivo: >
+      Fazer a venda ativa sobre base quente acontecer - e o que move a Face no
+      curto prazo, antes de qualquer resultado de trafego.
+    fluxo_de_fechamento:
+      - LP ou anuncio
+      - WhatsApp
+      - Qualificacao (RQE ou comprovacao de residencia)
+      - Proposta
+      - Link de pagamento gerado pela Mara
+    entregas:
+      - Planilha dos 22 leads repassada da Mara para a Fran
+      - Negociacao individual dos 22 leads antes de qualquer mexida publica de preco
+      - Listas de contatos e e-mails de ex-alunos compartilhadas
+      - Link de pagamento solicitado, gerado e encaminhado
+    criterio_de_pronto: >
+      Os 22 leads contatados com desfecho registrado, base de ex-alunos na mao
+      da Stark, e link de pagamento funcionando por produto.
+    depende_de: [L-003, L-007]
+
+  - id: F5
+    nome: Parcerias e mailing
+    dono: Cliente (com apoio da Stark)
+    papel_do_dono: cliente
+    objetivo: >
+      Abrir canal com as sociedades medicas - que e o substituto do trafego pago
+      no Brasil e a porta de entrada nas pracas latinas.
+    entregas:
+      - Mailing da Sociedade Brasileira de Otorrinolaringologia via Renato, entregue a Gislaine
+      - Mailings das sociedades de otorrino e plastica da Argentina e Venezuela cobrados
+      - Acordos de -10% para membros em troca de divulgacao nos sites oficiais (AR, CL, VE, MX)
+    criterio_de_pronto: >
+      Pelo menos um mailing na mao e um acordo de -10% assinado com
+      contrapartida de divulgacao publicada no site da sociedade.
+    depende_de: [L-006]

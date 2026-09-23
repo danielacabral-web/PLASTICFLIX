@@ -1,0 +1,96 @@
+# Bases de contato do Plasticflix Prime.
+#
+# Cada base diz status, dono e o que destrava. O criterio para estar aqui e ter
+# sido nomeada no kickoff - nenhuma base foi suposta.
+#
+# Fonte: kickoff 2026-09-22.
+
+fonte: kickoff 2026-09-22
+
+bases:
+  - id: B-001
+    nome: Planilha dos 22 leads contatados que nao fecharam
+    tipo: planilha
+    volume: 22
+    dono: Mara Lima
+    destino: Francieli Terres Andrade (Fran)
+    status: pendente_cliente
+    destrava:
+      - Venda ativa sobre base quente (alavanca de curto prazo da Face)
+      - Negociacao individual antes de qualquer mexida publica de preco
+    conteudo_declarado: contatos e valores ja oferecidos a cada lead
+    observacao: >
+      A Fran relatou preco oscilante chegando ao lead (R$ 20 mil x R$ 25 mil).
+      Esta planilha e o que permite alinhar o que ja foi prometido antes de
+      declarar lote publico.
+
+  - id: B-002
+    nome: Lista de contatos e e-mails de ex-alunos das ultimas edicoes
+    tipo: lista de contatos
+    volume: null
+    volume_nota: O kickoff nao declarou quantos ex-alunos existem na base.
+    dono: Mara Lima
+    destino: Stark (Mateus para exclusao, Marielly/Fran para recompra)
+    status: pendente_cliente
+    destrava:
+      - Exclusao de publico nas campanhas de captacao (F2)
+      - Oferta de recompra dirigida a ex-alunos (F4)
+
+  - id: B-003
+    nome: Mailing da Sociedade Brasileira de Otorrinolaringologia
+    tipo: mailing de sociedade
+    pais: Brasil
+    volume: null
+    volume_nota: Tamanho do mailing nao declarado no kickoff.
+    dono: Cliente
+    via: Renato
+    destino: Gislaine (Cenacon)
+    status: pendente_cliente
+    destrava:
+      - Mala direta para otorrinos no Brasil (canal que substitui o trafego pago aqui)
+
+  - id: B-004
+    nome: Mailings das sociedades de otorrino e plastica da Argentina e Venezuela
+    tipo: mailing de sociedade
+    pais: [Argentina, Venezuela]
+    volume: null
+    volume_nota: Tamanho dos mailings nao declarado no kickoff.
+    dono: Clinica Mattioli
+    destino: Gislaine (Cenacon)
+    status: a_cobrar
+    destrava:
+      - Mala direta internacional
+      - Sustentacao da prioridade de praca (Mexico > Argentina > Chile)
+
+acordos_com_sociedades:
+  contrapartida: divulgacao do evento no site oficial da sociedade
+  desconto_percentual: 10
+  status_geral: em negociacao pelo cliente
+  paises:
+    - pais: Argentina
+      status: a_fechar
+      dono: Cliente
+    - pais: Chile
+      status: a_fechar
+      dono: Cliente
+    - pais: Venezuela
+      status: a_fechar
+      dono: Cliente
+    - pais: Mexico
+      status: a_fechar
+      dono: Cliente
+  nota: >
+    O desconto de 10% para membros de sociedade e uma das duas unicas excecoes
+    de desconto publico previstas (ver produtos.yaml, descontos_permitidos).
+
+restricoes_de_disparo:
+  whatsapp_em_massa:
+    permitido: false
+    motivo: >
+      Disparo em massa banido por volta de 30 mensagens. Exige multiplos chips,
+      nao e canal escalavel e nao pode ser o plano A.
+  lista_negra:
+    existe: false
+    nota: >
+      Nao ha lista negra de leads. Lead desqualificado (nao medico) e descartado
+      no atendimento, nao registrado em lista.

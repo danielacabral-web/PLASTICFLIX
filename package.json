@@ -1,0 +1,29 @@
+{
+  "name": "plasticflix-mcp",
+  "version": "0.1.0",
+  "description": "MCP do projeto Plasticflix Prime - demandas, calendario, briefings, oferta e verificacao de conteudo",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "lint": "node scripts/lint.js",
+    "test": "node --test tests/*.test.js",
+    "validate": "node scripts/validate-all.js",
+    "smoke": "node scripts/smoke-handshake.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "yaml": "^2.5.0"
+  },
+  "aiox": {
+    "type": "squad",
+    "entry": "squad/squad.yaml",
+    "minVersion": "5.0.0"
+  },
+  "author": "Stark Marketing",
+  "license": "UNLICENSED"
+}

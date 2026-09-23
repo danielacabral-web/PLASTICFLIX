@@ -1,0 +1,99 @@
+# Publico do Plasticflix Prime: quem pode entrar, quem nao pode, e por onde vem.
+#
+# O gate de elegibilidade nao e preferencia de comunicacao. E risco de
+# represalia de sociedade medica, e por isso a regra R-001 veta peca que convide
+# publico nao elegivel ou que prometa inscricao sem conferencia.
+#
+# Fonte: kickoff 2026-09-22.
+
+fonte: kickoff 2026-09-22
+
+elegibilidade:
+  negociavel: false
+  permitidos:
+    - especialidade: cirurgia plastica
+      titulo: cirurgiao plastico
+    - especialidade: otorrinolaringologia
+      titulo: otorrinolaringologista
+    - especialidade: residencia formal
+      titulo: residente
+      nota: residencia formal em curso, comprovavel
+  proibidos:
+    - medico generalista
+    - medico nao especialista nas areas permitidas
+    - profissional nao medico
+  motivo_da_proibicao: >
+    Risco de represalia de sociedade medica. Curso de cadaver e cirurgia ao vivo
+    aberto a generalista queima a relacao do Plasticflix com as sociedades que
+    justamente servem de canal de mailing e de desconto.
+  gate_operacional:
+    momento: antes de efetivar qualquer inscricao
+    responsavel: equipe comercial (Fran)
+    comprovacao_aceita: [RQE, comprovacao de residencia formal]
+    nota: >
+      Precisa virar campo obrigatorio no fluxo de atendimento e criterio de
+      qualificacao de lead. Peca que prometa inscricao imediata sem passar por
+      esse gate e veto (R-001).
+
+leitura_de_mercado:
+  brasil:
+    status: publico conhece, sem poder aquisitivo
+    argumento_do_cliente: >
+      Mattioli: so 1% dos medicos ganha acima de R$ 28 mil.
+    concorrencia: >
+      Excesso de cursos de cadaver concorrendo e precos baixos praticados por
+      sociedades.
+    trafego_pago: false
+    trafego_pago_nota: >
+      Brasil fora do trafego pago nesta fase. Vai por WhatsApp, mala direta e
+      sociedades. Ver regra R-003.
+  america_latina:
+    prioridade:
+      - posicao: 1
+        pais: Mexico
+      - posicao: 2
+        pais: Argentina
+      - posicao: 3
+        pais: Chile
+    nota: Mexico e o primeiro mercado, seguido de Argentina e Chile.
+  descartados:
+    - praca: America Central
+      motivo: restricao financeira e logistica
+    - praca: Europa
+      motivo: restricao financeira e logistica
+
+canais_descartados:
+  - canal: Facebook
+    levantado_por: Cenacon
+    argumento_a_favor: forte nos EUA, Mexico e Europa
+    decisao: fora por ora
+    decidido_por: Gustavo e Mattioli
+    motivo: avaliacao de que medico usa pouco
+
+publicos_de_base:
+  - id: PB-001
+    nome: Ex-alunos das edicoes anteriores
+    uso: [recompra, exclusao em campanha de captacao]
+    racional: >
+      Costumam repetir curso por inseguranca pratica. Cabe oferta com desconto
+      dirigida a eles - e a mesma lista precisa entrar como exclusao nas
+      campanhas de captacao de publico novo.
+    desconto_dirigido: null
+    desconto_nota: >
+      O kickoff diz que "cabe oferta com desconto" mas nao declarou percentual.
+      Nao inventar. Ate a diretoria definir, os unicos descontos publicaveis sao
+      os dois de produtos.yaml (combo e sociedade parceira).
+    base: ver bases.yaml B-002
+  - id: PB-002
+    nome: 22 leads que receberam link e nao fecharam
+    uso: [venda ativa, negociacao individual]
+    racional: >
+      Base quente. E a alavanca de curto prazo para a Face, junto com ex-alunos
+      e sociedades. Negociacao individual da Fran ANTES de qualquer mexida
+      publica de preco.
+    base: ver bases.yaml B-001
+  - id: PB-003
+    nome: Membros de sociedades parceiras
+    uso: [mala direta, desconto de 10%]
+    paises: [Brasil, Argentina, Venezuela, Chile, Mexico]
+    base: ver bases.yaml B-003 e B-004

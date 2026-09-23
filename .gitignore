@@ -1,0 +1,21 @@
+node_modules/
+package-lock.json
+
+# Telemetria local (append-only, nao versionar)
+_telemetry/
+*.jsonl
+
+# Fixtures que os testes montam e derrubam em disco
+tests/_fixtures/
+
+# Credenciais - o servidor nao carrega credencial nenhuma (env vazio),
+# mas o bloqueio fica explicito para nao haver acidente.
+.env
+.env.*
+credentials.json
+token.json
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store

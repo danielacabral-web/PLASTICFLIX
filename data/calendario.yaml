@@ -1,0 +1,111 @@
+# Calendario macro do Plasticflix Prime.
+#
+# As fases foram contadas para tras a partir de 03/03, primeiro dia do evento.
+# As janelas sao de mes, nao de data: o kickoff nao declarou data de corte de
+# nada, e datas de virada de lote sao bloqueio de diretoria.
+#
+# A grade do evento e a de perfil-plasticflix.yaml (evento.grade) - nao duplicar
+# aqui para nao haver duas verdades.
+#
+# Fonte: kickoff 2026-09-22.
+
+fonte: kickoff 2026-09-22
+ancora: primeiro dia do evento (03/03)
+ano: null
+ano_nota: >
+  O ano do evento nao foi dito no kickoff. Toda data desta pagina fica sem ano
+  ate a confirmacao do cliente. Ver lacunas.yaml L-001.
+
+fases:
+  - id: FASE-1
+    nome: destrave
+    janela: imediato (set/out)
+    o_que_roda:
+      - LPs de Rino e Face no ar
+      - WhatsApp separado por eixo
+      - Instagram migrado para o ingles
+      - Negociacao dos 22 leads
+      - Listas da Mara (22 leads e ex-alunos) entregues
+    precisa_estar_pronto:
+      - Acesso ao site atual (L-009)
+      - Link/gateway de pagamento por produto (L-003)
+      - Planilha dos 22 leads e base de ex-alunos (L-007)
+    frentes: [F1, F3, F4]
+
+  - id: FASE-2
+    nome: teste_trafego
+    janela: out-nov
+    o_que_roda:
+      - Campanhas de R$ 10 mil por 2 meses em Mexico e Argentina
+      - Conteudo 3x por semana em ingles
+      - Parcerias com sociedades assinadas
+    precisa_estar_pronto:
+      - Listas de exclusao (ex-alunos e compradores) carregadas
+      - Expectativa de resultado calibrada por escrito
+      - Fotos de autores e professores no Drive (L-005)
+    frentes: [F2, F3, F5]
+
+  - id: FASE-3
+    nome: decisao
+    janela: nov
+    o_que_roda:
+      - Leitura dos 2 meses de trafego
+      - Confirmacao ou revisao do orcamento (a conversa dos R$ 15-20 mil volta aqui, com dado)
+      - Decisao sobre manter o Instagram como etapa intermediaria do funil
+    precisa_estar_pronto:
+      - Relatorio dos 2 meses por praca
+      - Reuniao tecnica de trafego e conteudo agendada (demanda D-17)
+    frentes: [F2, F3]
+
+  - id: FASE-4
+    nome: lote_1
+    janela: dez-jan
+    o_que_roda:
+      - Precos de entrada (R$ 5 mil teorica, R$ 20 mil lab Rino)
+      - Mala direta as sociedades
+      - Oferta dirigida a ex-alunos
+    precisa_estar_pronto:
+      - Data de corte do 1o lote declarada (L-004)
+      - Mailings das sociedades na mao (L-006)
+    data_inicio: null
+    data_fim: null
+    data_nota: >
+      Datas exatas nao existem: dependem da confirmacao do ano e do prazo que a
+      diretoria quer declarar. A regra R-007 bloqueia peca que afirme data de
+      virada de lote enquanto produtos.yaml tiver lotes.virada_lote_1 null.
+    frentes: [F1, F4, F5]
+
+  - id: FASE-5
+    nome: lote_2
+    janela: jan-fev
+    o_que_roda:
+      - Virada para o 2o lote (R$ 7 mil teorica, R$ 25 mil lab Rino)
+      - Escassez real por vagas (5 no lab Rino, 10 no lab Face)
+    precisa_estar_pronto:
+      - Data de corte do 2o lote declarada (L-004)
+    data_inicio: null
+    data_fim: null
+    data_nota: Mesma dependencia da FASE-4.
+    frentes: [F1, F4]
+
+  - id: FASE-6
+    nome: reta_final
+    janela: fev
+    o_que_roda:
+      - Comunicacao de ultimas vagas
+      - Logistica do evento
+      - Confirmacao do hospital da cirurgia ao vivo
+    precisa_estar_pronto:
+      - Hospital da cirurgia ao vivo definido (L-002)
+    frentes: [F1, F3, F4]
+
+  - id: FASE-7
+    nome: evento
+    janela: 03/03 a 07/03
+    o_que_roda:
+      - Execucao da grade (ver perfil-plasticflix.yaml, evento.grade)
+      - Cobertura do evento
+      - Captacao para o proximo episodio
+    precisa_estar_pronto:
+      - Todas as lacunas bloqueantes resolvidas
+    frentes: [F3]
