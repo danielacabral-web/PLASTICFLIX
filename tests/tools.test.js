@@ -61,10 +61,15 @@ describe('planejar_demandas', () => {
     assert.ok(r.payload.frentes.some((f) => f.subtasks.length > 0));
   });
 
-  test('o destino do ClickUp sai marcado como bloqueado enquanto nao for decidido', async () => {
+  // O container foi decidido em 24/09/2026: lista "Planos de Acao" (901306206394),
+  // a mesma da task-mae da OpenMind. Ate essa data o teste cobria o caminho
+  // oposto — destino null com nota de BLOQUEADO. Preencher o dado mudou o
+  // comportamento sem que nenhuma linha do handler fosse tocada, que e
+  // exatamente o desenho pretendido: o codigo le o dado, nao o repete.
+  test('com o destino decidido, o payload aponta para a lista e nao acusa bloqueio', async () => {
     const r = await demandas({ formato: 'clickup' });
-    assert.equal(r.payload.destino, null);
-    assert.match(r.payload.destino_nota, /BLOQUEADO/);
+    assert.equal(r.payload.destino, '901306206394');
+    assert.equal(r.payload.destino_nota, null);
   });
 
   test('filtro sem resultado explica em vez de devolver lista vazia', async () => {

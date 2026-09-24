@@ -172,10 +172,46 @@ interlocutores_cliente:
     dominio: [link de pagamento, planilha dos 22 leads, base de ex-alunos]
 
 clickup:
-  space_ou_folder: null
-  space_ou_folder_nota: >
-    Nao decidido. Pendente da Daniela: se a task-mae entra num Space/Folder
-    existente de eventos ou nasce nova.
-  estrutura_sugerida: >
+  # Decidido em 24/09/2026 pela Daniela: mesmo lugar da OpenMind e da AExPI.
+  # A documentacao vive no Doc "Informacoes dos Projetos"; as tarefas vivem na
+  # lista "Planos de Acao", que e onde a task-mae da OpenMind ja mora.
+  space_ou_folder: "901306206394"
+  space_ou_folder_nome: Planos de Acao
+  folder: "901318264659"
+  folder_nome: Estrategia
+  space: "901313813840"
+  task_mae: 86akp8ct5
+  task_cliente: 86aknmre2
+  task_cliente_nota: >
+    Task do tipo Cliente na lista Clientes (901327264471), status "em
+    onboarding", criada antes deste projeto. E o analogo da task 86ajr8g9a da
+    AExPI. Nao duplicar: a task-mae de execucao e a 86akp8ct5.
+  frentes:
+    F1: 86akp8cux
+    F2: 86akp8cw4
+    F3: 86akp8cx1
+    F4: 86akp8cyd
+    F5: 86akp8czd
+  doc:
+    documento: 1393eg-65133
+    grupo: 1393eg-184773
+    grupo_nome: Informacoes dos Projetos Tropa de Elite
+    pagina_mae: 1393eg-210153
+    subpaginas:
+      evento_e_grade: 1393eg-210173
+      publico_e_mercados: 1393eg-210193
+      oferta_e_precos: 1393eg-210213
+      frentes_e_demandas: 1393eg-210233
+      calendario: 1393eg-210253
+      comunicacao: 1393eg-210273
+      riscos_e_pendencias: 1393eg-210293
+    pagina_morta: 1393eg-125113
+    pagina_morta_nota: >
+      Pagina "Plasticflix" vazia e arquivada em 06/2026, fora do grupo Tropa de
+      Elite. Casca sem conteudo — nao reutilizar nem confundir com a 210153.
+  estrutura: >
     task-mae Plasticflix Prime -> 5 tasks de frente (F1-F5) -> subtasks por
-    entrega (1 peca = 1 subtask, como na OpenMind).
+    entrega (1 peca = 1 subtask, como na OpenMind). As 17 demandas do kickoff
+    viraram 15 subtasks: duas pares de linhas do kickoff descreviam a mesma
+    acao vista de dois lados (repassar/enviar a planilha dos 22 leads, e
+    negociar/contatar esses leads) e foram fundidas.
