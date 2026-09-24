@@ -200,10 +200,26 @@ time_stark:
     - nome: Marielly Oliveira
       papel: customer success
       frente: F4
-  dona_do_projeto_no_clickup: null
+  dona_do_projeto_no_clickup: Gustavo Ferro
   dona_do_projeto_nota: >
-    Nao definida no kickoff. Na OpenMind era o Silvanio como coordenador.
-    Confirmar com a Daniela.
+    Em 24/09 a Daniela dividiu as frentes: ESTRATEGIA com o Gustavo Ferro
+    (F1, F2, F4, F5, F7 a F11, F13) e COPY E DESIGN com a Iris Goncalves
+    (F3, F6, F12). O Gustavo tambem assumiu a task-mae, o que na pratica o
+    coloca como coordenador — equivalente ao papel do Silvanio na OpenMind.
+  divisao_de_responsabilidade:
+    Gustavo Ferro:
+      id_clickup: "118052070"
+      escopo: estrategia, trafego, comercial, parcerias, gestao e patrocinio
+      frentes: [F1, F2, F4, F5, F7, F8, F9, F10, F11, F13]
+    Iris Goncalves:
+      id_clickup: "88007592"
+      escopo: copy e design
+      frentes: [F3, F6, F12]
+  nota_sobre_a_divisao: >
+    Mateus Borgo e Marielly Oliveira constam no time do kickoff (trafego e CS)
+    mas nao receberam tarefa nesta divisao. A F2 (trafego) ficou com o Gustavo
+    como estrategia; quem OPERA a midia continua sendo o Mateus. Vale confirmar
+    se ele entra como assignee nas subtasks de campanha.
 
 interlocutores_cliente:
   # Todos do lado do cliente. O Mattioli decide; os demais operam.

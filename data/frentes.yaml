@@ -7,11 +7,20 @@
 
 fonte: kickoff 2026-09-22
 
+# RESPONSAVEIS definidos pela Daniela em 24/09/2026:
+#   Gustavo Ferro  -> tudo que e estrategia (F1, F2, F4, F5, F7 a F11, F13)
+#   Iris Goncalves -> tudo que e copy e design (F3, F6, F12)
+# A F5 e de execucao do cliente; o Gustavo e o dono do acompanhamento.
+# A F4 envolve Fran e Mara do lado do cliente, com o Gustavo conduzindo.
+responsaveis:
+  estrategia: Gustavo Ferro (118052070)
+  copy_e_design: Iris Goncalves (88007592)
+
 frentes:
   - id: F1
     nome: Landing pages
     dono: Gustavo Ferro
-    papel_do_dono: estrategista
+    papel_do_dono: estrategia
     objetivo: >
       Duas LPs separadas, uma de Rinoplastia e uma de Face, para evitar confusao
       de publico e otimizar a segmentacao dos anuncios.
@@ -30,8 +39,8 @@ frentes:
 
   - id: F2
     nome: Trafego pago
-    dono: Mateus Borgo
-    papel_do_dono: gestor de trafego
+    dono: Gustavo Ferro
+    papel_do_dono: estrategia
     objetivo: >
       Testar aquisicao paga em Mexico e Argentina com orcamento travado, e
       voltar com dado para a discussao de orcamento.
@@ -68,7 +77,7 @@ frentes:
   - id: F3
     nome: Conteudo e Instagram
     dono: Iris Goncalves
-    papel_do_dono: copy
+    papel_do_dono: copy e design
     objetivo: >
       Sustentar o Instagram como etapa intermediaria do funil - onde a objecao
       cai e o corpo docente e apresentado - e provar essa posicao com dado no
@@ -96,8 +105,8 @@ frentes:
 
   - id: F4
     nome: Comercial e base
-    dono: Marielly Oliveira
-    papel_do_dono: customer success (interface com Fran e Mara)
+    dono: Gustavo Ferro
+    papel_do_dono: estrategia
     objetivo: >
       Fazer a venda ativa sobre base quente acontecer - e o que move a Face no
       curto prazo, antes de qualquer resultado de trafego.
@@ -119,8 +128,8 @@ frentes:
 
   - id: F5
     nome: Parcerias e mailing
-    dono: Cliente (com apoio da Stark)
-    papel_do_dono: cliente
+    dono: Gustavo Ferro
+    papel_do_dono: estrategia
     objetivo: >
       Abrir canal com as sociedades medicas - que e o substituto do trafego pago
       no Brasil e a porta de entrada nas pracas latinas.
@@ -135,8 +144,8 @@ frentes:
 
   - id: F6
     nome: Materiais e impressos do evento
-    dono: a definir
-    papel_do_dono: stark
+    dono: Iris Goncalves
+    papel_do_dono: copy e design
     objetivo: >
       Produzir o material do dia do evento - impressos, sinalizacao,
       certificados, cracha, papelaria do participante, patrocinadores e
@@ -174,8 +183,8 @@ frentes:
 
   - id: F7
     nome: Estrategia e modelo de vendas
-    dono: a definir
-    papel_do_dono: stark
+    dono: Gustavo Ferro
+    papel_do_dono: estrategia
     espelha: 86ahzc83k
     objetivo: >
       Fechar com o cliente a regua comercial que hoje esta meio definida: dois
@@ -193,8 +202,8 @@ frentes:
 
   - id: F8
     nome: Destravar dependencias do cliente
-    dono: a definir
-    papel_do_dono: stark
+    dono: Gustavo Ferro
+    papel_do_dono: estrategia
     espelha: 86ahzc86k
     objetivo: >
       Cobrar e destravar as 11 lacunas registradas. E o gargalo que travou a
@@ -215,8 +224,8 @@ frentes:
 
   - id: F9
     nome: Gestao da comunicacao e entregas
-    dono: a definir
-    papel_do_dono: stark
+    dono: Gustavo Ferro
+    papel_do_dono: estrategia
     espelha: 86ahzc84v
     objetivo: >
       Definir como a Stark fala com o cliente, como registra aprovacao e como
@@ -236,8 +245,8 @@ frentes:
 
   - id: F10
     nome: Cronograma
-    dono: a definir
-    papel_do_dono: stark
+    dono: Gustavo Ferro
+    papel_do_dono: estrategia
     espelha: 86aj7hhyz
     objetivo: >
       Converter as sete fases em datas reais, contadas para tras a partir do
@@ -253,8 +262,8 @@ frentes:
 
   - id: F11
     nome: Preparar e integrar o squad
-    dono: a definir
-    papel_do_dono: stark
+    dono: Gustavo Ferro
+    papel_do_dono: estrategia
     espelha: 86ahzc872
     objetivo: >
       Colocar o time para rodar com o mesmo contexto e com a ferramenta do
@@ -274,8 +283,8 @@ frentes:
 
   - id: F12
     nome: Ideacao, narrativa e identidade da campanha
-    dono: a definir
-    papel_do_dono: stark
+    dono: Iris Goncalves
+    papel_do_dono: copy e design
     objetivo: >
       Definir o que o projeto DIZ: posicionamento, big idea, arco narrativo,
       mote, manifesto, regua de tom e banco de hooks.
@@ -300,8 +309,8 @@ frentes:
 
   - id: F13
     nome: Patrocinio e receita que nao depende de vaga
-    dono: a definir
-    papel_do_dono: stark
+    dono: Gustavo Ferro
+    papel_do_dono: estrategia
     objetivo: >
       Abrir a frente de patrocinio: cotas, material de prospeccao, prospectos
       mapeados e contrato assinado.
