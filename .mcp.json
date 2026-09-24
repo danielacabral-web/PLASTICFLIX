@@ -4,7 +4,9 @@
     "plasticflix": {
       "type": "stdio",
       "command": "node",
-      "args": ["C:\Users\danie\PLASTICFLIX\src\server.js"],
+      "args": [
+        "C:\\Users\\danie\\PLASTICFLIX\\src\\server.js"
+      ],
       "env": {}
     }
   }
