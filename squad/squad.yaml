@@ -16,8 +16,10 @@ squad:
   description: >
     Squad do projeto Plasticflix Prime — congresso presencial de rinoplastia e
     face no Instituto Quirontec (Sao Paulo), com dois eixos sob CNPJ unico e
-    organizacao executiva da Cenacon. Cobre cinco frentes: landing pages,
-    trafego, conteudo, comercial e parcerias.
+    organizacao executiva da Cenacon. Onze frentes: cinco de execucao vindas do
+    kickoff (landing pages, trafego, conteudo, comercial, parcerias), uma de
+    materiais vinda do inventario do Drive, e cinco de gestao modeladas na
+    OpenMind 2026.
   domain: lancamento_de_evento_medico_b2b
   methodology: Stark, adaptada — o comprador e medico especialista, nao paciente
   status: in_development
@@ -29,7 +31,8 @@ squad:
 #
 #   1. Nao ha paciente em lugar nenhum. O publico e cirurgiao plastico,
 #      otorrino e residente. Todo reflexo de captacao de paciente esta errado.
-#   2. A comunicacao publica e em INGLES, por decisao do cliente.
+#   2. A comunicacao publica e em PORTUGUES. O ingles foi decidido pelo cliente
+#      no kickoff e REVERTIDO pela Daniela em 24/09 — avisar o Dr. Mattioli.
 #   3. O Brasil nao recebe trafego pago nesta fase.
 #   4. Existe um gate de elegibilidade (RQE) ANTES da inscricao, e ele e
 #      juridico, nao comercial.
@@ -68,8 +71,8 @@ pipeline:
       tool: planejar_demandas
       gate: false
       nota: >
-        As 17 proximas etapas do kickoff distribuidas nas cinco frentes, com
-        dono e dependencia. E daqui que sai a estrutura do ClickUp.
+        As 17 proximas etapas do kickoff distribuidas nas frentes, com dono e
+        dependencia. E daqui que sai a estrutura do ClickUp.
     - id: 2
       name: Datas
       agent: plasticflix-calendario
@@ -108,12 +111,13 @@ pipeline:
       agent: plasticflix-chief
       tool: null
       gate: false
-      status: BLOQUEADA
-      bloqueio: L-010 — container do projeto no ClickUp ainda nao existe
+      status: FEITA
+      feita_em: 2026-09-24
       nota: >
-        Declarada bloqueada em vez de omitida. Enquanto a Daniela nao definir o
-        Space/Folder, planejar_demandas entrega o payload pronto e ninguem o
-        executa. E acao interna da Stark, nao pendencia do cliente.
+        Estava BLOQUEADA porque o container nao existia. A Daniela decidiu em
+        24/09: mesmo lugar da OpenMind e da AExPI — documentacao no doc
+        "Informacoes dos Projetos", tarefas na lista "Planos de Acao". Task-mae
+        86akp8ct5, onze frentes, e as pecas do catalogo sob a F6.
 
   frentes_paralelas:
     - id: comercial
@@ -155,11 +159,13 @@ global_policies:
     veto: true
     implementacao: src/rules/trafego-brasil.js
   - id: GP-004
-    regra: Comunicacao publica em ingles.
+    regra: Comunicacao publica no idioma vigente em data/comunicacao.yaml (hoje pt-BR).
     veto: true
     nota: >
-      Decisao do Dr. Mattioli, contra a sugestao de espanhol. E hipotese nao
-      testada: se Mexico e Argentina performarem mal, reabrir com dado.
+      O ingles foi decisao do Dr. Mattioli no kickoff e foi REVERTIDO pela
+      Daniela em 24/09. A regra nao tem idioma hardcoded: ela le o YAML e
+      compara com o idioma detectado no texto, nos dois sentidos. Avisar o
+      cliente — a reversao contraria uma decisao explicita dele.
     implementacao: src/rules/idioma.js
   - id: GP-005
     regra: >
@@ -204,8 +210,8 @@ integrations:
   - nome: clickup
     required: false
     usado_por: [plasticflix-chief, plasticflix-demandas]
-    para: lancar a task-mae, as cinco frentes e as subtasks
-    bloqueio: container do projeto ainda nao definido — lacuna L-010
+    para: lancar a task-mae, as onze frentes e as subtasks
+    feito_em: 2026-09-24 — lista Planos de Acao (901306206394), task-mae 86akp8ct5
   - nome: meta-ads
     required: true
     usado_por: [plasticflix-trafego]
