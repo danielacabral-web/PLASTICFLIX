@@ -27,11 +27,35 @@ describe('perfil_plasticflix', () => {
     }
   });
 
-  test('lista os campos em aberto em vez de preenche-los', async () => {
+  // O teste era sobre o ANO estar vazio. O ano foi confirmado em 24/09 por
+  // fonte publica do proprio cliente, entao o caso mudou de lado. O que
+  // precisa continuar verdadeiro nao e "o ano e null" — e que a tool NUNCA
+  // preenche sozinha um campo vazio e sempre declara quais estao em aberto.
+  test('declara os campos em aberto em vez de preenche-los', async () => {
     const r = await perfil();
     assert.ok(Array.isArray(r.dados_em_aberto));
-    assert.ok(r.dados_em_aberto.some((d) => d.campo === 'evento.ano'));
-    assert.equal(r.evento.ano, null);
+    const perfilYaml = carregarYaml('perfil-plasticflix');
+    const cirurgia = (perfilYaml.evento?.grade || []).find((d) => d.formato === 'cirurgia_ao_vivo');
+    if (cirurgia?.local === null) {
+      assert.ok(
+        r.dados_em_aberto.some((d) => d.campo.includes('cirurgia_ao_vivo')),
+        'o hospital segue vazio e precisa aparecer como campo em aberto'
+      );
+    }
+    for (const d of r.dados_em_aberto) {
+      assert.ok(d.trava, `${d.campo} nao diz o que trava`);
+    }
+  });
+
+  test('quando um campo e preenchido, ele sai da lista de abertos', async () => {
+    const r = await perfil();
+    const { evento } = carregarYaml('perfil-plasticflix');
+    if (evento.ano !== null) {
+      assert.ok(
+        !r.dados_em_aberto.some((d) => d.campo === 'evento.ano'),
+        'o ano foi preenchido e nao deveria mais constar como aberto'
+      );
+    }
   });
 
   test('secao invalida devolve erro com as validas', async () => {
@@ -93,10 +117,22 @@ describe('calendario_projeto', () => {
     assert.match(r.contagem_regressiva.motivo, /referencia/i);
   });
 
-  test('com data valida mas ano do evento nulo, explica por que nao conta', async () => {
-    const r = await calendario({ hoje: '2026-09-23' });
-    assert.equal(r.contagem_regressiva.calculada, false);
-    assert.match(r.contagem_regressiva.motivo, /ano do evento/i);
+  // Antes de 24/09 o ano era null e este teste cobria a recusa de contar. Com
+  // o ano confirmado, o caso inverteu: a contagem PRECISA sair, e sair certa.
+  // A condicao testada continua sendo a mesma regra — a tool so conta quando
+  // tem as duas pontas.
+  test('com data de referencia e ano conhecido, a contagem sai', async () => {
+    const { ano } = carregarYaml('calendario');
+    const r = await calendario({ hoje: '2026-09-24' });
+    if (ano === null) {
+      assert.equal(r.contagem_regressiva.calculada, false);
+      assert.match(r.contagem_regressiva.motivo, /ano do evento/i);
+      return;
+    }
+    assert.equal(r.contagem_regressiva.calculada, true);
+    assert.equal(typeof r.contagem_regressiva.dias_restantes, 'number');
+    assert.ok(r.contagem_regressiva.dias_restantes > 0, 'o evento ainda nao aconteceu');
+    assert.ok(r.contagem_regressiva.leitura, 'a contagem sem leitura de prioridade nao serve');
   });
 
   test('data em formato ambiguo e recusada, nao adivinhada', async () => {
@@ -113,9 +149,18 @@ describe('briefing_entrega', () => {
     assert.match(r.briefing.espinha_dorsal.instrucao, /nao carrega nenhuma/);
   });
 
+  // O ano saiu da lista quando foi confirmado. O que o briefing precisa
+  // continuar fazendo e avisar sobre o que AINDA esta vazio — hoje, o hospital
+  // da cirurgia ao vivo e as datas de virada de lote.
   test('avisa o que esta travado por dado nao confirmado', async () => {
     const r = await briefing({ tipo: 'carrossel', eixo: 'rinoplastia' });
-    assert.ok(r.dados_travados.quais.some((q) => /ano do evento/.test(q)));
+    const { lotes } = carregarYaml('produtos');
+    if (lotes.virada_lote_1 === null) {
+      assert.ok(
+        r.dados_travados.quais.some((q) => /virada de lote/.test(q)),
+        'as datas de lote seguem vazias e precisam ser sinalizadas'
+      );
+    }
   });
 
   test('tipo sem template devolve os validos', async () => {

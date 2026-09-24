@@ -217,6 +217,38 @@ ideacao:
       HIPOTESE derivada do dado — vale testar com 3 ou 4 dos 22 leads antes de
       virar mensagem.
 
+  # LEVANTADO EM 24/09, DEPOIS da ideacao — e contradiz parte dela.
+  tom_vigente_do_cliente:
+    levantado_em: 2026-09-24
+    fontes: [instagram @plasticflixbrasil, plasticflixacademy.com.br, plasticflix.academy]
+    exemplos_literais:
+      - "Seu Passaporte para a Excelencia em Rinoplastia e Cirurgia Facial!"
+      - "Uma imersao que entrega: maestria, confianca e tecnica."
+      - "Aprenda com quem dita o ritmo da evolucao na cirurgia plastica facial."
+      - "A MAIOR PLATAFORMA DE CIRURGIA PLASTICA FACIAL E RINOPLASTIA DO MUNDO"
+    persona_do_cliente:
+      onde: Doc "Persona | Plasticflix" no Drive
+      framework: EJACA
+      nota: >
+        A quinta etapa do EJACA e "apontar a culpa para seus inimigos", com
+        falas como "o mercado esta cheio de gente que finge saber o que faz".
+        O eixo que produzimos e afirmativo e SEM INIMIGO.
+    conflito: >
+      O tom vigente do cliente e superlativo e de promessa. A regua de tom que
+      produzimos bane exatamente isso: numero no lugar do adjetivo, sem
+      promessa de dominio, sem superlativo sem lastro.
+      Nao e detalhe de estilo — e a diferenca entre a campanha soar como o
+      cliente ou soar como outra marca.
+    decisao_necessaria: >
+      Ou a Stark aproxima do registro que a audiencia ja reconhece, ou propoe a
+      mudanca DECLARANDO que e mudanca e a defende na reuniao. O que nao pode e
+      entregar peca em tom novo sem avisar — foi assim que a OpenMind teve 40
+      pecas reprovadas.
+    o_que_falta: >
+      Ler 20 a 30 LEGENDAS reais do perfil (nao os cartazes), identificar o que
+      performa, e ver como o cliente fala do cadaver lab especificamente.
+      ClickUp 86akpfrj2.
+
   ideia_de_controle: >
     Cirurgiao aprende operando. Por isso o Prime conta peca, e nao plateia.
 

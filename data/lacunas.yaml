@@ -293,3 +293,89 @@ lacunas:
       A frente F12 foi aberta no ClickUp (86akpfjh7). A lacuna SEGUE ABERTA
       porque nada foi aprovado pelo cliente: mote, manifesto e regua_de_tom
       continuam null de proposito.
+
+  - id: L-014
+    titulo: CONFLITO — o site vende transmissao ao vivo, o kickoff proibiu
+    situacao: conflito_com_o_cliente
+    bloqueante: true
+    prioridade: maxima
+    evidencia: >
+      O kickoff de 22/09 fechou que NAO havera transmissao das cirurgias, por
+      custo (cerca de R$ 100 mil), problema de organizacao e risco de
+      superlotacao com nao pagantes. Isso virou a regra R-002, com veto em
+      codigo.
+      Mas em 24/09 o site plasticflixacademy.com.br, no ar com a pagina PRIME
+      2027, anuncia "transmissoes em tempo real de cirurgias" e diz que a
+      cirurgia ao vivo pode ser assistida do hotel mediante investimento
+      adicional.
+      E no ciclo anterior a transmissao era PRODUTO VENDIDO, com preco de
+      tabela: cadaver lab Face assistido R$ 20 mil, transmissao Face R$ 10 mil,
+      transmissao Rino R$ 5 mil (doc Persona | Plasticflix, briefing do ciclo
+      2026).
+    bloqueia:
+      - Toda peca que fale de cirurgia ao vivo
+      - O hook 10 do banco, que usa a ausencia de transmissao como argumento
+      - A tabela de produtos, que pode estar incompleta
+    segue_mesmo_assim: >
+      Tudo que nao menciona a cirurgia ao vivo. Mas a duvida contamina a oferta
+      inteira enquanto nao for resolvida.
+    pedido_ao_cliente: >
+      Perguntar diretamente ao Dr. Mattioli e a Gislaine: a decisao de nao
+      transmitir vale para 2027, e o site sera corrigido? Ou a transmissao
+      continua e o que foi dito no kickoff se referia apenas ao anfiteatro
+      interno?
+      A diferenca nao e de comunicacao: transmissao era uma LINHA DE RECEITA de
+      R$ 5 a 20 mil por assinante, num projeto que declara risco de R$ 700 a
+      800 mil.
+    impacto_no_codigo: >
+      Se a transmissao voltar, R-002 precisa deixar de ser veto e a regra passa
+      a ler o dado, como as demais. Nao mexer antes da resposta do cliente.
+
+  - id: L-015
+    titulo: CONFLITO — tabela de precos do site diverge do kickoff
+    situacao: conflito_com_o_cliente
+    bloqueante: true
+    evidencia: >
+      O site publica hoje: hands-on Rino + teoria R$ 20.000 · hands-on Face +
+      teoria R$ 60.000 · teoria Face R$ 10.000 · teoria Rino R$ 5.000.
+      O kickoff declarou: teoricas R$ 5.000 (30 primeiros) subindo para R$
+      7.000 · lab Rino R$ 20.000 subindo para R$ 25.000 · lab Face R$ 60.000.
+      A teorica de Face diverge em dobro (R$ 10 mil no site contra R$ 5 mil no
+      kickoff), e o site nao menciona sistema de lote.
+      No ciclo anterior (2026) o lab de Face custava R$ 50.000 — exatamente o
+      "piso discutido" que aparece na L-008. Ou seja: o preco da Face SUBIU 20%
+      de um ciclo para o outro, e o piso que a diretoria discute e o preco do
+      ano passado.
+    bloqueia:
+      - Tabela de preco em LP, WhatsApp e comercial
+      - O argumento de lote, que hoje nao existe no site
+    segue_mesmo_assim: >
+      A negociacao dos 22 leads, desde que o comercial saiba qual tabela vale.
+    pedido_ao_cliente: >
+      Qual tabela vale para 2027: a publicada no site ou a do kickoff? E o
+      sistema de dois lotes existe, ja que o site nao o menciona?
+    leitura_estrategica: >
+      Isto muda a conversa de preco da Face. Ela nao esta cara em abstrato: ela
+      subiu de R$ 50 mil para R$ 60 mil num mercado que o proprio cliente
+      descreve como saturado. Quem comprou ou cotou a edicao anterior tem a
+      referencia antiga. Vale checar com a Fran se os 22 leads compararam com
+      2026 — e o teste mais direto do argumento de categoria.
+
+  - id: L-016
+    titulo: Inscricoes ja estao abertas, e o calendario do projeto nao sabia
+    situacao: pendente_interno
+    bloqueante: false
+    evidencia: >
+      A bio do Instagram @plasticflixbrasil em 24/09 diz "inscricoes abertas"
+      com telefone proprio (+55 11 981047813), e o site esta no ar com a pagina
+      PRIME 2027 e tabela de precos. O calendario que montamos previa abertura
+      de lote 1 so em dez/jan.
+    bloqueia:
+      - Nada tecnicamente, mas desalinha o plano da realidade
+    segue_mesmo_assim: >
+      As oito fases seguem validas na ordem e no conteudo. O que muda e que a
+      FASE-1 nao comeca do zero: ja existe canal de venda publico rodando.
+    pedido_ao_cliente: >
+      Nada a pedir. E leitura interna: o telefone da bio nao e nenhum dos
+      canais que desenhamos, e nao sabemos quem atende nem se ha conferencia de
+      RQE nesse fluxo. Perguntar a Gislaine quem opera esse numero.

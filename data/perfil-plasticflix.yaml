@@ -46,6 +46,45 @@ ativos_existentes:
       rinoplastia e face. Serve de aquecimento e engajamento para o presencial.
     periodicidade: semanal_tercas
     mantida_por: Neo ID
+  instagram:
+    handle: "@plasticflixbrasil"
+    seguidores: 12100
+    posts: 602
+    bio_em_24_09_2026: >
+      Plasticflix Academy - Hands on Cadaver Lab Face/Nariz: 03-07 marco 2027
+      Sao Paulo/ inscricoes abertas : +55 11 981047813
+    nota: >
+      INSCRICOES JA ESTAO ABERTAS e anunciadas publicamente, com telefone
+      proprio. O calendario do projeto previa lote 1 so em dez/jan — o cliente
+      ja esta vendendo.
+  site_do_evento:
+    url: plasticflixacademy.com.br
+    estado: no ar com a pagina PRIME 2027
+    tom_vigente:
+      - "Seu Passaporte para a Excelencia em Rinoplastia e Cirurgia Facial!"
+      - "Uma imersao que entrega: maestria, confianca e tecnica."
+      - "Aprenda com quem dita o ritmo da evolucao na cirurgia plastica facial."
+    precos_publicados:
+      hands_on_rino_mais_teoria: 20000
+      hands_on_face_mais_teoria: 60000
+      teoria_face: 10000
+      teoria_rino: 5000
+    vende_transmissao: true
+    transmissao_nota: >
+      O site diz "transmissoes em tempo real de cirurgias" e que a cirurgia ao
+      vivo pode ser assistida do hotel mediante investimento adicional. No
+      ciclo anterior isso era PRODUTO VENDIDO: transmissao Face R$ 10 mil,
+      transmissao Rino R$ 5 mil, e cadaver lab Face assistido R$ 20 mil.
+      CONTRADIZ frontalmente a decisao do kickoff de nao transmitir, que esta
+      implementada como veto em src/rules/transmissao-cirurgia.js (R-002).
+  plataforma_de_assinatura:
+    url: plasticflix.academy
+    posicionamento_declarado: "A MAIOR PLATAFORMA DE CIRURGIA PLASTICA FACIAL E RINOPLASTIA DO MUNDO"
+    acervo: mais de 250 aulas
+    fundador_declarado: Dr. Dhyego Curado
+    nota: >
+      E a alternativa competitiva A5 do posicionamento — e ela se anuncia com
+      superlativo absoluto, o oposto da regua de tom que produzimos.
   site_atual:
     situacao: desatualizado
     gerido_por: ex-profissional "John"
@@ -58,11 +97,21 @@ evento:
   local: Instituto Quirontec
   cidade: Sao Paulo
   mes: marco
-  ano: null
+  ano: 2027
+  ano_fonte: >
+    CONFIRMADO EM FONTE PUBLICA DO PROPRIO CLIENTE em 24/09/2026, nao por
+    declaracao a Stark:
+      - bio do Instagram @plasticflixbrasil: "Hands on Cadaver Lab Face/Nariz:
+        03-07 marco 2027 Sao Paulo/ inscricoes abertas: +55 11 981047813"
+      - site plasticflixacademy.com.br: pagina "PRIME 2027"
+    O kickoff nunca disse o ano. O cliente ja estava anunciando publicamente.
   ano_nota: >
-    O kickoff diz "primeira semana de marco" SEM dizer o ano. Nao chutar. Trava
-    data em toda peca, LP e prazo de lote. Ver lacunas.yaml L-001 e a regra
-    R-007, que bloqueia peca que afirme o ano enquanto este campo for null.
+    Preenchido porque existe fonte publica e oficial, mais forte que indicio.
+    Confirmar mesmo assim na reuniao — junto com a divergencia de datas abaixo.
+  divergencia_de_datas: >
+    O site plasticflixacademy.com.br publica 03 a 05/03 (rino 03-04, face
+    04-05). A bio do Instagram e o kickoff dizem 03 a 07/03. Dois canais do
+    PROPRIO CLIENTE divergem entre si sobre a duracao do evento.
   semana: primeira semana de marco
   anfiteatro_capacidade_dia: 70
   grade:

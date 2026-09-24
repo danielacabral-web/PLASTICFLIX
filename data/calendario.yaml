@@ -23,10 +23,12 @@
 
 fonte: kickoff 2026-09-22 + ideacao estrategica 2026-09-24
 ancora: primeiro dia do evento (03/03)
-ano: null
+ano: 2027
 ano_nota: >
-  O ano do evento nao foi dito no kickoff. Toda data desta pagina fica sem ano
-  ate a confirmacao do cliente. Ver lacunas.yaml L-001.
+  Confirmado em 24/09/2026 por fonte publica do proprio cliente — bio do
+  Instagram @plasticflixbrasil ("03-07 marco 2027") e pagina PRIME 2027 do
+  site plasticflixacademy.com.br. O kickoff nunca disse o ano; o cliente ja
+  estava anunciando. Ver perfil-plasticflix.yaml evento.ano_fonte.
 revisao: 2026-09-24 — de 7 para 8 fases
 
 fases:
