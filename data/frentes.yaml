@@ -165,3 +165,109 @@ frentes:
       esta frente abre por volta de novembro - antes da fase de lote 1.
     depende_de: [L-010, L-011, L-005]
     clickup: 86akpdz99
+
+  # F7 a F11 sao as frentes de GESTAO, modeladas nas frentes equivalentes da
+  # OpenMind 2026 (task-mae 86ahzc7ym). O kickoff so produziu frentes de
+  # execucao; sem estas, o projeto nao tem onde registrar decisao, cobranca,
+  # data nem aprovacao — que foi o que produziu a reta final da Jornada
+  # Paulista e o retrabalho de 40 pecas na OpenMind.
+
+  - id: F7
+    nome: Estrategia e modelo de vendas
+    dono: a definir
+    papel_do_dono: stark
+    espelha: 86ahzc83k
+    objetivo: >
+      Fechar com o cliente a regua comercial que hoje esta meio definida: dois
+      lotes existem sem data de corte, e o piso da Face so existe na conversa.
+    entregas:
+      - Datas de corte do 1o e do 2o lote, iguais em LP, WhatsApp e comercial
+      - Piso de negociacao da Face definido pela diretoria
+      - Expectativa do trafego calibrada por escrito antes da primeira campanha
+      - Apresentacao em caminhos possiveis, nao mega-plano
+    criterio_de_pronto: >
+      Regua de lote com datas declaradas, piso da Face definido e calibragem de
+      trafego escrita — tudo documentado e identico nos tres canais.
+    depende_de: [L-001, L-004, L-008]
+    clickup: 86akpf9jr
+
+  - id: F8
+    nome: Destravar dependencias do cliente
+    dono: a definir
+    papel_do_dono: stark
+    espelha: 86ahzc86k
+    objetivo: >
+      Cobrar e destravar as 11 lacunas registradas. E o gargalo que travou a
+      Jornada Paulista e a OpenMind na reta final.
+    entregas:
+      - Cobranca agrupada dos dados que travam data e identidade
+      - Corpo docente confirmado e fotos no Drive
+      - Acesso ao site atual e medidas do Quirontec
+    criterio_de_pronto: >
+      As 11 lacunas fechadas ou explicitamente aceitas como risco, sem trava
+      pendente nao sinalizada.
+    regra: >
+      Uma mensagem com todos os itens, nunca pedido pingado, e sempre com o que
+      segue mesmo assim. A tool status_lacunas gera o rascunho e omite o que e
+      acao interna da Stark.
+    depende_de: []
+    clickup: 86akpf9kt
+
+  - id: F9
+    nome: Gestao da comunicacao e entregas
+    dono: a definir
+    papel_do_dono: stark
+    espelha: 86ahzc84v
+    objetivo: >
+      Definir como a Stark fala com o cliente, como registra aprovacao e como
+      evita o desgaste das edicoes anteriores.
+    entregas:
+      - Porta-voz unico e canal oficial definidos
+      - Ritual de alinhamento semanal de 15 a 30 minutos
+      - Fluxo de aprovacao por tipo de peca
+    criterio_de_pronto: >
+      Porta-voz definido, ritual rodando e toda aprovacao registrada em lugar
+      rastreavel.
+    nota: >
+      O cliente tem quatro interlocutores com dominios diferentes. Sem
+      porta-voz, a Stark recebe quatro versoes da mesma decisao.
+    depende_de: []
+    clickup: 86akpf9mg
+
+  - id: F10
+    nome: Cronograma
+    dono: a definir
+    papel_do_dono: stark
+    espelha: 86aj7hhyz
+    objetivo: >
+      Converter as sete fases em datas reais, contadas para tras a partir do
+      evento, e amarrar o prazo de grafica.
+    entregas:
+      - Sete fases com janela declarada
+      - Calendario de producao de materiais aberto em novembro
+      - Prazo de grafica como data real, nao estimativa
+    criterio_de_pronto: >
+      Cada frente sabe o que precisa estar pronto em qual data.
+    depende_de: [L-001]
+    clickup: 86akpf9nw
+
+  - id: F11
+    nome: Preparar e integrar o squad
+    dono: a definir
+    papel_do_dono: stark
+    espelha: 86ahzc872
+    objetivo: >
+      Colocar o time para rodar com o mesmo contexto e com a ferramenta do
+      projeto na mao.
+    entregas:
+      - Dona do projeto no ClickUp definida
+      - Time com acesso a documentacao, a arvore de tasks e ao MCP
+      - Os dois erros mais provaveis avisados na largada
+    criterio_de_pronto: >
+      Dona definida e time produzindo com perfil_plasticflix no inicio e
+      verificar_conteudo no fim.
+    nota: >
+      A dona do projeto e a unica pendencia bloqueante que nao depende do
+      cliente.
+    depende_de: []
+    clickup: 86akpf9pw
