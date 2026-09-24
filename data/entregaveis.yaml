@@ -1,0 +1,225 @@
+# Catalogo de entregaveis do projeto.
+#
+# Levantado em 24/09/2026 na pasta Plasticflix Academy do Drive, cobrindo os
+# ciclos Prime 3 (2025) e Prime 4 (evento de 11 a 15/03/2026). E o equivalente
+# ao que o Eloy fez na OpenMind na subtask "Listar materiais (ano passado)":
+# o inventario do ciclo anterior e o que define o escopo do proximo.
+#
+# Cada item existiu de fato no ciclo anterior. Nada aqui foi imaginado — o
+# campo `referencia` diz onde o arquivo original esta.
+
+fonte: inventario do Drive em 2026-09-24
+pasta_mae: https://drive.google.com/drive/folders/1ie11tdtn7joR6zDwt1_HrxtqYovRpQK-
+frente: F6
+clickup: 86akpdz99
+
+ciclos_inventariados:
+  - nome: Prime 3
+    ano: 2025
+  - nome: Prime 4
+    ano: 2026
+    evento: 11 a 15 de marco de 2026
+    nota: >
+      O evento anterior ocupou cinco dias no MEIO de marco, nao a primeira
+      semana. O kickoff fala em 03 a 07/03. Confirmar junto com o ano (L-001).
+
+categorias:
+  - id: certificados
+    nome: Certificados e credenciais
+    clickup: 86akpdzjq
+    itens:
+      - item: Certificado de participante
+        referencia: Certificados IMPRESSOS + TEXTOS CERTIFICADOS IMPRESSOS.docx
+        copy_existe: true
+        trava: [carga horaria, L-001, L-010]
+      - item: Certificado de palestrante
+        referencia: Certificados Fernando Mattioli/Palestrante
+        trava: [L-005, L-012]
+      - item: Certificado de moderador
+        referencia: Certificados Fernando Mattioli/Moderador
+        trava: [L-012]
+      - item: Crachas por perfil
+        referencia: CRACHAS 2026
+        nota: >
+          Na OpenMind os perfis foram corpo docente, diretoria, expositores e
+          staff. Aqui ha tambem monitores e instrutores, que tiveram arte
+          propria no Prime 3.
+      - item: Cordao do cracha
+        referencia: Projeto - Cordao preto escrito em branco.pdf
+        nota: item de fornecedor, com prazo proprio
+      - item: Tickets de acesso
+        referencia: pasta Tickets
+        nota: >
+          O evento tem teoricas, labs e cirurgia ao vivo com publicos e precos
+          diferentes; o ticket separa quem entra onde.
+      - item: Assinaturas dos chairs
+        referencia: pasta Assinaturas Chairs
+        arquivos_2025: [Manoel Pereira, Sergio Furtado, Waldemar Penna, Tiago Lyrio]
+        alerta: >
+          NAO reaproveitar sem conferir. Foi o alerta registrado na OpenMind: a
+          diretoria mudou de um ano para o outro e as artes antigas traziam os
+          nomes errados. Tiago Lyrio nao foi citado no kickoff.
+
+  - id: impressos
+    nome: Impressos e sinalizacao
+    clickup: 86akpdzmr
+    trava_geral: L-011
+    nota_geral: >
+      Toda a sinalizacao do ciclo anterior foi medida para outro espaco. O
+      Quirontec tem tres andares, com salas de aula, laboratorio de anatomia e
+      andares de expositores e coffee break. Nada e reaproveitavel direto.
+    itens:
+      - item: Backdrop e backgrounds
+        referencia: pastas Backdrop e Backgrounds Plasticflix
+        nota: >
+          O backdrop e a peca que mais circula depois do evento: e o fundo de
+          toda foto que o participante publica.
+      - item: Placas de sinalizacao do espaco
+        referencia: Placas de sinalizacao | PRIME 2026
+      - item: Placas do CadaverLab
+        referencia: pasta Placas CadaverLab
+        nota: >
+          E onde a proporcao de supervisao fica visivel fisicamente: 1 aluno por
+          peca na Rino, 2 na Face. A prova mais forte do projeto acontece nesta
+          sala.
+      - item: Placas de instrutores e de mesa
+        referencia: [Placas Instrutores de RINO, Placas de Mesa, Prisma de mesa]
+        nota: >
+          No ciclo anterior existiu placa de instrutor so para Rino. A Face tem
+          mais estacoes (10 vagas, 2 alunos por peca) - confirmar se precisa.
+      - item: Placas transfer, placa-trofeu, estande e rollup
+        referencia: [Placas Transfer, Placa-Trofeu, Estande, Banner rollup]
+
+  - id: papelaria
+    nome: Papelaria do participante
+    clickup: 86akpdzpd
+    nota_geral: >
+      Na OpenMind o kit do participante foi CANCELADO. Aqui ele existiu no ciclo
+      anterior e tem lastro. Decidir explicitamente se mantem, em vez de deixar
+      a decisao acontecer por esquecimento.
+    itens:
+      - item: Carta de boas-vindas
+        referencia: pasta Cartas Boas Vindas
+      - item: Envelope A4 e TAG de caixa
+        referencia: [pasta Envelope A4, pasta TAG caixa]
+      - item: Agenda A5
+        referencia: pasta Agenda A5
+        nota: maior prazo de producao da papelaria - encadernacao tem fila propria
+      - item: Cartoes de agradecimento
+        referencia: pasta Cartoes de agradecimento
+        nota: >
+          Peca de pos-evento para professores, convidados e parceiros. Num
+          projeto cujo objetivo declarado e posicionamento cientifico dos
+          socios, o fecho com o corpo docente nao e detalhe.
+
+  - id: programacao
+    nome: Programacao, cronogramas e slides
+    clickup: 86akpdztj
+    trava_geral: L-012
+    itens:
+      - item: Cronograma de aulas - Rinoplastia
+        referencia: [Cronograma de aulas | RINO, PROGRAMACAO TEORICA RINO - 02.02.docx]
+        cobre: [03/03 teorica, 05/03 cadaver lab]
+      - item: Cronograma de aulas - Face
+        referencia: Cronograma de Aulas | Face
+        cobre: [04/03 teorica, 06/03 cadaver lab]
+        prioridade: >
+          E o eixo com vendas zeradas. A grade da Face e o que o comercial
+          precisa para argumentar valor num produto de R$ 60 mil.
+      - item: Template de slides e coleta com os palestrantes
+        referencia: [Template Slides | PRIME 2026, Slide - Prime 2026, Slides Palestrantes]
+        nota: >
+          O template precisa chegar com folga, senao cada palestrante monta no
+          formato que quiser e o evento perde unidade visual. No ciclo anterior
+          havia duas pastas de slides, sinal de coleta em mais de uma rodada.
+      - item: Folheto de programacao e PDF de apresentacao
+        referencia: [Cronograma - Hands On Prime 2025.pdf, PDF - APRESENTACAO, Cronograma | Final]
+        nota: >
+          Duas pecas com publicos diferentes: o folheto e para quem ja comprou;
+          o PDF de apresentacao e peca comercial, usada na prospeccao e com as
+          sociedades parceiras.
+
+  - id: patrocinadores
+    nome: Patrocinadores e parceiros
+    clickup: 86akpdzw3
+    alerta: >
+      O kickoff NAO tocou no assunto patrocinio. Esta categoria veio do
+      inventario. Patrocinio e receita que nao depende de preencher vaga, o que
+      pesa num cenario de Face zerada. Perguntar ao cliente se entra neste ciclo.
+    itens:
+      - item: PDF de cotas de patrocinio
+        referencia: [pasta Patrocinadores, PDF Patrocinadores]
+      - item: Artes de patrocinados e banner do site da Cenacon
+        referencia: [Patrocinados/Metodo LD (FACE e RINO), Banner - Site CENACON]
+        nota: >
+          O banner e contrapartida de divulgacao - mesma mecanica dos acordos de
+          -10% com as sociedades na F5.
+
+  - id: identidade
+    nome: Identidade visual da edicao
+    clickup: 86akpdzxr
+    bloqueado_por: L-010
+    itens:
+      - item: Logo da edicao (vetor) e QR code
+        referencia: [LOGO - PRIME 4 -VETOR.svg, Logo | PlasticFlix, Id. Visual, qr_code.png]
+        alerta: >
+          Cada edicao teve logo proprio COM O NUMERO DA EDICAO, e a numeracao
+          nao fecha (L-010). Nao produzir antes de a Cenacon confirmar: o logo
+          entra em certificado, cracha, backdrop, slide, papelaria e em cada
+          peca de divulgacao. E o erro que contamina tudo de uma vez.
+
+  - id: divulgacao
+    nome: Videos e pecas de divulgacao recorrentes
+    clickup: 86akpdzz6
+    itens:
+      - item: Video de atracao (peca-ancora)
+        referencia: [Video Atracao PlasticFlix.mp4, Video plasticflix.MP4]
+        nota: >
+          Equivalente ao video-manifesto da OpenMind. Eixo sugerido: a semana
+          encadeada (PR-003), que nenhum curso avulso consegue mostrar.
+        trava: [L-013]
+      - item: Videos de chamada dos palestrantes
+        referencia: [Videos Palestrantes, Video Enrico, Juliano Colonetti.mp4]
+        nota: >
+          Ativo de maior retorno da frente de conteudo: carrega a prova PR-002
+          com rosto e voz, e cada professor divulga no proprio perfil. Depende
+          de agenda dos professores - pedir cedo. No ciclo anterior existiu ate
+          uma arte so para solicitar o envio.
+      - item: Cronograma de Reels
+        referencia: Cronograma de Reels | PlasticFlix
+        nota: alimenta a cadencia de 3 posts por semana da F3
+      - item: Artes de participante (EUVOU, ultimas vagas, contagem regressiva)
+        referencia: ["#EUVOU | 2026", Arte | Ultimas vagas, CONTAGEM REGRESSIVA - E HOJE.png]
+        nota: >
+          A escassez por VAGA e verdadeira e nao depende de data nenhuma - pode
+          ser usada ja, enquanto o ano e os lotes seguem em aberto.
+      - item: ENEWS, artes de WhatsApp, flyer e folder
+        referencia: [pasta ENEWS, pasta Whatsapp, MKT GRUPO | artes, pasta Folder, Flyer - Hands On Prime]
+        nota: >
+          Sao as pecas dos canais diretos, que neste projeto SUBSTITUEM o
+          trafego pago no Brasil. Teto conhecido: disparo em massa por WhatsApp
+          sofre banimento apos cerca de 30 mensagens.
+
+o_que_ja_existe_do_proximo_ciclo:
+  criado_pelo_cliente_em: [2026-09-22, 2026-09-23, 2026-09-24]
+  pastas:
+    - PRIME 6 2027 > Cronograma de Conteudo > 09. SETEMBRO > 22.09
+    - PRIME 2027 > Flyer Rino
+    - PLASTICFLIX 2026 > Fotos (Aulas tercas)
+  fotos_em_prime_2027: [Kevin Sadati, Ramtin Kassir, Brannon Claytor]
+  nota: >
+    As tres fotos sao quase certamente os convidados americanos da Face, que o
+    kickoff mencionou sem nomear (L-005). Foto numa pasta e indicio, nao
+    confirmacao - nao usar em peca antes de a Cenacon confirmar.
+
+leituras:
+  - >
+    O volume real e muito maior que as cinco frentes do kickoff. A reuniao
+    tratou de LP, trafego, conteudo, comercial e parcerias; o ciclo anterior
+    produziu mais de 40 itens, a maioria material de evento.
+  - >
+    A producao comeca em NOVEMBRO. No ciclo anterior certificados, crachas e
+    patrocinadores sairam entre novembro e fevereiro para um evento de marco.
+  - >
+    O ingles nao era novidade: existe pasta de edicao de videos em ingles desde
+    maio de 2025. A decisao do idioma foi revertida para portugues em 24/09.

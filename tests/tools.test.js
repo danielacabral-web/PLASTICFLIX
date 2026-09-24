@@ -16,6 +16,7 @@ import copy from '../src/tools/escrever_copy.js';
 import verificar from '../src/tools/verificar_conteudo.js';
 import lacunas from '../src/tools/status_lacunas.js';
 import documentacao from '../src/tools/documentacao.js';
+import catalogo from '../src/tools/catalogo_entregaveis.js';
 import { carregarYaml } from '../src/data/carregar.js';
 
 describe('perfil_plasticflix', () => {
@@ -273,5 +274,46 @@ describe('documentacao', () => {
     const r = await documentacao({ secao: 'nao-existe' });
     assert.ok(r.erro);
     assert.ok(r.secoes_validas.length > 0);
+  });
+});
+
+describe('catalogo_entregaveis', () => {
+  test('todo item declara a referencia do ciclo anterior', async () => {
+    const r = await catalogo();
+    const itens = r.categorias.flatMap((c) => c.itens);
+    assert.ok(itens.length > 0);
+    for (const i of itens) {
+      assert.ok(i.referencia_no_ciclo_anterior, `${i.item} nao diz de onde veio`);
+    }
+  });
+
+  test('separa o que pode comecar do que esta bloqueado por lacuna', async () => {
+    const r = await catalogo();
+    assert.equal(r.balanco.pode_comecar + r.balanco.bloqueado, r.total_de_itens);
+    assert.ok(r.balanco.bloqueado > 0, 'ha lacunas bloqueantes abertas, entao ha item travado');
+  });
+
+  test('o logo esta bloqueado pela divergencia de numeracao da edicao', async () => {
+    const r = await catalogo({ categoria: 'identidade' });
+    const logo = r.categorias[0].itens[0];
+    assert.equal(logo.pode_comecar, false);
+    assert.ok(logo.travado_por.some((l) => l.id === 'L-010'));
+  });
+
+  // Dependencia escrita em prosa nao vira lacuna sozinha — mas tambem nao pode
+  // sumir do relatorio, senao o backlog parece mais livre do que e.
+  test('dependencia sem lacuna catalogada aparece no balanco', async () => {
+    const r = await catalogo();
+    assert.ok(Array.isArray(r.balanco.itens_com_dependencia_nao_catalogada));
+    const comDep = r.categorias
+      .flatMap((c) => c.itens)
+      .filter((i) => i.dependencias_sem_lacuna);
+    assert.equal(comDep.length, r.balanco.itens_com_dependencia_nao_catalogada.length);
+  });
+
+  test('categoria invalida devolve as validas', async () => {
+    const r = await catalogo({ categoria: 'inexistente' });
+    assert.ok(r.erro);
+    assert.ok(r.categorias_validas.includes('certificados'));
   });
 });

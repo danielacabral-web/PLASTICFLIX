@@ -81,9 +81,13 @@ pipeline:
     - id: 3
       name: Briefing
       agent: plasticflix-briefing
-      tool: briefing_entrega
+      tool: briefing_entrega, catalogo_entregaveis
       gate: false
       paralelizable: true
+      nota: >
+        O catalogo entra aqui porque e ele que diz O QUE produzir; o briefing
+        diz COMO. Em peca de evento, consultar o catalogo primeiro evita criar
+        do zero o que ja existe no ciclo anterior.
     - id: 4
       name: Escrita
       agent: plasticflix-copy
@@ -248,6 +252,7 @@ data:
   lacunas: data/lacunas.yaml
   comunicacao: data/comunicacao.yaml
   briefings: data/briefing-templates.yaml
+  entregaveis: data/entregaveis.yaml
   regras: src/rules/
 
 dependencies:

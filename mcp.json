@@ -11,34 +11,67 @@
         "properties": {
           "secao": {
             "type": "string",
-            "enum": ["tudo", "socios", "evento", "objetivo", "time", "governanca", "historico"],
+            "enum": [
+              "tudo",
+              "socios",
+              "evento",
+              "objetivo",
+              "time",
+              "governanca",
+              "historico"
+            ],
             "description": "Recorte do perfil. Padrao 'tudo'."
           }
         }
       },
-      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "planejar_demandas",
       "agente": "plasticflix-demandas",
-      "description": "Devolve o backlog do projeto organizado nas 5 frentes (F1 landing pages, F2 trafego, F3 conteudo, F4 comercial, F5 parcerias), com dono, dependencia e a estrutura de task-mae/frente/subtask pronta para lancar no ClickUp.",
+      "description": "Devolve o backlog do projeto organizado nas frentes (F1 a F5 vieram do kickoff, F6 do inventario do Drive, F7 a F11 sao as de gestao modeladas na OpenMind), com dono, dependencia e a estrutura de task-mae/frente/subtask pronta para lancar no ClickUp.",
       "inputSchema": {
         "type": "object",
         "properties": {
           "frente": {
             "type": "string",
-            "enum": ["todas", "F1", "F2", "F3", "F4", "F5"],
+            "enum": [
+              "todas",
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5",
+              "F6",
+              "F7",
+              "F8",
+              "F9",
+              "F10",
+              "F11"
+            ],
             "description": "Filtra por frente. Padrao 'todas'."
           },
-          "dono": { "type": "string", "description": "Filtra por responsavel (ex.: 'Gustavo', 'Iris', 'Mara', 'Fran')." },
+          "dono": {
+            "type": "string",
+            "description": "Filtra por responsavel (ex.: 'Gustavo', 'Iris', 'Mara', 'Fran')."
+          },
           "formato": {
             "type": "string",
-            "enum": ["resumo", "clickup"],
+            "enum": [
+              "resumo",
+              "clickup"
+            ],
             "description": "'resumo' lista as demandas; 'clickup' devolve o payload de criacao com hierarquia, nomes e descricoes. Padrao 'resumo'."
           }
         }
       },
-      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "calendario_projeto",
@@ -47,15 +80,30 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "hoje": { "type": "string", "description": "Data de referencia AAAA-MM-DD. Sem ela, a tool nao inventa 'hoje' — devolve o calendario sem contagem regressiva." },
+          "hoje": {
+            "type": "string",
+            "description": "Data de referencia AAAA-MM-DD. Sem ela, a tool nao inventa 'hoje' — devolve o calendario sem contagem regressiva."
+          },
           "fase": {
             "type": "string",
-            "enum": ["todas", "destrave", "teste_trafego", "decisao", "lote_1", "lote_2", "reta_final", "evento"],
+            "enum": [
+              "todas",
+              "destrave",
+              "teste_trafego",
+              "decisao",
+              "lote_1",
+              "lote_2",
+              "reta_final",
+              "evento"
+            ],
             "description": "Filtra por fase. Padrao 'todas'."
           }
         }
       },
-      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "briefing_entrega",
@@ -66,20 +114,79 @@
         "properties": {
           "tipo": {
             "type": "string",
-            "enum": ["landing_page", "carrossel", "reels", "anuncio", "email", "whatsapp", "mala_direta"],
+            "enum": [
+              "landing_page",
+              "carrossel",
+              "reels",
+              "anuncio",
+              "email",
+              "whatsapp",
+              "mala_direta"
+            ],
             "description": "Tipo da entrega."
           },
-          "eixo": { "type": "string", "enum": ["rinoplastia", "face", "combo"], "description": "Eixo do produto." },
+          "eixo": {
+            "type": "string",
+            "enum": [
+              "rinoplastia",
+              "face",
+              "combo"
+            ],
+            "description": "Eixo do produto."
+          },
           "fase": {
             "type": "string",
-            "enum": ["destrave", "teste_trafego", "lote_1", "lote_2", "reta_final"],
+            "enum": [
+              "destrave",
+              "teste_trafego",
+              "lote_1",
+              "lote_2",
+              "reta_final"
+            ],
             "description": "Fase do calendario em que a peca entra."
           },
-          "tema": { "type": "string", "description": "Assunto especifico, se ja houver." }
+          "tema": {
+            "type": "string",
+            "description": "Assunto especifico, se ja houver."
+          }
         },
-        "required": ["tipo", "eixo"]
+        "required": [
+          "tipo",
+          "eixo"
+        ]
       },
-      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "catalogo_entregaveis",
+      "agente": "plasticflix-briefing",
+      "description": "Catalogo dos entregaveis do projeto, item a item, levantado no inventario do ciclo anterior no Drive. Cada item traz a referencia do arquivo original, o que ja tem copy pronta para adaptar, e as lacunas que o travam — separando o que pode comecar do que esta bloqueado.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "categoria": {
+            "type": "string",
+            "enum": [
+              "todas",
+              "certificados",
+              "impressos",
+              "papelaria",
+              "programacao",
+              "patrocinadores",
+              "identidade",
+              "divulgacao"
+            ],
+            "description": "Filtra por categoria. Padrao 'todas'."
+          }
+        }
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "oferta_precos",
@@ -90,13 +197,27 @@
         "properties": {
           "produto": {
             "type": "string",
-            "enum": ["todos", "teorica_rino", "teorica_face", "lab_rino", "lab_face", "cirurgia_ao_vivo", "combo"],
+            "enum": [
+              "todos",
+              "teorica_rino",
+              "teorica_face",
+              "lab_rino",
+              "lab_face",
+              "cirurgia_ao_vivo",
+              "combo"
+            ],
             "description": "Filtra por produto. Padrao 'todos'."
           },
-          "objecao": { "type": "string", "description": "Objecao relatada pelo lead, para a tool devolver o argumento correspondente." }
+          "objecao": {
+            "type": "string",
+            "description": "Objecao relatada pelo lead, para a tool devolver o argumento correspondente."
+          }
         }
       },
-      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "base_publico",
@@ -107,12 +228,21 @@
         "properties": {
           "recorte": {
             "type": "string",
-            "enum": ["tudo", "elegibilidade", "mercados", "bases", "sociedades"],
+            "enum": [
+              "tudo",
+              "elegibilidade",
+              "mercados",
+              "bases",
+              "sociedades"
+            ],
             "description": "Recorte do levantamento. Padrao 'tudo'."
           }
         }
       },
-      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "escrever_copy",
@@ -123,15 +253,44 @@
         "properties": {
           "tipo": {
             "type": "string",
-            "enum": ["landing_page", "carrossel", "reels", "anuncio", "email", "whatsapp", "mala_direta"],
+            "enum": [
+              "landing_page",
+              "carrossel",
+              "reels",
+              "anuncio",
+              "email",
+              "whatsapp",
+              "mala_direta"
+            ],
             "description": "Tipo da peca."
           },
-          "eixo": { "type": "string", "enum": ["rinoplastia", "face", "combo"], "description": "Eixo do produto." },
-          "idioma": { "type": "string", "enum": ["en", "pt"], "description": "Padrao 'en' — decisao do cliente. 'pt' so para peca interna ou canal direto no Brasil." }
+          "eixo": {
+            "type": "string",
+            "enum": [
+              "rinoplastia",
+              "face",
+              "combo"
+            ],
+            "description": "Eixo do produto."
+          },
+          "idioma": {
+            "type": "string",
+            "enum": [
+              "en",
+              "pt"
+            ],
+            "description": "Padrao 'en' — decisao do cliente. 'pt' so para peca interna ou canal direto no Brasil."
+          }
         },
-        "required": ["tipo", "eixo"]
+        "required": [
+          "tipo",
+          "eixo"
+        ]
       },
-      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "verificar_conteudo",
@@ -140,19 +299,60 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "texto": { "type": "string", "description": "Texto da peca a verificar." },
+          "texto": {
+            "type": "string",
+            "description": "Texto da peca a verificar."
+          },
           "canal": {
             "type": "string",
-            "enum": ["instagram", "stories", "landing_page", "anuncio", "email", "whatsapp", "interno"],
+            "enum": [
+              "instagram",
+              "stories",
+              "landing_page",
+              "anuncio",
+              "email",
+              "whatsapp",
+              "interno"
+            ],
             "description": "Canal de publicacao."
           },
-          "eixo": { "type": "string", "enum": ["rinoplastia", "face", "combo"], "description": "Eixo do produto." },
-          "idioma": { "type": "string", "enum": ["en", "pt"], "description": "Idioma em que a peca foi escrita." },
-          "praca": { "type": "string", "enum": ["brasil", "mexico", "argentina", "chile", "internacional"], "description": "Praca de veiculacao — usada pela regra de trafego." }
+          "eixo": {
+            "type": "string",
+            "enum": [
+              "rinoplastia",
+              "face",
+              "combo"
+            ],
+            "description": "Eixo do produto."
+          },
+          "idioma": {
+            "type": "string",
+            "enum": [
+              "en",
+              "pt"
+            ],
+            "description": "Idioma em que a peca foi escrita."
+          },
+          "praca": {
+            "type": "string",
+            "enum": [
+              "brasil",
+              "mexico",
+              "argentina",
+              "chile",
+              "internacional"
+            ],
+            "description": "Praca de veiculacao — usada pela regra de trafego."
+          }
         },
-        "required": ["texto"]
+        "required": [
+          "texto"
+        ]
       },
-      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "status_lacunas",
@@ -161,10 +361,16 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "completo": { "type": "boolean", "description": "true traz todas as lacunas, nao so as bloqueantes. Custa mais contexto." }
+          "completo": {
+            "type": "boolean",
+            "description": "true traz todas as lacunas, nao so as bloqueantes. Custa mais contexto."
+          }
         }
       },
-      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
     },
     {
       "name": "documentacao",
@@ -173,10 +379,16 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "secao": { "type": "string", "description": "Id da secao. Sem argumento, devolve o indice — que e o modo barato." }
+          "secao": {
+            "type": "string",
+            "description": "Id da secao. Sem argumento, devolve o indice — que e o modo barato."
+          }
         }
       },
-      "annotations": { "readOnlyHint": true, "openWorldHint": false }
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      }
     }
   ]
 }

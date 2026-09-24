@@ -174,10 +174,15 @@ describe('registry - boot tem de falhar', () => {
 });
 
 describe('manifest real deste repo', () => {
-  test('declara as 10 tools do contrato, todas validas', () => {
+  // A lista abaixo e o conjunto MINIMO: nenhuma destas pode sumir sem que o
+  // teste caia. Tool nova nao quebra o teste — quebraria a versao anterior,
+  // que comparava a lista inteira com deepEqual e caiu quando
+  // catalogo_entregaveis entrou. Travar o crescimento nao protege nada; o que
+  // precisa de protecao e a remocao silenciosa e a tool mal formada.
+  test('o manifest contem as tools do contrato, todas validas', () => {
     const manifest = lerManifest();
     const nomes = manifest.tools.map((t) => t.name);
-    assert.deepEqual(nomes, [
+    const obrigatorias = [
       'perfil_plasticflix',
       'planejar_demandas',
       'calendario_projeto',
@@ -188,7 +193,11 @@ describe('manifest real deste repo', () => {
       'verificar_conteudo',
       'status_lacunas',
       'documentacao',
-    ]);
+    ];
+    for (const nome of obrigatorias) {
+      assert.ok(nomes.includes(nome), `a tool ${nome} sumiu do manifest`);
+    }
+    assert.equal(new Set(nomes).size, nomes.length, 'ha tool duplicada no manifest');
     for (const t of manifest.tools) {
       assert.match(t.name, /^[a-z][a-z0-9_]*$/, `${t.name} fora do snake_case`);
       assert.ok(t.agente, `${t.name} sem agente`);

@@ -244,3 +244,45 @@ lacunas:
       esse item so foi resolvido na reta final e travou a producao - o registro
       da propria task diz "antecipar para nao travar na reta final, como ocorreu
       na JP".
+
+  - id: L-012
+    titulo: Grade de programacao por eixo
+    situacao: pendente_cliente
+    bloqueante: true
+    evidencia: >
+      Nao existe grade confirmada de Rinoplastia nem de Face. O kickoff deu os
+      dias e os formatos, nao o conteudo: quem fala, sobre o que, em que ordem.
+      Apareceu como trava de quatro entregaveis do catalogo (cronogramas por
+      eixo, template e coleta de slides, folheto de programacao) e e o mesmo
+      gargalo que travou os PDFs de programacao na OpenMind.
+    bloqueia:
+      - Cronogramas de aulas de Rino e de Face
+      - Folheto de programacao e PDF de apresentacao
+      - Agenda A5, que leva a programacao impressa
+      - Certificado de moderador, que depende de quem modera cada bloco
+      - Pecas de conteudo que detalham o que se aprende
+    segue_mesmo_assim: >
+      Tudo que se apoia no FORMATO e nao no conteudo: proporcao de supervisao,
+      encadeamento dos cinco dias, corpo docente e escassez por vaga.
+    pedido_ao_cliente: >
+      Grade por eixo, com nome de quem fala e tema, mesmo que em versao
+      preliminar. Uma grade preliminar destrava mais que a ausencia de grade.
+
+  - id: L-013
+    titulo: Mote, manifesto e regua de tom
+    situacao: decisao_interna
+    bloqueante: false
+    evidencia: >
+      O kickoff nao tocou no assunto. Na OpenMind isso foi metade do trabalho e
+      passou por quatro versoes ate o cliente aprovar. Aqui nao existe nem a
+      primeira. Os campos mote, manifesto e regua_de_tom em
+      data/comunicacao.yaml estao null.
+    bloqueia:
+      - Video de atracao (peca-ancora), que define o tom de tudo que vem depois
+      - Consistencia entre as pecas das cinco frentes de execucao
+    segue_mesmo_assim: >
+      Pecas informativas e comerciais - grade, precos, corpo docente, prova de
+      supervisao - nao dependem de mote. O que depende e a peca de conceito.
+    pedido_ao_cliente: >
+      Nada a pedir: e decisao interna da Stark. Precisa entrar no escopo
+      formalmente, porque hoje nao esta em nenhuma frente.

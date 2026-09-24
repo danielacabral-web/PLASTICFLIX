@@ -39,10 +39,15 @@ commands:
   - name: briefing
     description: Monta o briefing de uma entrega
     tool: briefing_entrega
+  - name: catalogo
+    description: >
+      O que precisa ser produzido, item a item, com a referência do ciclo
+      anterior e o que está travado por lacuna.
+    tool: catalogo_entregaveis
 
 dependencies:
-  tools: [briefing_entrega]
-  data: [data/briefing-templates.yaml, data/comunicacao.yaml, data/produtos.yaml]
+  tools: [briefing_entrega, catalogo_entregaveis]
+  data: [data/briefing-templates.yaml, data/comunicacao.yaml, data/produtos.yaml, data/entregaveis.yaml]
 ```
 
 ## Como este agente trabalha
@@ -91,3 +96,23 @@ protege o evento de represália de sociedade médica.
 Escreva o critério como pergunta de sim ou não. "O texto deixa claro quem pode
 se inscrever?" é critério. "Ter tom profissional" não é — ninguém consegue
 reprovar por ele, o que na prática significa que nada é reprovado.
+
+## O catálogo de entregáveis
+
+Antes de especificar qualquer peça de evento, chame `catalogo_entregaveis`.
+
+**Todo item do catálogo existiu no ciclo anterior** — o campo `referencia` aponta
+o arquivo original no Drive. Isso muda o trabalho: em vez de criar do zero, você
+abre o que já foi feito e adapta. Alguns itens, como os certificados, já têm a
+copy pronta num .docx.
+
+Duas coisas que o catálogo entrega e uma lista simples não entregaria:
+
+**O que está bloqueado.** Oito dos 28 itens não podem começar — a maioria presa
+na grade de programação (L-012) e na numeração da edição (L-010). Backlog com
+um terço travado parece saudável até alguém tentar começar.
+
+**O erro que já foi cometido.** Itens com campo `alerta` trazem um problema
+concreto do passado. O mais caro: as assinaturas dos chairs de 2025 não podem
+ser reaproveitadas sem conferência — foi exatamente assim que a OpenMind quase
+imprimiu certificado com a diretoria errada.
