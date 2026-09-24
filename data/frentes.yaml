@@ -132,3 +132,36 @@ frentes:
       Pelo menos um mailing na mao e um acordo de -10% assinado com
       contrapartida de divulgacao publicada no site da sociedade.
     depende_de: [L-006]
+
+  - id: F6
+    nome: Materiais e impressos do evento
+    dono: a definir
+    papel_do_dono: stark
+    objetivo: >
+      Produzir o material do dia do evento - impressos, sinalizacao,
+      certificados, cracha, papelaria do participante, patrocinadores e
+      templates de slides.
+    origem: >
+      Esta frente NAO veio do kickoff. Veio do inventario do ciclo anterior,
+      levantado na pasta Plasticflix Academy do Drive em 24/09/2026. A reuniao
+      tratou de LP, trafego, conteudo, comercial e parcerias; o ciclo anterior
+      produziu mais de 40 itens, a maioria de material de evento. Sem esta
+      frente o maior volume de trabalho do projeto ficaria invisivel ate a reta
+      final.
+    entregas:
+      - Certificados e credenciais (certificados por perfil, crachas, cordao, tickets, assinaturas dos chairs)
+      - Impressos e sinalizacao (backdrop, placas de mesa, sinalizacao, CadaverLab, instrutores, transfer, placa-trofeu, estande, rollup)
+      - Papelaria do participante (carta de boas-vindas, envelope A4, agenda A5, cartao de agradecimento, tag de caixa)
+      - Programacao e slides (cronogramas por eixo, programacao teorica, template de slides, slides dos palestrantes, QR code)
+      - Patrocinadores (PDF de cotas, patrocinados por eixo, banner do site da Cenacon)
+      - Identidade visual da edicao (logo vetorizado com o numero da edicao, QR code)
+      - Videos e pecas recorrentes (video atracao, videos dos palestrantes, reels, #EUVOU, enews, contagem regressiva)
+    criterio_de_pronto: >
+      Todos os materiais aprovados pelo cliente e enviados ao fornecedor dentro
+      do prazo de impressao.
+    quando_abre: >
+      No ciclo anterior certificados, crachas e patrocinadores foram produzidos
+      entre novembro e fevereiro para um evento de marco. Contando para tras,
+      esta frente abre por volta de novembro - antes da fase de lote 1.
+    depende_de: [L-010, L-011, L-005]
+    clickup: 86akpdz99

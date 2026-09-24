@@ -21,6 +21,12 @@ lacunas:
       trafego em out-nov, lotes em dez-fev) o evento cai no marco seguinte, mas
       isso e inferencia, nao declaracao do cliente. O campo evento.ano em
       data/perfil-plasticflix.yaml esta null por isso.
+    indicio_novo: >
+      Levantamento do Drive em 24/09/2026: o cliente criou as pastas "PRIME 6
+      2027" (22/09) e "PRIME 2027" (23/09) dentro de Plasticflix Academy. Isso
+      reforca 2027, mas segue sendo indicio - nome de pasta nao e declaracao do
+      cliente, e a mesma pasta carrega a divergencia de numeracao da L-010. O
+      campo continua null ate a Cenacon confirmar por escrito.
     bloqueia:
       - Toda peca, LP e anuncio que traga data
       - Prazo declarado de 1o e 2o lote
@@ -102,6 +108,13 @@ lacunas:
       Ainda nao subiram. Os carrosseis de corpo docente sao uma das linhas de
       conteudo explicitamente pedidas, e a prova numero 2 do eixo (corpo docente
       internacional) depende de rosto.
+    indicio_novo: >
+      Em 24/09/2026 apareceram tres fotos na pasta "PRIME 2027" do Drive: Kevin
+      Sadati, Ramtin Kassir e Brannon Claytor. Sao quase certamente os tres
+      convidados americanos da Face, cujos nomes o kickoff nao deu. NAO usar em
+      peca antes de a Cenacon confirmar: foto numa pasta e indicio, e nome
+      errado em peca de corpo docente nao se desfaz. As fotos dos professores
+      brasileiros seguem pendentes.
     bloqueia:
       - Carrosseis de apresentacao dos palestrantes
       - Pecas que usam o corpo docente internacional como prova
@@ -190,3 +203,44 @@ lacunas:
     pedido_ao_cliente: >
       Credenciais de administracao do site e do dominio, ou o contato direto do
       "John" para a transferencia.
+
+  - id: L-010
+    titulo: Numero oficial da edicao
+    situacao: pendente_cliente
+    bloqueante: true
+    evidencia: >
+      Tres fontes discordam. O Drive mostra "PlastixFlix Prime 3" nas artes de
+      2025 e "LOGO - PRIME 4 - VETOR.svg" no ciclo de 2026. O kickoff de 22/09
+      chama o proximo de "5o episodio". E a pasta que o cliente criou em 22/09
+      se chama "PRIME 6 2027". Se 2026 foi o Prime 4, o proximo seria o 5 - nao
+      o 6.
+    bloqueia:
+      - Logo da edicao, que entra em todas as outras pecas
+      - Qualquer peca que nomeie a edicao
+    segue_mesmo_assim: >
+      Tudo que nao nomeia a edicao: grade, provas, precos, corpo docente e as
+      pecas de base quente. O numero so e indispensavel na identidade visual.
+    pedido_ao_cliente: >
+      Confirmar com a Cenacon qual e o numero oficial desta edicao. Num evento
+      vendido como serie, numero errado no logo contamina todas as pecas de uma
+      vez.
+
+  - id: L-011
+    titulo: Medidas e planta do Instituto Quirontec
+    situacao: pendente_cliente
+    bloqueante: false
+    evidencia: >
+      Toda a sinalizacao do ciclo anterior foi medida para o espaco daquele ano.
+      O evento agora e no Quirontec - predio de tres andares, com salas de aula,
+      laboratorio de anatomia e andares de expositores e coffee break. Sem
+      medidas nao se produz backdrop, placa nem estande.
+    bloqueia:
+      - Backdrop, placas de sinalizacao, placas de CadaverLab e estande
+    segue_mesmo_assim: >
+      Certificados, crachas, papelaria e slides nao dependem de medida de
+      espaco. So a sinalizacao fisica depende.
+    pedido_ao_cliente: >
+      Planta e medidas do Quirontec com o fornecedor, no inicio. Na OpenMind
+      esse item so foi resolvido na reta final e travou a producao - o registro
+      da propria task diz "antecipar para nao travar na reta final, como ocorreu
+      na JP".

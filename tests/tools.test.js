@@ -16,6 +16,7 @@ import copy from '../src/tools/escrever_copy.js';
 import verificar from '../src/tools/verificar_conteudo.js';
 import lacunas from '../src/tools/status_lacunas.js';
 import documentacao from '../src/tools/documentacao.js';
+import { carregarYaml } from '../src/data/carregar.js';
 
 describe('perfil_plasticflix', () => {
   test('o aviso de que nao existe paciente sai em TODO recorte', async () => {
@@ -53,11 +54,16 @@ describe('planejar_demandas', () => {
     assert.ok(r.bloqueios_do_cliente.length > 0, 'o kickoff tem demandas com dono do lado do cliente');
   });
 
+  // O numero de frentes vem do YAML, nao daqui. A versao anterior deste teste
+  // travava em 5 e quebrou quando a F6 (materiais e impressos) entrou a partir
+  // do inventario do ciclo anterior. Um teste que precisa ser editado toda vez
+  // que o dado cresce nao esta testando o handler — esta testando o YAML.
   test('formato clickup devolve hierarquia mae -> frente -> subtask', async () => {
+    const { frentes } = carregarYaml('frentes');
     const r = await demandas({ formato: 'clickup' });
     assert.equal(r.modo, 'clickup');
     assert.ok(r.payload.task_mae.nome);
-    assert.equal(r.payload.frentes.length, 5);
+    assert.equal(r.payload.frentes.length, frentes.length);
     assert.ok(r.payload.frentes.some((f) => f.subtasks.length > 0));
   });
 
