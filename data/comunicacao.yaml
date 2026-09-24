@@ -8,12 +8,32 @@
 fonte: kickoff 2026-09-22
 
 idioma:
-  publico: en
-  decidido_por: Dr. Fernando Mattioli
-  contra_proposta: espanhol (sugestao inicial, recusada)
-  justificativa_do_cliente: >
-    Os convidados sao americanos e turcos, e o publico latino-americano de alto
-    padrao consome conteudo internacional.
+  # REVERTIDO em 24/09/2026 por decisao da Daniela Cabral: a comunicacao sai em
+  # portugues. O ingles cai.
+  #
+  # Este campo e lido pela regra R-004, que nao tem idioma hardcoded — mudar
+  # aqui muda o veredito do verificador sem tocar em uma linha de codigo. Era
+  # exatamente para este tipo de reversao que o desenho foi feito.
+  publico: pt-BR
+  decidido_por: Daniela Cabral (Stark)
+  decidido_em: 2026-09-24
+  historico:
+    - decisao: ingles
+      por: Dr. Fernando Mattioli
+      em: 2026-09-22 (kickoff)
+      justificativa: >
+        Os convidados sao americanos e turcos, e o publico latino-americano de
+        alto padrao consome conteudo internacional com traducao simultanea.
+      contra_proposta_recusada: espanhol
+      status: revertida
+    - decisao: portugues
+      por: Daniela Cabral
+      em: 2026-09-24
+      status: vigente
+  atencao_ao_cliente: >
+    A reversao CONTRARIA uma decisao explicita do decisor do cliente, tomada no
+    kickoff com justificativa propria. Avisar o Dr. Mattioli antes que ele veja
+    uma peca em portugues — a conversa e muito melhor antes do que depois.
   aplica_a: [instagram, anuncio, landing_page]
   excecoes:
     - canal: whatsapp
@@ -66,7 +86,7 @@ provas:
 cadencia:
   posts_por_semana_minimo: 3
   canal: instagram
-  idioma: en
+  idioma: pt-BR
   linhas_ja_pedidas:
     - Carrosseis de apresentacao dos palestrantes
     - Diferenciais cientificos
@@ -118,7 +138,7 @@ anti_padroes:
   - Preco diferente em LP, WhatsApp e comercial. Foi o que gerou o R$ 20 mil x R$ 25 mil relatado pela Fran.
   - Nomear hospital, ano ou data de virada de lote antes de o dado existir nos YAMLs.
   - Anuncio de lab apontando direto para LP, sem etapa intermediaria.
-  - Peca publica em portugues enquanto a decisao de idioma for ingles.
+  - Peca publica fora do idioma vigente em comunicacao.yaml (hoje pt-BR).
   - Prometer vaga ou inscricao antes da conferencia de RQE ou residencia.
   - Citar o piso negociado da Face (R$ 50 mil ou R$ 40 mil) em qualquer peca publica.
 

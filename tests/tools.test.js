@@ -169,8 +169,13 @@ describe('escrever_copy', () => {
     assert.equal(r.texto, undefined);
   });
 
-  test('pedir portugues numa peca publica gera alerta de idioma', async () => {
-    const r = await copy({ tipo: 'carrossel', eixo: 'face', idioma: 'pt' });
+  // O idioma publico foi revertido para pt-BR em 24/09/2026. Ate entao este
+  // teste cobria o caso inverso — pedir portugues gerava alerta. O caso testado
+  // e sempre "pedir o idioma que NAO e o vigente", e o vigente vem do YAML.
+  test('pedir um idioma diferente do vigente gera alerta', async () => {
+    const { idioma } = carregarYaml('comunicacao');
+    const outro = String(idioma.publico).startsWith('pt') ? 'en' : 'pt';
+    const r = await copy({ tipo: 'carrossel', eixo: 'face', idioma: outro });
     assert.ok(r.alerta_de_idioma);
     assert.match(r.alerta_de_idioma, /R-004/);
   });
