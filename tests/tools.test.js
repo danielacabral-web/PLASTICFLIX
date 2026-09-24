@@ -317,3 +317,23 @@ describe('catalogo_entregaveis', () => {
     assert.ok(r.categorias_validas.includes('certificados'));
   });
 });
+
+describe('calendario_projeto — revisao de 8 fases', () => {
+  test('toda fase diz para que existe e como se sabe que funcionou', async () => {
+    const r = await calendario();
+    assert.equal(r.fases.length, 8);
+    for (const f of r.fases) {
+      assert.ok(f.objetivo, `${f.id} sem objetivo`);
+      assert.ok(f.indicador, `${f.id} sem indicador`);
+      assert.ok(f.prova, `${f.id} sem prova`);
+    }
+  });
+
+  test('a fase de prova publica vem antes da de trafego', async () => {
+    const r = await calendario();
+    const prova = r.fases.findIndex((f) => f.nome === 'prova_publica');
+    const trafego = r.fases.findIndex((f) => f.nome === 'teste_de_trafego');
+    assert.ok(prova >= 0 && trafego >= 0);
+    assert.ok(prova < trafego, 'nao se paga por atencao sem ter o que mostrar');
+  });
+});

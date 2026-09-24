@@ -284,5 +284,12 @@ lacunas:
       Pecas informativas e comerciais - grade, precos, corpo docente, prova de
       supervisao - nao dependem de mote. O que depende e a peca de conceito.
     pedido_ao_cliente: >
-      Nada a pedir: e decisao interna da Stark. Precisa entrar no escopo
-      formalmente, porque hoje nao esta em nenhuma frente.
+      Nada a pedir ao cliente na producao: e decisao interna da Stark. Mas a
+      APROVACAO e dele. Levar as opcoes na reuniao de apresentacao.
+    estado_em_2026_09_24: >
+      Produzida. Existem quatro propostas de assinatura, manifesto de 238
+      palavras, arco em tres atos, regua de sete regras e 16 hooks — todos em
+      data/comunicacao.yaml (bloco ideacao) e em docs/ideacao-narrativa.md.
+      A frente F12 foi aberta no ClickUp (86akpfjh7). A lacuna SEGUE ABERTA
+      porque nada foi aprovado pelo cliente: mote, manifesto e regua_de_tom
+      continuam null de proposito.

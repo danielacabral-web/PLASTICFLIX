@@ -271,3 +271,65 @@ frentes:
       cliente.
     depende_de: []
     clickup: 86akpf9pw
+
+  - id: F12
+    nome: Ideacao, narrativa e identidade da campanha
+    dono: a definir
+    papel_do_dono: stark
+    objetivo: >
+      Definir o que o projeto DIZ: posicionamento, big idea, arco narrativo,
+      mote, manifesto, regua de tom e banco de hooks.
+    origem: >
+      O kickoff tratou de canais, precos e listas, e nao tocou no que o projeto
+      diz. Na OpenMind isso foi metade do trabalho: o mote passou por quatro
+      versoes e a primeira reprovacao chegou com 40 pecas ja produzidas.
+    entregas:
+      - Posicionamento contra as alternativas competitivas reais
+      - Big idea afirmativa, sem inimigo declarado
+      - Arco narrativo em atos
+      - Mote e assinatura de campanha
+      - Manifesto
+      - Regua de tom, cada regra nascida de um defeito concreto
+      - Banco de hooks por fase e por prova
+    criterio_de_pronto: >
+      Conceito aprovado pelo cliente ANTES de a campanha ser produzida.
+    regra: >
+      Uma prova por peca. Conceito antes de volume, nunca o contrario.
+    depende_de: [L-013]
+    clickup: 86akpfjh7
+
+  - id: F13
+    nome: Patrocinio e receita que nao depende de vaga
+    dono: a definir
+    papel_do_dono: stark
+    objetivo: >
+      Abrir a frente de patrocinio: cotas, material de prospeccao, prospectos
+      mapeados e contrato assinado.
+    origem: >
+      O kickoff nao tocou no assunto. Veio do inventario do Drive, que mostrou
+      patrocinio ativo no ciclo anterior — pasta Patrocinadores, PDF de cotas,
+      artes por eixo (Metodo LD) e banner no site da Cenacon.
+    razao_de_prioridade: >
+      E receita que NAO depende de preencher vaga. O projeto tem a Face zerada e
+      risco de R$ 700 a 800 mil, e toda a conversa do kickoff girou em vender
+      inscricao para um publico que o proprio cliente descreve como sem poder
+      aquisitivo, num mercado que ele descreve como saturado. Patrocinio ataca o
+      mesmo buraco por outro lado, e a negociacao e com empresa, nao com medico.
+    entregas:
+      - Mapeamento de quem patrocinou o ciclo anterior
+      - Cotas definidas, com o que cada uma entrega
+      - PDF de cotas e material de prospeccao (as pecas ficam na F6)
+      - Prospectos mapeados na industria que vende para o publico
+    criterio_de_pronto: >
+      Primeiro contrato assinado.
+    argumento_de_venda: >
+      Nao e volume: sao 70 pessoas por dia. E qualificacao — cirurgioes
+      plasticos e otorrinos com RQE, tomadores de decisao de compra, reunidos
+      cinco dias. Para quem vende implante ou tecnologia, essa sala vale mais
+      que um congresso de mil pessoas.
+    decisoes_do_cliente:
+      - Se patrocinio entra neste ciclo
+      - Quem prospecta (Stark, Cenacon ou os socios pela rede deles)
+      - Quais cotas e se ha exclusividade por categoria
+    depende_de: []
+    clickup: 86akpfjkn

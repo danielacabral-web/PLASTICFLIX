@@ -86,13 +86,24 @@ export default async function calendarioProjeto(args = {}) {
 
     contagem_regressiva: contagem,
 
+    // Os quatro campos do meio (objetivo, o_que_comunica, prova, indicador)
+    // entraram na revisao de 24/09 e sao o que diferencia um calendario de uma
+    // lista de meses: dizem para que a fase existe e como se sabe que ela
+    // funcionou. A versao anterior desta tool os descartava silenciosamente,
+    // porque mapeava campo a campo — o dado estava no YAML e nao chegava a
+    // quem perguntava.
     fases: fases.map((f) => ({
       id: f.id,
       nome: f.nome,
       janela: f.janela,
+      objetivo: f.objetivo ?? null,
+      o_que_comunica: f.o_que_comunica ?? null,
+      prova: f.prova ?? null,
       o_que_roda: f.o_que_roda,
       precisa_estar_pronto: f.precisa_estar_pronto,
+      indicador: f.indicador ?? null,
       frentes: f.frentes,
+      ...(f.nota ? { nota: f.nota } : {}),
     })),
 
     // A fase que costuma ser pulada, e a razao de ela existir.

@@ -76,7 +76,7 @@
     {
       "name": "calendario_projeto",
       "agente": "plasticflix-calendario",
-      "description": "Cronograma do projeto contado para tras a partir do evento: fases, marcos, janelas de lote, prazos por frente e o que precisa estar pronto em cada janela. Calcula os dias restantes a partir de uma data de referencia.",
+      "description": "Cronograma do projeto contado para tras a partir do evento: as oito fases, com objetivo, o que se comunica, qual prova sustenta e o indicador de que funcionou. Calcula os dias restantes a partir de uma data de referencia informada.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -88,15 +88,16 @@
             "type": "string",
             "enum": [
               "todas",
-              "destrave",
-              "teste_trafego",
-              "decisao",
-              "lote_1",
-              "lote_2",
-              "reta_final",
-              "evento"
+              "FASE-1",
+              "FASE-2",
+              "FASE-3",
+              "FASE-4",
+              "FASE-5",
+              "FASE-6",
+              "FASE-7",
+              "FASE-8"
             ],
-            "description": "Filtra por fase. Padrao 'todas'."
+            "description": "Filtra por fase (FASE-1 a FASE-8). Padrao 'todas'."
           }
         }
       },

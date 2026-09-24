@@ -1,111 +1,190 @@
 # Calendario macro do Plasticflix Prime.
 #
-# As fases foram contadas para tras a partir de 03/03, primeiro dia do evento.
+# As fases sao contadas para tras a partir de 03/03, primeiro dia do evento.
 # As janelas sao de mes, nao de data: o kickoff nao declarou data de corte de
-# nada, e datas de virada de lote sao bloqueio de diretoria.
+# nada, e datas de virada de lote sao bloqueio de diretoria (L-004).
 #
 # A grade do evento e a de perfil-plasticflix.yaml (evento.grade) - nao duplicar
 # aqui para nao haver duas verdades.
 #
-# Fonte: kickoff 2026-09-22.
+# REVISAO DE 24/09/2026 — de 7 para 8 fases, pela ideacao estrategica.
+# As 7 fases anteriores tinham um erro de logica comercial: tratavam a Face
+# como resultado do funil, vendida no lote 1 (dez/jan). Dez vagas a R$ 60 mil
+# NAO se vendem por funil — e venda consultiva 1:1, de ciclo longo, sobre base
+# quente. E a base quente ja existe hoje. Se a venda da Face so comecasse na
+# fase 4, restariam oito semanas para mover o numero que define o projeto.
+#
+# Tres alteracoes:
+#   1. A Face vira frente comercial na FASE-1, nao resultado da FASE-4.
+#   2. "Prova publica" ganha fase propria, ANTES do trafego. Os videos dos
+#      palestrantes dependem de agenda de professor e sao pre-requisito do
+#      trafego — nao se paga por atencao sem ter o que mostrar.
+#   3. Patrocinio entra explicitamente: abre na FASE-2, decide na FASE-4.
 
-fonte: kickoff 2026-09-22
+fonte: kickoff 2026-09-22 + ideacao estrategica 2026-09-24
 ancora: primeiro dia do evento (03/03)
 ano: null
 ano_nota: >
   O ano do evento nao foi dito no kickoff. Toda data desta pagina fica sem ano
   ate a confirmacao do cliente. Ver lacunas.yaml L-001.
+revisao: 2026-09-24 — de 7 para 8 fases
 
 fases:
   - id: FASE-1
-    nome: destrave
-    janela: imediato (set/out)
+    nome: destrave_e_venda_ativa_da_face
+    janela: set-out
+    objetivo: >
+      Tirar as lacunas do caminho e ABRIR negociacao individual nas 10 vagas da
+      Face. A Face nao espera o funil.
+    o_que_comunica: >
+      Nada publico alem do que ja existe. A comunicacao aqui e 1:1, no WhatsApp
+      da Fran, e interna — o pedido agrupado das lacunas ao cliente.
+    prova: PR-001 e PR-003 na conversa de venda; a grade e o material
     o_que_roda:
-      - LPs de Rino e Face no ar
-      - WhatsApp separado por eixo
-      - Instagram migrado para o ingles
-      - Negociacao dos 22 leads
+      - LPs de Rino e Face no ar, com WhatsApp separado por eixo
+      - Negociacao individual dos 22 leads
       - Listas da Mara (22 leads e ex-alunos) entregues
+      - Cobranca agrupada das lacunas
     precisa_estar_pronto:
       - Acesso ao site atual (L-009)
-      - Link/gateway de pagamento por produto (L-003)
+      - Link e gateway de pagamento por produto (L-003)
       - Planilha dos 22 leads e base de ex-alunos (L-007)
-    frentes: [F1, F3, F4]
+    indicador: >
+      Duas LPs no ar, WhatsApp separado por eixo, os 22 leads TODOS contatados
+      com resposta registrada, e ao menos uma proposta formal de Face em mesa.
+    frentes: [F1, F4, F8]
 
   - id: FASE-2
-    nome: teste_trafego
-    janela: out-nov
+    nome: prova_publica
+    janela: out
+    objetivo: >
+      Construir o estoque de prova ANTES de pagar por atencao.
+    o_que_comunica: >
+      Corpo docente com rosto e voz; o que e 1 aluno por peca; o encadeamento
+      da semana.
+    prova: PR-002 (travada em L-005) e PR-001
     o_que_roda:
-      - Campanhas de R$ 10 mil por 2 meses em Mexico e Argentina
-      - Conteudo 3x por semana em ingles
-      - Parcerias com sociedades assinadas
+      - Gravacao dos videos de palestrante
+      - Fotos de professores no Drive
+      - Cadencia de 3 posts por semana em pt-BR
+      - Abertura da frente de patrocinio
     precisa_estar_pronto:
-      - Listas de exclusao (ex-alunos e compradores) carregadas
-      - Expectativa de resultado calibrada por escrito
-      - Fotos de autores e professores no Drive (L-005)
-    frentes: [F2, F3, F5]
+      - Fotos e nomes do corpo docente (L-005)
+      - Mote aprovado, ou producao sem assinatura de campanha (L-013)
+    indicador: >
+      Seis ou mais videos de palestrante gravados, fotos no Drive, cadencia
+      rodando, e engajamento vindo de PERFIS MEDICOS — nao de volume.
+    frentes: [F3, F12, F13]
+    nota: >
+      Esta fase nao existia. Estava diluida em "conteudo 3x por semana". Os
+      videos de palestrante sao o ativo de maior retorno da frente de conteudo
+      e dependem de agenda de professor: precisam ser pedidos cedo, e o trafego
+      nao deve subir sem eles.
 
   - id: FASE-3
-    nome: decisao
-    janela: nov
+    nome: teste_de_trafego
+    janela: out-nov
+    objetivo: >
+      Descobrir o custo real de um lead ELEGIVEL no Mexico e na Argentina.
+    o_que_comunica: >
+      Anuncio -> Instagram -> LP. Topo pela execucao supervisionada, nunca pelo
+      preco.
+    prova: PR-001 como gancho, PR-002 como sustentacao no perfil
     o_que_roda:
-      - Leitura dos 2 meses de trafego
-      - Confirmacao ou revisao do orcamento (a conversa dos R$ 15-20 mil volta aqui, com dado)
-      - Decisao sobre manter o Instagram como etapa intermediaria do funil
+      - R$ 10 mil por 2 meses, metade Mexico, metade Argentina
+      - Brasil fora do trafego pago
     precisa_estar_pronto:
-      - Relatorio dos 2 meses por praca
-      - Reuniao tecnica de trafego e conteudo agendada (demanda D-17)
-    frentes: [F2, F3]
+      - Expectativa calibrada POR ESCRITO antes da primeira campanha
+      - Listas de exclusao (ex-alunos e compradores)
+    indicador: >
+      Custo por lead QUALIFICADO, com RQE conferido, por praca. Nao CPL bruto,
+      nao seguidor.
+    frentes: [F2]
 
   - id: FASE-4
-    nome: lote_1
-    janela: dez-jan
+    nome: decisao
+    janela: nov
+    objetivo: Transformar dado em tres decisoes.
+    o_que_comunica: interno — reuniao tecnica (demanda D-17)
+    prova: relatorio dos dois meses por praca
     o_que_roda:
-      - Precos de entrada (R$ 5 mil teorica, R$ 20 mil lab Rino)
-      - Mala direta as sociedades
-      - Oferta dirigida a ex-alunos
-    precisa_estar_pronto:
-      - Data de corte do 1o lote declarada (L-004)
-      - Mailings das sociedades na mao (L-006)
-    data_inicio: null
-    data_fim: null
-    data_nota: >
-      Datas exatas nao existem: dependem da confirmacao do ano e do prazo que a
-      diretoria quer declarar. A regra R-007 bloqueia peca que afirme data de
-      virada de lote enquanto produtos.yaml tiver lotes.virada_lote_1 null.
-    frentes: [F1, F4, F5]
+      - Leitura do teste de trafego
+      - Decisao sobre patrocinio
+    indicador: >
+      Tres decisoes registradas com data e dono: orcamento (os R$ 15 a 20 mil
+      voltam COM DADO) · Instagram no percurso, sim ou nao · patrocinio entra ou
+      nao.
+    frentes: [F2, F7, F13]
 
   - id: FASE-5
-    nome: lote_2
-    janela: jan-fev
-    o_que_roda:
-      - Virada para o 2o lote (R$ 7 mil teorica, R$ 25 mil lab Rino)
-      - Escassez real por vagas (5 no lab Rino, 10 no lab Face)
+    nome: lote_1_e_sociedades
+    janela: dez-jan
+    objetivo: >
+      Converter o topo aquecido no preco de entrada e abrir os canais do Brasil.
+    o_que_comunica: >
+      Regra de lote, identica em LP, WhatsApp e comercial; mala direta as
+      sociedades; oferta dirigida a ex-alunos.
+    prova: PR-003 — a semana inteira justifica o ticket
     precisa_estar_pronto:
-      - Data de corte do 2o lote declarada (L-004)
-    data_inicio: null
-    data_fim: null
-    data_nota: Mesma dependencia da FASE-4.
-    frentes: [F1, F4]
+      - Datas de corte dos lotes (L-004)
+      - Mailings das sociedades (L-006)
+      - Materiais de evento em producao (F6 abre em novembro)
+    indicador: >
+      Vagas de teorica vendidas no lote 1 e ao menos um acordo de -10% assinado
+      com divulgacao publicada no site da sociedade.
+    frentes: [F4, F5, F6]
 
   - id: FASE-6
-    nome: reta_final
-    janela: fev
-    o_que_roda:
-      - Comunicacao de ultimas vagas
-      - Logistica do evento
-      - Confirmacao do hospital da cirurgia ao vivo
-    precisa_estar_pronto:
-      - Hospital da cirurgia ao vivo definido (L-002)
-    frentes: [F1, F3, F4]
+    nome: lote_2_e_escassez_real
+    janela: jan-fev
+    objetivo: Usar a unica urgencia verdadeira que o projeto tem.
+    o_que_comunica: >
+      Virada de lote e vagas restantes — 5 na Rino, 10 na Face.
+    prova: >
+      PR-001. A escassez E o diferencial: o numero pequeno de vagas e
+      consequencia da proporcao de supervisao, nao artificio de venda. E o raro
+      caso em que urgencia e diferencial sao a mesma frase.
+    indicador: >
+      Ritmo de fechamento na virada, e Face com metade ou mais das vagas
+      comprometida.
+    frentes: [F4, F3]
+    nota: >
+      A escassez por VAGA nao depende de data nenhuma — pode ser comunicada ja,
+      com o ano e os lotes ainda em aberto.
 
   - id: FASE-7
-    nome: evento
-    janela: 03/03 a 07/03
-    o_que_roda:
-      - Execucao da grade (ver perfil-plasticflix.yaml, evento.grade)
-      - Cobertura do evento
-      - Captacao para o proximo episodio
+    nome: reta_final
+    janela: fev
+    objetivo: Fechar as ultimas vagas e a logistica.
+    o_que_comunica: ultimas vagas, contagem regressiva, confirmacao do hospital
+    prova: PR-003
     precisa_estar_pronto:
-      - Todas as lacunas bloqueantes resolvidas
-    frentes: [F3]
+      - Hospital da cirurgia ao vivo (L-002)
+      - Material de evento na grafica
+    indicador: lotacao e material impresso entregue dentro do prazo
+    frentes: [F6, F4]
+
+  - id: FASE-8
+    nome: evento_e_captacao_do_proximo
+    janela: 03 a 07/03
+    objetivo: >
+      Executar e transformar a turma em prova do proximo episodio.
+    o_que_comunica: cobertura, depoimento, EUVOU
+    prova: >
+      A propria semana vira PR-001, PR-002 e PR-003 com imagem real — que hoje
+      o projeto nao tem nenhuma.
+    indicador: >
+      Depoimentos em video captados DENTRO do lab e lista de interesse para o
+      proximo episodio.
+    frentes: [F3, F6]
+
+virada_lote_1: null
+virada_lote_2: null
+virada_nota: >
+  Dependem da confirmacao do ano (L-001) e da decisao da diretoria (L-004).
+
+leitura_de_prioridade: >
+  Quanto mais perto do evento, menos vale captacao fria e mais vale base
+  quente. Campanha de topo lancada em fevereiro nao tem tempo de amadurecer;
+  ligacao para ex-aluno, sim. A menos de 60 dias do evento, a recomendacao
+  inteira muda.

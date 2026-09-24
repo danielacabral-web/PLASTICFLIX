@@ -142,9 +142,189 @@ anti_padroes:
   - Prometer vaga ou inscricao antes da conferencia de RQE ou residencia.
   - Citar o piso negociado da Face (R$ 50 mil ou R$ 40 mil) em qualquer peca publica.
 
+# VIGENTES: continuam null de proposito. Existem propostas (abaixo), nenhuma
+# aprovada. A L-013 so fecha quando o Dr. Mattioli aprovar. Ate la NENHUMA peca
+# usa assinatura de campanha — as tres provas sustentam a cadencia sem ela.
 mote: null
 manifesto: null
 regua_de_tom: null
+
+ideacao:
+  status: propostas prontas, aguardando aprovacao do cliente
+  produzida_em: 2026-09-24
+  clickup: 86akpfjh7
+
+  posicionamento:
+    metodo: Dunford
+    categoria_escolhida: Semana de imersao cirurgica supervisionada em rinoplastia e face
+    estrategia_de_categoria: big fish, small pond
+    razao_da_categoria: >
+      A Face a R$ 60 mil nao tem objecao de PRECO, tem objecao de CATEGORIA.
+      Dentro de "curso de cadaver" — que o proprio cliente diz estar saturado e
+      barato — o valor e absurdo. Dentro de "imersao supervisionada", ancorada
+      em fellowship e observership, entra na conversa. Nao criar categoria nova
+      (caro e lento) e nao competir de frente no curso de cadaver (e perder pelo
+      preco antes de comecar).
+    statement: >
+      Para o cirurgiao plastico, otorrinolaringologista ou residente formal que
+      JA VIU a tecnica e ainda nao a executou com seguranca, o Plasticflix Prime
+      e uma semana de imersao cirurgica supervisionada em rinoplastia e face que
+      coloca a peca anatomica sob a mao dele com instrutor dedicado, e encadeia
+      teoria, anatomia e cirurgia ao vivo na mesma semana e com a mesma turma.
+      Diferente das alternativas disponiveis, a proporcao e de 1 aluno por peca
+      na Rinoplastia e 2 na Face, com docentes internacionais ao lado dos socios.
+    alternativas_competitivas:
+      - id: A1
+        o_que: Curso de cadaver avulso de sociedade ou servico universitario
+        tipo: direta
+        nota: e a alternativa que envenena o preco — origem da objecao da Face
+      - id: A2
+        o_que: Congresso e jornada
+        tipo: adjacente
+      - id: A3
+        o_que: Fellowship ou observership no exterior
+        tipo: adjacente
+        lastro: HIPOTESE
+      - id: A4
+        o_que: Preceptoria informal com mentor conhecido
+        tipo: DIY
+        lastro: HIPOTESE
+      - id: A5
+        o_que: A propria plataforma online das tercas, da Neo ID
+        tipo: adjacente
+        nota: >
+          A alternativa mais desconfortavel do projeto: o proprio cliente a
+          opera. Se a comunicacao disser "aprenda a tecnica X com o Dr. Y", a
+          resposta racional do cirurgiao e "ja vejo isso na terca". O Prime tem
+          de vender o que a terca NAO entrega. Resolvido pela categoria: a
+          terca e AULA, o Prime e IMERSAO.
+      - id: A6
+        o_que: Nao fazer nada, aprender pela propria casuistica
+        tipo: status quo
+        nota: quase sempre a alternativa mais forte
+    temas_de_valor_em_ordem_de_forca:
+      - Execucao supervisionada (o mais forte, e o unico que nenhuma alternativa copia sem mudar a propria economia)
+      - Acesso direto ao docente
+      - Encadeamento
+    inversao_recomendada: >
+      A cadencia hoje tende a liderar por CORPO DOCENTE (carrosseis de
+      palestrantes). Corpo docente e a prova mais bonita e o valor mais fraco —
+      e justamente o que congresso e fellowship tambem oferecem. Liderar por ele
+      coloca o Prime na briga errada. A SUPERVISAO lidera; o docente sustenta.
+    gate_de_rqe_como_atributo: >
+      O cliente trata o gate como defesa juridica. Ele tambem e atributo de
+      produto: sala so de titulados muda o nivel da discussao dentro do lab.
+      HIPOTESE derivada do dado — vale testar com 3 ou 4 dos 22 leads antes de
+      virar mensagem.
+
+  ideia_de_controle: >
+    Cirurgiao aprende operando. Por isso o Prime conta peca, e nao plateia.
+
+  tensao: >
+    O leitor tem duas verdades ao mesmo tempo, e as duas sao dele: ja sabe
+    operar, e a tecnica que quer incorporar viu de longe. A tensao nao se
+    resolve com argumento — ela se sustenta. Nenhuma peca deve tentar fecha-la
+    com frase de efeito.
+
+  arco:
+    - ato: I
+      nome: O reconhecimento
+      valor: mais curriculo -> menos lacuna
+      prova: PR-001 em estado de pergunta
+      comunica: >
+        O custo de assistir, pela aritmetica que o proprio leitor faz sozinho.
+        A peca da o numero do Prime e cala.
+    - ato: II
+      nome: A estrutura
+      valor: menos lacuna -> mais estrutura conhecida
+      prova: [PR-001, PR-003, PR-002]
+      comunica: >
+        Como o evento esta montado, em detalhe verificavel. Linguagem quase de
+        grade. Nenhum adjetivo sobrevive a este ato.
+      virada: >
+        O leitor para de avaliar "se vale a pena ir" e passa a avaliar "se eu
+        caibo".
+    - ato: III
+      nome: A escolha sob pressao
+      valor: estrutura -> decisao, com custo
+      prova: vaga e elegibilidade
+      comunica: >
+        A vaga, que e a mesma proporcao do Ato II vista do outro lado. O gate de
+        RQE entra como carater da marca, nao como burocracia. E o custo real —
+        cinco dias de agenda bloqueada — nao e escondido.
+      nota: >
+        Prazo de lote entra aqui QUANDO existir (L-004). Ate la o ato roda
+        inteiro na vaga, que nao depende de data.
+
+  arco_resultado: >
+    Muda de quem e a pergunta: entra como "esse evento e bom?" e sai como "eu
+    caibo nessa turma?". Campanha que nao faz essa inversao vendeu ingresso,
+    nao vaga.
+
+  motes_propostos:
+    - id: A
+      texto: Uma peca. Um cirurgiao.
+      tese: a proporcao e o produto
+      abre_mao: >
+        Nao sobrevive na Face, onde sao 2 por peca. Assinatura que precisa ser
+        reescrita por eixo nao e assinatura de campanha.
+      uso_sugerido: assinatura do lab de Rinoplastia
+    - id: B
+      texto: Da teoria a sala, na mesma semana.
+      tese: o encadeamento e o que nao se compra separado
+      abre_mao: a proporcao sai da assinatura e volta na primeira linha do corpo
+      recomendado: true
+      razao: >
+        Unica que serve Rinoplastia e Face sem diferenca, cobre os tres
+        produtos, sustenta o combo do rodape das LPs e nao depende de nenhum
+        campo pendente.
+    - id: D
+      texto: A sua mao em cada etapa.
+      origem: agente estrategico (metodo Dunford + Neumeier)
+      tese: >
+        Carrega as tres provas de uma vez: "sua mao" e a proporcao (PR-001),
+        "cada etapa" e a semana encadeada (PR-003), e PR-002 entra como o quem
+        esta do outro lado.
+      abre_mao: nada estrutural — e a unica que cobre supervisao E encadeamento
+      recomendado_por_estrategia: true
+      razao: >
+        Verdadeira nos dois eixos sem nota de rodape, nao promete desfecho
+        (R-006), nao sugere assistir de longe (R-002), nao depende de nenhum
+        campo pendente (R-007), e desqualifica sozinha quem quer so certificado.
+    - id: C
+      texto: A vaga e contada.
+      tese: escassez estrutural sem teatro
+      abre_mao: >
+        Fala de disponibilidade e nao de metodo, e o leitor compra metodo.
+        Arrisca ler como contagem regressiva, sendo que prazo de lote nao existe.
+
+  regua_de_tom_proposta:
+    - regra: Numero no lugar do adjetivo, sempre
+      nasceu_de: '"supervisao de excelencia" nao prova nada; "1 aluno por peca" prova'
+    - regra: Colega, nao palanque, e nunca paciente
+      nasceu_de: o reflexo da carteira de leigos da Stark
+    - regra: O que nao fazemos entra na peca, dito de frente
+      nasceu_de: o silencio sobre a transmissao vira problema no WhatsApp
+    - regra: Sem promessa de resultado, retorno ou dominio
+      nasceu_de: '"domine a tecnica" reprova em R-006 e soa a curso barato'
+    - regra: Preco so se move por lote, com prazo declarado
+      nasceu_de: a objecao real do R$ 20 mil x R$ 25 mil relatada pela Fran
+    - regra: Uma peca, uma prova
+      nasceu_de: o carrossel que empilha os tres diferenciais nao fixa nenhum
+    - regra: Campo vazio e campo vazio
+      nasceu_de: completar ano, hospital ou nome de convidado "porque e obvio"
+
+  convergencia_dos_dois_agentes: >
+    Estrategia e copy chegaram separadamente a mesma eliminacao: "Uma peca. Um
+    cirurgiao." cai porque so e literal na Rino e mente na Face — que e o eixo
+    que mede o projeto. Divergem no que sobe: a copy recomenda B (encadeamento),
+    a estrategia recomenda D (supervisao + encadeamento). D subsume B; B e mais
+    concreta. Decisao de marca, nao tecnica — vai a mesa com as duas.
+
+  banco_de_hooks:
+    total: 16
+    onde: ClickUp 86akpfkhg e scratchpad/ideacao-narrativa.md
+    regra: nenhum hook afirma ano, hospital, numero da edicao, data de lote ou nome nao confirmado
 pendencia_de_marca: >
   Mote/assinatura de campanha, manifesto e regua de tom NAO foram discutidos no
   kickoff. Proposta registrada: derivar do eixo acima e levar ao Mattioli junto
