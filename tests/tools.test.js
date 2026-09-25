@@ -382,3 +382,33 @@ describe('calendario_projeto — revisao de 8 fases', () => {
     assert.ok(prova < trafego, 'nao se paga por atencao sem ter o que mostrar');
   });
 });
+
+describe('documentacao — indice x secoes', () => {
+  // O README tem um indice no topo que aponta para as secoes. Indice e secoes
+  // sao duas listas mantidas no mesmo arquivo, e duas listas paralelas sempre
+  // divergem — foi o padrao que produziu as sete tools fantasma do
+  // stark-agenda. Aqui o teste e a unica coisa que impede a divergencia.
+  test('toda secao do README aparece no indice, e vice-versa', async () => {
+    const { readFileSync } = await import('node:fs');
+    const { join } = await import('node:path');
+    const { RAIZ } = await import('../src/version.js');
+    const texto = readFileSync(join(RAIZ, 'README.md'), 'utf8');
+
+    const secoes = [...texto.matchAll(/^##\s+secao:\s*(\S+)\s*$/gm)].map((m) => m[1]);
+    const noIndice = [...texto.matchAll(/\[([a-z-]+)\]\(#secao-([a-z-]+)\)/g)].map((m) => m[2]);
+
+    for (const s of secoes) {
+      assert.ok(noIndice.includes(s), `a secao "${s}" existe no README e nao esta no indice`);
+    }
+    for (const i of new Set(noIndice)) {
+      assert.ok(secoes.includes(i), `o indice aponta para "${i}", que nao existe como secao`);
+    }
+  });
+
+  test('nenhuma secao do README ficou vazia', async () => {
+    const indice = await documentacao();
+    for (const s of indice.secoes) {
+      assert.ok(s.linhas > 3, `a secao "${s.id}" tem ${s.linhas} linhas — provavelmente ficou vazia`);
+    }
+  });
+});
