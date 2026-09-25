@@ -17,7 +17,7 @@
  * O piso negociado da Face (50 mil discutido, 40 mil citado) e informacao de
  * negociacao individual. Se aparecer em peca, e veto.
  */
-import { achado, normalizar, valoresEmReais, percentuaisDeDesconto } from './_util.js';
+import { achado, normalizar, valoresEmReais, percentuaisDeDesconto, apareceSempreNegado } from './_util.js';
 import { carregarYaml } from '../data/carregar.js';
 
 const JUSTIFICATIVA_PROIBIDA = [
@@ -133,7 +133,15 @@ export default function precoLote(texto, contexto = {}) {
   }
 
   // 4. Justificativa de preco que nao e a regra de lote.
-  const proibidas = JUSTIFICATIVA_PROIBIDA.filter((t) => alvo.includes(normalizar(t)));
+  //
+  // O termo NEGADO nao conta. "Nao ha promocao, condicao especial nem corte de
+  // valor fora dessa regra" e a peca declarando a politica certa — e era
+  // reprovada, porque a versao anterior casava a palavra sem ler a frase.
+  // Dizer de frente o que nao se faz e uma das sete regras de tom do projeto;
+  // o gate nao pode punir exatamente isso.
+  const proibidas = JUSTIFICATIVA_PROIBIDA.filter(
+    (t) => alvo.includes(normalizar(t)) && !apareceSempreNegado(alvo, t)
+  );
   if (proibidas.length > 0) {
     achados.push(
       achado(

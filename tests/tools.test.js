@@ -412,3 +412,44 @@ describe('documentacao — indice x secoes', () => {
     }
   });
 });
+
+describe('R-005 — os dois falsos positivos que reprovaram copy correta', () => {
+  // Achados em 24/09, quando o squad de copy entregou 33 pecas e quatro foram
+  // bloqueadas sem motivo. Gate que reprova peca certa nao e rigoroso, e
+  // quebrado: treina o time a ignorar o veredito.
+  test('"30% de entrada" e condicao de pagamento, nao desconto', async () => {
+    const { runRules } = await import('../src/rules/index.js');
+    const texto =
+      'O lab de Face custa R$ 60.000 no 1o lote. Pagamento: 30% de entrada e o restante em ate 6x ' +
+      'no cartao. O combo Rino + Face tem 10% de desconto.';
+    const r = runRules(texto, { canal: 'whatsapp', eixo: 'face', idioma: 'pt', praca: 'brasil' });
+    const desconto = r.blockers.filter((b) => b.padrao === 'desconto-nao-previsto');
+    assert.equal(desconto.length, 0, 'a entrada de 30% foi lida como desconto');
+  });
+
+  test('desconto real fora das excecoes segue bloqueando', async () => {
+    const { runRules } = await import('../src/rules/index.js');
+    const r = runRules('25% de desconto no lab de Face para quem fechar esta semana.', {
+      canal: 'whatsapp', eixo: 'face', idioma: 'pt', praca: 'brasil',
+    });
+    assert.ok(r.blockers.some((b) => b.padrao === 'desconto-nao-previsto'));
+  });
+
+  test('negar promocao nao e justificar preco por promocao', async () => {
+    const { runRules } = await import('../src/rules/index.js');
+    const texto =
+      'O preco se move por lote, com data declarada. Nao ha promocao, condicao especial nem corte ' +
+      'de valor fora dessa regra. O 1o lote vai ate a data declarada.';
+    const r = runRules(texto, { canal: 'landing_page', eixo: 'face', idioma: 'pt', praca: 'brasil' });
+    const just = r.blockers.filter((b) => b.padrao === 'justificativa-fora-de-lote');
+    assert.equal(just.length, 0, 'a peca declara a politica correta e foi reprovada por isso');
+  });
+
+  test('promocao afirmada segue bloqueando', async () => {
+    const { runRules } = await import('../src/rules/index.js');
+    const r = runRules('Aproveite nossa promocao de lancamento no lab de Face por tempo limitado.', {
+      canal: 'landing_page', eixo: 'face', idioma: 'pt', praca: 'brasil',
+    });
+    assert.ok(r.blockers.some((b) => b.padrao === 'justificativa-fora-de-lote'));
+  });
+});
