@@ -62,7 +62,7 @@ que eu te mandei na primeira vez não dizia com clareza o que eu escrevo abaixo.
 - 04/03 — teóricas de Face, anfiteatro, 70 lugares
 - 05/03 — cadáver lab de Rinoplastia
 - 06/03 — cadáver lab de Face
-- 07/03 — cirurgia ao vivo, presencial, 4 observadores por cirurgião operante
+- 07/03 — cirurgia ao vivo, 4 observadores por cirurgião operante
 
 A mesma turma percorre os cinco dias. O que se vê na aula se disseca no dia
 seguinte, e se vê operado no fim da semana. Essa ordem é o motivo de o evento
@@ -213,7 +213,7 @@ que é igual.
 A semana de 03 a 07 de março de 2027 tem cadáver lab de Face com proporção
 declarada: 2 alunos por peça, 10 vagas. E ele fica no dia seguinte ao lab de
 Rinoplastia, com a mesma turma atravessando os cinco dias, da teórica à cirurgia
-ao vivo presencial.
+ao vivo.
 
 Não escrevo para oferecer o mesmo de novo mais barato. Escrevo porque quem já
 dissecou uma vez sabe de uma coisa que quem nunca dissecou não sabe: a primeira
@@ -230,7 +230,7 @@ isso que a proporção importa mais na volta do que importou na primeira vez: co
 - 03/03 teóricas de Rinoplastia · 04/03 teóricas de Face
 - 05/03 cadáver lab de Rinoplastia, 1 aluno por peça, 5 vagas
 - 06/03 cadáver lab de Face, 2 alunos por peça, 10 vagas
-- 07/03 cirurgia ao vivo, presencial, 4 observadores por cirurgião operante
+- 07/03 cirurgia ao vivo, 4 observadores por cirurgião operante
 
 **Valores** `⬜ [L-015: tabela do site diverge]`
 
@@ -303,7 +303,7 @@ março de 2027, em São Paulo.
 - 03/03 e 04/03 — teóricas dos dois eixos, anfiteatro, 70 lugares por dia
 - 05/03 — cadáver lab de Rinoplastia, 1 aluno por peça, 5 vagas
 - 06/03 — cadáver lab de Face, 2 alunos por peça, 10 vagas
-- 07/03 — cirurgia ao vivo, presencial, 4 observadores por cirurgião operante
+- 07/03 — cirurgia ao vivo, 4 observadores por cirurgião operante
 
 Corpo docente formado pelos sócios do Plasticflix ao lado de convidados
 internacionais, que participam da grade inteira e não de uma conferência de
